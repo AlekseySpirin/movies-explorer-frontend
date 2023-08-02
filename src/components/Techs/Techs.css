@@ -1,0 +1,41 @@
+.techs {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.techs__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.techs__subtitle {
+
+}
+
+.techs__text {
+
+}
+
+.techs-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.techs-list__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+    background: #303030;
+    list-style: none;
+    margin-right: 10px;
+}
+
+.techs-list__item:last-child {
+    margin: 0;
+}
