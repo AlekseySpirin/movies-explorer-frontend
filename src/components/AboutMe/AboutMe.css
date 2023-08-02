@@ -1,0 +1,36 @@
+.about-me {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.about-me__wrapper {
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    grid-auto-rows: auto;
+}
+
+.about-me__name {
+    grid-column: 1/2;
+}
+
+
+.about-me__job {
+    grid-column: 1/2;
+}
+
+.about-me__description {
+    grid-column: 1/2;
+}
+
+.about-me__photo {
+    grid-column: 2/3;
+    grid-row: 1/4;
+    width: 270px;
+    height: 327px;
+    border-radius: 10px;
+    background: url("../../images/photo.jpg") no-repeat;
+    background-size: cover;
+    justify-self: end;
+}
+
+
