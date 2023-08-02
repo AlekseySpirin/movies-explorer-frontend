@@ -20,6 +20,12 @@ function AboutMe() {
           привлекательных веб-сайтов.
         </p>
         <div className={'about-me__photo'} />
+        <a
+          className={'about-me__github-link'}
+          href='https://github.com/AlekseySpirin'
+        >
+          Github
+        </a>
       </div>
     </div>
   );

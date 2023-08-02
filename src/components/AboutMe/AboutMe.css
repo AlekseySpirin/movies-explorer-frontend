@@ -33,4 +33,12 @@
     justify-self: end;
 }
 
-
+.about-me__github-link {
+    text-decoration: none;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
