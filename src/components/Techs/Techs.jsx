@@ -3,8 +3,9 @@ import './Techs.css';
 
 function Techs() {
   return (
-    <div className={'techs'}>
+    <div id={'techs'} className={'techs'}>
       <h2 className={'title'}>Технологии</h2>
+      <hr className={'hr'} />
       <div className={'techs__wrapper'}>
         <h3 className={'techs__subtitle'}>7 технологий</h3>
         <p className={'techs__text'}>

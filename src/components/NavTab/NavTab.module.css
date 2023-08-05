@@ -1,0 +1,35 @@
+.navTab {
+ width: 100%;
+
+}
+
+.navTabList {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+}
+
+.navTabItem {
+    margin: 0 10px 0 0;
+    display: flex;
+    width: 96px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #303030;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.navTabLink {
+    margin: 0;
+    text-decoration: none;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
+}

@@ -1,10 +1,12 @@
 import React from 'react';
 import './AboutMe.css';
+import studentPhoto from '../../images/photo.jpg';
 
 function AboutMe() {
   return (
-    <div className={'about-me'}>
+    <div id={'about-me'} className={'about-me'}>
       <h2 className={'title'}>Студент</h2>
+      <hr className={'hr'} />
       <div className={'about-me__wrapper'}>
         <h3 className={'about-me__name'}>Алексей</h3>
         <p className={'about-me__job'}>Фронтенд-разработчик, 31 год</p>
@@ -19,7 +21,12 @@ function AboutMe() {
           продемонстрировать свои знания и умения в создании функциональных и
           привлекательных веб-сайтов.
         </p>
-        <div className={'about-me__photo'} />
+        {/* <div className={'about-me__photo'} /> */}
+        <img
+          className={'about-me__photo'}
+          src={studentPhoto}
+          alt='Фото студента'
+        />
         <a
           className={'about-me__github-link'}
           href='https://github.com/AlekseySpirin'

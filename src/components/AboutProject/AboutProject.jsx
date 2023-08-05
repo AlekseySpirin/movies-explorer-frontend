@@ -3,8 +3,9 @@ import './AboutProject.css';
 
 function AboutProject() {
   return (
-    <div className={'about-project'}>
+    <section id={'about-project'} className={'about-project'}>
       <h2 className={'title'}>О проекте</h2>
+      <hr className={'hr'} />
       <section className={'about-project__description'}>
         <div className={'chapter'}>
           <h3 className={'chapter__title'}>
@@ -41,7 +42,8 @@ function AboutProject() {
           <p>Front-end</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+
 export default AboutProject;

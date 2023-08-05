@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: 600px 1fr;
     grid-auto-rows: auto;
+    margin-top: 66px;
 }
 
 .about-me__name {
@@ -28,8 +29,6 @@
     width: 270px;
     height: 327px;
     border-radius: 10px;
-    background: url("../../images/photo.jpg") no-repeat;
-    background-size: cover;
     justify-self: end;
 }
 
