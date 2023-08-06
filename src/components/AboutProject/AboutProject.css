@@ -1,6 +1,6 @@
 .about-project {
     max-width: 1140px;
-    min-height: 608px;
+    min-height: 500px;
     margin: 110px auto auto auto;
 }
 
@@ -20,6 +20,7 @@
 }
 
 .chapter__text {
+    max-width: 550px;
     margin: 26px 0 0 0;
     color: #FFF;
     font-family: Inter, serif;
