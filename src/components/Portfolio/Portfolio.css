@@ -5,6 +5,8 @@
 }
 
 .portfolio__title {
+    margin: 0;
+    width: 250px;
     color: #8B8B8B;
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Inter, serif;
@@ -14,8 +16,12 @@
     line-height: 20px; /* 111.111% */
 }
 
+.portfolio-nav {
+    margin: 33px 0 0 0;
+}
+
 .nav-list {
-    margin: 50px 0 0 0;
+
     padding: 0;
 }
 

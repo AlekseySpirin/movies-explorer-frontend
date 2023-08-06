@@ -4,9 +4,9 @@ import './Footer.css';
 function Footer() {
   return (
     <div className={'footer'}>
-      <h2 className={'footer__title'}>
+      <p className={'footer__title'}>
         Учебный проект Яндекс.Практикум х BeatFilm.
-      </h2>
+      </p>
       <nav className={'footer-nav'}>
         <p className={'copyright'}>&copy; 2023 </p>
         <ul className={'footer-list'}>
