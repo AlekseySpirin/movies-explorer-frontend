@@ -1,5 +1,6 @@
 .portfolio {
     max-width: 1140px;
+    padding-top: 100px;
     margin: 0 auto;
 }
 
@@ -13,15 +14,24 @@
     line-height: 20px; /* 111.111% */
 }
 
+.nav-list {
+    margin: 50px 0 0 0;
+    padding: 0;
+}
+
 
 .nav-list__item {
+    padding-bottom: 19px;
+    border-bottom: 1px solid #424242;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
 .portfolio__link {
+    padding-top: 20px;
     color: #FFF;
+    text-decoration: none;
     font-family: Inter, serif;
     font-size: 30px;
     font-style: normal;
@@ -31,7 +41,12 @@
 
 }
 
+.nav-list__item:last-child {
+    border: none;
+}
+
 .portfolio__link-arrow {
+    padding-top: 20px;
     width: 29px;
     height: 60px;
     color: #FFF;

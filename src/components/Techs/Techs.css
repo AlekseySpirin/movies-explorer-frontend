@@ -18,6 +18,7 @@
 }
 
 .techs__subtitle {
+    margin: 88px 0 0 0;
     max-width: 600px;
     color: #FFF;
     text-align: center;
@@ -30,6 +31,7 @@
 }
 
 .techs__text {
+    margin: 27px 0 0 0;
     max-width: 460px;
     color: #FFF;
     text-align: center;
@@ -50,6 +52,14 @@
 }
 
 .techs-list__item {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.56px;
     display: flex;
     justify-content: center;
     align-items: center;

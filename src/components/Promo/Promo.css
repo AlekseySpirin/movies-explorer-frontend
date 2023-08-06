@@ -1,17 +1,17 @@
 .promo {
+    margin: 20px auto 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 1200px;
-    min-height: 493px;
     flex-shrink: 0;
-    margin: 0 auto;
     border-radius: 10px;
     background: #272727;
 }
 
 .promo__title {
+    margin-top: 160px;
     max-width: 730px;
     color: #FFF;
     text-align: center;
