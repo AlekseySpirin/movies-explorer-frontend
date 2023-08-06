@@ -1,11 +1,12 @@
 import React from 'react';
 import './AboutMe.css';
 import studentPhoto from '../../images/photo.jpg';
+import Title from '../Title/Title';
 
 function AboutMe() {
   return (
     <div id={'about-me'} className={'about-me'}>
-      <h2 className={'title'}>Студент</h2>
+      <Title text={'Студент'} />
       <hr className={'hr'} />
       <div className={'about-me__wrapper'}>
         <p className={'about-me__name'}>Алексей</p>
@@ -21,7 +22,6 @@ function AboutMe() {
           продемонстрировать свои знания и умения в создании функциональных и
           привлекательных веб-сайтов.
         </p>
-        {/* <div className={'about-me__photo'} /> */}
         <img
           className={'about-me__photo'}
           src={studentPhoto}

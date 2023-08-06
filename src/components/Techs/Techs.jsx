@@ -1,11 +1,12 @@
 import React from 'react';
 import './Techs.css';
+import Title from '../Title/Title';
 
 function Techs() {
   return (
     <div className='techs_bg_grey'>
       <div id={'techs'} className={'techs'}>
-        <h2 className={'title'}>Технологии</h2>
+        <Title text={'Технологии'} />
         <hr className={'hr'} />
         <div className={'techs__wrapper'}>
           <h3 className={'techs__subtitle'}>7 технологий</h3>
