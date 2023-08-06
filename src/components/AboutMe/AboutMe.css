@@ -1,6 +1,7 @@
 .about-me {
     max-width: 1140px;
     margin: 0 auto;
+    padding-top: 110px;
 }
 
 .about-me__wrapper {
@@ -11,15 +12,42 @@
 }
 
 .about-me__name {
+    margin: 0;
+    max-width: 600px;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 58px; /* 116% */
+    letter-spacing: -2px;
     grid-column: 1/2;
 }
 
 
 .about-me__job {
+    margin: 0;
+    max-width: 600px;
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 111.111% */
     grid-column: 1/2;
 }
 
 .about-me__description {
+    max-width: 600px;
+    margin: 0;
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
     grid-column: 1/2;
 }
 
