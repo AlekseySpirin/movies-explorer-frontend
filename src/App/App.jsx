@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import Header from '../components/Header/Header';
-import Main from '../pages/Main/Main';
+// import MainHeader from '../components/MainHeader/MainHeader';
 import Footer from '../components/Footer/Footer';
+import Movies from '../pages/Movies/Movies';
 
 function App() {
   return (
     <div className={'root'}>
-      <Header />
-      <Main />
+      {/* <MainHeader /> */}
+      {/* <Main /> */}
+      <Movies />
       <Footer />
     </div>
   );

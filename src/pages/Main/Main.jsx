@@ -6,10 +6,12 @@ import AboutProject from '../../components/AboutProject/AboutProject';
 import Techs from '../../components/Techs/Techs';
 import AboutMe from '../../components/AboutMe/AboutMe';
 import Portfolio from '../../components/Portfolio/Portfolio';
+import MainHeader from '../../components/MainHeader/MainHeader';
 
 function Main() {
   return (
     <div className={'main'}>
+      <MainHeader />
       <Promo />
       <AboutProject />
       <Techs />

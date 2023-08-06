@@ -1,7 +1,7 @@
 import React from 'react';
-import './Header.css';
+import './MainHeader.css';
 
-function Header() {
+function MainHeader() {
   return (
     <div className={'header'}>
       <div className={'logo'} />
@@ -17,4 +17,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default MainHeader;

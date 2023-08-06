@@ -1,0 +1,38 @@
+.header {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px;
+    min-height: 74px;
+    align-items: center;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+    background-image: url('../../images/logo.svg');
+}
+
+.headerBtn {
+    width: fit-content;
+    min-width: 100px;
+    height: 32px;
+    margin-right: 38px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 3px;
+    background: #3DDC84;
+    outline: none;
+    cursor: pointer;
+
+}
+
+
+.headerBtnBgNone {
+    border: none;
+    background: none;
+    outline: none;
+    color: #FFFFFF;
+
+}
