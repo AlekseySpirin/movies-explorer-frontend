@@ -1,0 +1,89 @@
+.card {
+    max-width: 100%; /* Пример: установите желаемый процент от ширины экрана */
+    min-height: 0; /* Установите на 0, чтобы высота автоматически подстраивалась */
+    list-style: none;
+    position: relative;
+}
+
+.card__btn-save {
+    margin: 0;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    max-width: 72px;
+    height: 21px;
+    border-radius: 30px;
+    background: #313131;
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 9px; /* 90% */
+    cursor: pointer;
+}
+
+.card__saved{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 21px;
+    height: 21px;
+    background: url("../../images/saveMovie.svg");
+    border-radius: 50%;
+}
+
+.card__description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__img {
+    width: 100%;
+    min-height: 0;
+    border-radius: 10px;
+}
+
+.card__title {
+    margin: 14px 0 0 0;
+    width: 250px;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.duration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 14px 0 0 0;
+    width: 52px;
+    height: 18px;
+    border-radius: 3px;
+    background: #2F2F2F;
+}
+
+.duration__text {
+    margin: 0;
+
+    width: 44px;
+    height: 12px;
+    color: #8B8B8B;
+    font-family: Inter, serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px; /* 90.909% */
+}

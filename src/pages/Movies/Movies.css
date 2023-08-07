@@ -1,7 +1,30 @@
-.hr__movies {
-    width: 1140px;
+.movies {
+    max-width: 1280px;
+    margin: 0 auto;
+
+}
+
+.movies__hr {
+    width: 90%;
     height: 1px;
     border-color: #424242;
+}
+
+.movies__btn-more {
+    border: 1px solid #424242;
+    border-radius: 5px;
+    width: 320px;
+    min-height: 36px;
+    background: transparent;
+    margin: 80px auto 0 auto;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 

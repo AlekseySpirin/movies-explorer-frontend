@@ -1,14 +1,15 @@
 .searchForm {
 
-    max-width: 1280px;
-    min-height: 228px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 80px auto 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .searchInput {
+    margin-left: 14px;
+    margin-right: 10px;
     width: 85%;
     height: 50px;
     border-radius: 8px;
@@ -20,7 +21,8 @@
 }
 
 .searchFormBtn {
-    margin-left: 10px;
+    padding: 0;
+    margin: 0 14px 0 0;
     width: 44px;
     height: 44px;
     background: url("../../images/find-3.svg");

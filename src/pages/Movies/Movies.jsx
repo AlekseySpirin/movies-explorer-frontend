@@ -3,6 +3,7 @@ import MoviesHeader from '../../components/MoviesHeader/MoviesHeader';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import './Movies.css';
 import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
+import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
 
 function Movies() {
   return (
@@ -10,7 +11,11 @@ function Movies() {
       <MoviesHeader />
       <SearchForm />
       <FilterCheckbox />
-      <hr className={'hr__movies'} />
+      <hr className={'movies__hr'} />
+      <MoviesCardList />
+      <button type={'button'} className='movies__btn-more'>
+        Ещё
+      </button>
     </div>
   );
 }
