@@ -7,7 +7,6 @@ function AboutMe() {
   return (
     <div id={'about-me'} className={'about-me'}>
       <Title text={'Студент'} />
-      <hr className={'hr'} />
       <div className={'about-me__wrapper'}>
         <p className={'about-me__name'}>Алексей</p>
         <p className={'about-me__job'}>Фронтенд-разработчик, 31 год</p>

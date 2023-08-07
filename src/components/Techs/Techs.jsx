@@ -7,7 +7,6 @@ function Techs() {
     <div className='techs_bg_grey'>
       <div id={'techs'} className={'techs'}>
         <Title text={'Технологии'} />
-        <hr className={'hr'} />
         <div className={'techs__wrapper'}>
           <h3 className={'techs__subtitle'}>7 технологий</h3>
           <p className={'techs__text'}>

@@ -1,0 +1,52 @@
+.filterCheckbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 36px;
+    height: 20px;
+}
+
+.slider input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider .slider-btn {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider .slider-btn:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 1px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Стили для включенной радиокнопки */
+.slider input:checked + .slider-btn {
+    background-color: #3DDC84;
+}
+
+.slider input:checked + .slider-btn:before {
+    transform: translateX(15px);
+}

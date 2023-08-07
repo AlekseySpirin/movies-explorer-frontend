@@ -21,13 +21,17 @@
     margin-right: 38px;
     flex-shrink: 0;
     border: none;
-    border-radius: 3px;
-    background: #3DDC84;
+    border-radius: 20px;
+    background: #313131;
     outline: none;
     cursor: pointer;
+    color: #FFFFFF;
 
 }
 
+.headerBtn:last-child {
+    margin-right: 0;
+}
 
 .headerBtnBgNone {
     border: none;
@@ -36,3 +40,4 @@
     color: #FFFFFF;
 
 }
+

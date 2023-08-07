@@ -6,7 +6,6 @@ function AboutProject() {
   return (
     <section id={'about-project'} className={'about-project'}>
       <Title text={'О проекте'} />
-      <hr className={'hr'} />
       <section className={'about-project__description'}>
         <div className={'chapter'}>
           <h3 className={'chapter__title'}>
