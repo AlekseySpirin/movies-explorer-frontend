@@ -1,0 +1,147 @@
+.register {
+    margin: 70px auto 0 auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.register__welcome {
+    width: 100%;
+    margin: 40px 0 0 0;
+    padding: 0;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.register__form {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    background: transparent;
+    color: #CCCCCC;
+
+}
+
+.register__form label {
+    margin-top: 20px;
+    width: 100%;
+    color: #8B8B8B;
+    font-family: Inter, serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.register__form label:first-child {
+    margin-top: 40px;
+}
+
+.register__form input {
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+    border-radius: 8px;
+    background: #2F2F2F;
+    height: 46px;
+    margin-top: 10px;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.register__error {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 25px;
+
+    color: #FFFFFF;
+}
+
+.register__button {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background: #4285F4;
+    margin-top: 70px;
+    width: 100%;
+    height: 45px;
+    transition: ease 0.4s;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.register__button:hover {
+    background-color: rgba(66, 133, 244, 0.6);
+}
+
+
+
+
+
+.register__signin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.register__link {
+    margin-left: 6px;
+    text-decoration: none;
+    color: #4285F4;
+    transition: ease 0.4s;
+    cursor: pointer;
+}
+
+.register__register-link:hover {
+    opacity: 0.6;
+}
+
+
+.register__form span {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    color: #EE3465;
+    font-family: Inter, serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: start;
+}

@@ -89,7 +89,13 @@
     height: 45px;
     transition: ease 0.4s;
     cursor: pointer;
-    color: #fff;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .login__button:hover {
