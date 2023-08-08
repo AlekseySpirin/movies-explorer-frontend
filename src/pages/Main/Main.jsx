@@ -7,6 +7,7 @@ import Techs from '../../components/Techs/Techs';
 import AboutMe from '../../components/AboutMe/AboutMe';
 import Portfolio from '../../components/Portfolio/Portfolio';
 import MainHeader from '../../components/MainHeader/MainHeader';
+import Footer from '../../components/Footer/Footer';
 
 function Main() {
   return (
@@ -17,6 +18,7 @@ function Main() {
       <Techs />
       <AboutMe />
       <Portfolio />
+      <Footer />
     </div>
   );
 }

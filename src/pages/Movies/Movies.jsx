@@ -4,6 +4,7 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import './Movies.css';
 import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
+import Footer from '../../components/Footer/Footer';
 
 function Movies() {
   return (
@@ -16,6 +17,7 @@ function Movies() {
       <button type={'button'} className='movies__btn-more'>
         Ещё
       </button>
+      <Footer />
     </div>
   );
 }
