@@ -6,13 +6,12 @@ function Login() {
   return (
     <div className={'login'}>
       <Logo />
-      <h2 className={'login__welcome'}>Вход</h2>
+      <h2 className={'login__welcome'}>Рады видеть!</h2>
       {/* <p className={'login__error'}>текст ошибки</p> */}
       <form className={'login__form'} noValidate>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor='email'>Email</label>
+        <label htmlFor='email'>E-mail</label>
         <input
-          placeholder='Email'
           required
           id='email'
           name='email'
@@ -20,13 +19,10 @@ function Login() {
           minLength='2'
           maxLength='30'
         />
-        <span className='form__item-error form__item-error_el_login'>
-          Текст ошибки
-        </span>
+        {/* <span>Что-то пошло не так...</span> */}
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor='password'>Пароль</label>
         <input
-          placeholder={'Пароль'}
           required
           id='password'
           name='password'
@@ -34,20 +30,16 @@ function Login() {
           minLength='2'
           maxLength='30'
         />
-        <span className='form__item-error form__item-error_el_place'>
-          Текст ошибки
-        </span>
-        <div className='login__button-container'>
-          <button type='submit' className='login__link'>
-            Войти
-          </button>
-        </div>
+        {/* <span className='form__item-error form__item-error_el_place'> */}
+        {/*  Текст ошибки */}
+        {/* </span> */}
+        <button type='submit' className='login__button'>
+          Войти
+        </button>
       </form>
-      <div className='register__signin'>
-        <p>Уже зарегистрированы?</p>
-        <p className='register__login-link'>
-          <p>Войти</p>
-        </p>
+      <div className='login__signin'>
+        <p>Ещё не зарегистрированы?</p>
+        <p className='login__link'>Регистрация</p>
       </div>
     </div>
   );
