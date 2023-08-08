@@ -9,18 +9,25 @@
     align-items: center;
 }
 
+
 .headerBtn {
+    padding: 0;
     width: fit-content;
     min-width: 100px;
     height: 32px;
-    margin-right: 38px;
     flex-shrink: 0;
     border: none;
     border-radius: 20px;
     background: #313131;
     outline: none;
     cursor: pointer;
-    color: #FFFFFF;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */
 
 }
 
@@ -29,10 +36,17 @@
 }
 
 .headerBtnBgNone {
+    margin-left: 16px;
     border: none;
     background: none;
     outline: none;
     color: #FFFFFF;
+    text-align: right;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 138.462% */
 
 }
 

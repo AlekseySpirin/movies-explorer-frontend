@@ -6,7 +6,7 @@ function MoviesHeader() {
   return (
     <div className={cl.header}>
       <Logo />
-      <div>
+      <div className={cl.headerBtnWrapper}>
         <button
           className={`${cl.headerBtn} ${cl.headerBtnBgNone}`}
           type={'button'}
