@@ -1,0 +1,9 @@
+.movies__hr {
+    width: 90%;
+    height: 1px;
+    border-color: #424242;
+}
+
+.saved-movies .footer {
+    margin-top: 320px;
+}
