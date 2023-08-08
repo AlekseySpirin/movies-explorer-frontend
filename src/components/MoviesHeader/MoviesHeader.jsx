@@ -1,10 +1,11 @@
 import React from 'react';
 import cl from './MoviesHeader.module.css';
+import Logo from '../Logo/Logo';
 
 function MoviesHeader() {
   return (
     <div className={cl.header}>
-      <div className={cl.logo} />
+      <Logo />
       <div>
         <button
           className={`${cl.headerBtn} ${cl.headerBtnBgNone}`}

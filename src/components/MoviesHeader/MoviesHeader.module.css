@@ -9,12 +9,6 @@
     align-items: center;
 }
 
-.logo {
-    width: 38px;
-    height: 38px;
-    background-image: url('../../images/logo.svg');
-}
-
 .headerBtn {
     width: fit-content;
     min-width: 100px;

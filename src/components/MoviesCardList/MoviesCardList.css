@@ -25,11 +25,11 @@
 
 }
 
-/*@media (max-width: 979px) {*/
-/*    .card-list {*/
-/*        margin: 0 30px;*/
-/*    }*/
-/*}*/
+@media (max-width: 719px) {
+    .card-list__wrapper {
+        margin-top: 50px;
+    }
+}
 
 /*@media (max-width: 667px) {*/
 /*    .card-list {*/

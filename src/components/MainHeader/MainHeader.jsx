@@ -1,10 +1,11 @@
 import React from 'react';
 import './MainHeader.css';
+import Logo from '../Logo/Logo';
 
 function MainHeader() {
   return (
     <div className={'header'}>
-      <div className={'logo'} />
+      <Logo />
       <div>
         <button className={'header__btn header__btn_bg_none'} type={'button'}>
           Регистрация
