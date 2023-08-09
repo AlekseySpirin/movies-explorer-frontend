@@ -17,11 +17,12 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.8px;
+
 }
 
 .chapter__text {
     max-width: 550px;
-    margin: 26px 0 0 0;
+    margin: 21px 0 0 0;
     color: #FFF;
     font-family: Inter, serif;
     font-size: 14px;
@@ -41,8 +42,6 @@
     display: grid;
     grid-template-columns: 20% 80%;
     grid-template-rows: 36px;
-
-
 }
 
 .duration__backend {
@@ -63,9 +62,24 @@
     background: #303030;
 }
 
-.duration__backend > p,
+.duration__backend > p {
+    margin: 0;
+    color: #000;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 .duration__frontend > p {
     margin: 0;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
 }
 
 .action {
@@ -82,6 +96,7 @@
     justify-content: center;
     align-items: center;
 
+
 }
 
 .action__frontend {
@@ -96,4 +111,56 @@
 .action__backend > p,
 .action__frontend > p {
     margin: 0;
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px; /* 121.429% */
+}
+
+@media (max-width: 768px) {
+    .about-project {
+        min-height: 493px;
+        margin: 92px 50px auto 50px;
+    }
+
+    .chapter {
+        max-width: 319px;
+    }
+
+    .chapter__text {
+        font-size: 12px;
+        line-height: 18px; /* 150% */
+    }
+    .duration {
+        margin-top: 92px;
+        grid-template-columns: 21% 79%;
+    }
+    .action {
+        margin-top: 4px;
+        display: grid;
+        grid-template-columns: 21% 79%;
+        grid-template-rows: 36px;
+    }
+    /*.duration__backend > p {*/
+    /*    font-size: 14px;*/
+
+    /*}*/
+    /*.duration__frontend > p {*/
+    /*    font-size: 14px;*/
+
+
+    /*}*/
+
+
+    /*.action__backend > p,*/
+    /*.action__frontend > p {*/
+
+    /*}*/
+    /*.duration {*/
+    /*    margin-top: 90px;*/
+
+    /*}*/
 }

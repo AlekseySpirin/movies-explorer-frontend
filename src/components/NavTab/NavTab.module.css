@@ -40,3 +40,10 @@
     font-weight: 500;
     line-height: 16px; /* 133.333% */
 }
+
+@media (max-width: 768px) {
+    .navTab {
+        margin-top: 298px;
+
+    }
+}
