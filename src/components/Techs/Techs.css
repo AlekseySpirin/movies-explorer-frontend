@@ -74,3 +74,36 @@
 .techs-list__item:last-child {
     margin: 0;
 }
+
+@media (max-width: 768px) {
+    .techs {
+        margin: 0 50px;
+        padding-top: 90px;
+        min-height: 568px;
+    }
+
+    .techs__text {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px; /* 150% */
+        letter-spacing: -0.48px;
+        margin: 22px 0 0 0;
+    }
+
+    .techs__subtitle {
+        margin: 81px 0 0 0;
+    }
+
+    .techs-list {
+        padding: 0;
+        margin-top: 84px;
+
+    }
+    .techs-list__item {
+        width: 84px;
+        height: 57px;
+        font-size: 12px;
+        letter-spacing: -0.48px;
+    }
+
+}
