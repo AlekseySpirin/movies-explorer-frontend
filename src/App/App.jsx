@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import SavedMovies from '../pages/SavedMovies/SavedMovies';
+import Profile from '../pages/Profile/Profile';
+// import SavedMovies from '../pages/SavedMovies/SavedMovies';
 // import Login from '../pages/Login/Login';
 // import Register from '../pages/Register/Register';
 // import MainHeader from '../components/MainHeader/MainHeader';
@@ -17,7 +18,8 @@ function App() {
       {/* <Footer /> */}
       {/* <Login /> */}
       {/* <Register /> */}
-      <SavedMovies />
+      {/* <SavedMovies /> */}
+      <Profile />
     </div>
   );
 }

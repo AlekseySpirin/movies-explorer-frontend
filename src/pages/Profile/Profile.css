@@ -1,0 +1,81 @@
+.profile {
+    width: 1280px;
+    margin: 0 auto;
+
+
+}
+
+.profile__title {
+    margin: 74px 0 0 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile-list {
+    margin: 123px 0 0 0;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-list__item {
+    border-bottom: 1px solid #424242;
+    padding: 0 0 30px 0;
+    height: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 410px;
+    margin: 17px 0 0 0;
+}
+.profile-list__item:first-child {
+    margin: 0;
+}
+.profile-list__item p {
+    margin: 0;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile-list__item:last-child {
+    border: none;
+}
+
+.profile__btn-container {
+    width: fit-content;
+
+    margin: 186px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile__btn{
+    margin-top: 16px;
+    border: none;
+    background: transparent;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.profile__btn_color_red {
+    color: #EE3465;
+}
