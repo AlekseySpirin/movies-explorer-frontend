@@ -1,5 +1,5 @@
 .profile {
-    width: 1280px;
+    max-width: 1280px;
     margin: 0 auto;
 
 
@@ -17,10 +17,10 @@
 }
 
 .profile-list {
-    margin: 123px 0 0 0;
+    margin: 123px auto 0 auto;
     align-items: center;
     padding: 0;
-    width: 100%;
+    max-width: 410px;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 410px;
+    width: 100%;
     margin: 17px 0 0 0;
 }
 .profile-list__item:first-child {
