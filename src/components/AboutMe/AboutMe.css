@@ -88,14 +88,20 @@
     }
 
     .about-me__description {
+        margin-top: 4px;
         max-width: 359px;
         font-size: 12px;
         line-height: 18px; /* 150% */
     }
+
     .about-me__wrapper {
         grid-template-columns: fit-content(359px) 1fr;
         margin-top: 65px;
+        grid-auto-rows: 40px 18px 183px auto;
+        grid-row-gap: 16px;
+
     }
+
     .about-me__photo {
         width: 255px;
         height: 307px;
