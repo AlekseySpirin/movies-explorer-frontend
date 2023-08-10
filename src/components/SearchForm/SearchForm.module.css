@@ -29,6 +29,7 @@
     background-size: cover;
     border: none;
     cursor: pointer;
+    flex-shrink: 0;
 
 }
 
