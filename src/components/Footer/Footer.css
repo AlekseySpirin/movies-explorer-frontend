@@ -34,7 +34,7 @@
 }
 
 .footer-nav {
-    margin: 17px 0 0 0;
+    margin: 19px 0 0 0;
     display: flex;
     justify-content: space-between;
 }
@@ -66,3 +66,4 @@
 .footer-list__item:last-child {
     margin-right: 0;
 }
+

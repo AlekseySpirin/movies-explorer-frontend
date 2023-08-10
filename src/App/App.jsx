@@ -5,7 +5,7 @@ import './App.css';
 // import SavedMovies from '../pages/SavedMovies/SavedMovies';
 // import Login from '../pages/Login/Login';
 // import Register from '../pages/Register/Register';
-import Footer from '../components/Footer/Footer';
+// import Footer from '../components/Footer/Footer';
 // import Movies from '../pages/Movies/Movies';
 import Main from '../pages/Main/Main';
 
@@ -14,7 +14,7 @@ function App() {
     <div className={'root'}>
       <Main />
       {/* <Movies /> */}
-      <Footer />
+      {/* <Footer /> */}
       {/* <Login /> */}
       {/* <Register /> */}
       {/* <SavedMovies /> */}
