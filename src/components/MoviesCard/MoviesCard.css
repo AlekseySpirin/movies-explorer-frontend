@@ -86,3 +86,11 @@
     font-weight: 400;
     line-height: 10px; /* 90.909% */
 }
+
+@media (max-width: 768px) {
+    .card__description {
+        margin-top: 22px;
+        justify-content: space-between;
+    }
+
+}

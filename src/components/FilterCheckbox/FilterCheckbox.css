@@ -1,8 +1,8 @@
-.filterCheckbox {
+.filter-checkbox {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px 0 39px 0;
+    margin: 41px 0 40px 0;
 }
 
 .slider {

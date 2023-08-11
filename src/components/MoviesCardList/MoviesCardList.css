@@ -27,6 +27,16 @@
 
 }
 
+@media (max-width: 768px) {
+    .card-list {
+        row-gap: 45px;
+
+    }
+
+}
+
+
+
 @media (max-width: 719px) {
     .card-list__wrapper {
         margin-top: 50px;

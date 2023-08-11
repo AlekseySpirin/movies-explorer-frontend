@@ -32,5 +32,16 @@
     line-height: normal;
 }
 
+@media (max-width: 768px) {
+    .movies .footer {
+        margin: 159px 30px 0 30px
+    }
+    .movies__btn-more {
+        margin: 61px auto 0 auto;
+    }
+    .movies__hr {
+        width: 93%;
 
+    }
+}
 
