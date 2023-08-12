@@ -19,13 +19,13 @@
     margin: 31px 0 0 0;
 }
 
-.nav-list {
+.portfolio-list {
     margin: 0;
     padding: 0;
 }
 
 
-.nav-list__item {
+.portfolio-list__item {
     padding-bottom: 19px;
     border-bottom: 1px solid #424242;
     width: 100%;
@@ -46,7 +46,7 @@
 
 }
 
-.nav-list__item:last-child {
+.portfolio-list__item:last-child {
     border: none;
 }
 
@@ -67,7 +67,7 @@
     .portfolio {
         margin: 90px 50px 0 50px;
     }
-    .nav-list {
+    .portfolio-list {
         margin: 0;
     }
     .portfolio__link {

@@ -6,26 +6,26 @@ function Portfolio() {
     <div className={'portfolio'}>
       <h2 className={'portfolio__title'}>Портфолио</h2>
       <nav className={'portfolio-nav'}>
-        <ul className={'nav-list'}>
-          <li className={'nav-list__item'}>
+        <ul className={'portfolio-list'}>
+          <li className={'portfolio-list__item'}>
             <a
               className={'portfolio__link'}
-              href='https://mesto-spirin.nomoredomains.work'
+              href='https://alekseyspirin.github.io/russian-travel/'
             >
               Статичный сайт
             </a>
             <span className={'portfolio__link-arrow'}> ↗ </span>
           </li>
-          <li className={'nav-list__item'}>
+          <li className={'portfolio-list__item'}>
             <a
               className={'portfolio__link'}
-              href='https://mesto-spirin.nomoredomains.work'
+              href='https://alekseyspirin.github.io/russian-travel/'
             >
               Адаптивный сайт
             </a>
             <span className={'portfolio__link-arrow'}> ↗ </span>
           </li>
-          <li className={'nav-list__item'}>
+          <li className={'portfolio-list__item'}>
             <a
               className={'portfolio__link'}
               href='https://mesto-spirin.nomoredomains.work'

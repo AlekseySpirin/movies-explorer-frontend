@@ -2,7 +2,7 @@ import React from 'react';
 import './Register.css';
 import Logo from '../../components/Logo/Logo';
 
-function register() {
+function Register() {
   return (
     <div className={'register'}>
       <Logo />
@@ -54,4 +54,4 @@ function register() {
   );
 }
 
-export default register;
+export default Register;

@@ -4,11 +4,11 @@
     margin: 110px auto auto auto;
 }
 
-.chapter {
+.about-project-chapter {
 
 }
 
-.chapter__title {
+.about-project-chapter__title {
     margin: 0;
     color: #FFF;
     font-family: Inter, serif;
@@ -20,7 +20,7 @@
 
 }
 
-.chapter__text {
+.about-project-chapter__text {
     max-width: 550px;
     margin: 27px 0 0 0;
     color: #FFF;
@@ -37,14 +37,14 @@
     justify-content: space-between;
 }
 
-.duration {
+.about-project-duration {
     margin-top: 110px;
     display: grid;
     grid-template-columns: 20% 80%;
     grid-template-rows: 36px;
 }
 
-.duration__backend {
+.about-project-duration__backend {
     width: 100%;
     color: #000000;
     display: grid;
@@ -53,7 +53,7 @@
     background: #3DDC84;
 }
 
-.duration__frontend {
+.about-project-duration__frontend {
     color: #FFFFFF;
     width: 100%;
     display: grid;
@@ -62,7 +62,7 @@
     background: #303030;
 }
 
-.duration__backend > p {
+.about-project-duration__backend > p {
     margin: 0;
     color: #000;
     font-family: Inter, serif;
@@ -71,7 +71,7 @@
     font-weight: 400;
     line-height: normal;
 }
-.duration__frontend > p {
+.about-project-duration__frontend > p {
     margin: 0;
     color: #FFF;
     font-family: Inter, serif;
@@ -82,14 +82,14 @@
 
 }
 
-.action {
+.about-project-action {
     margin-top: 7px;
     display: grid;
     grid-template-columns: 20% 80%;
     grid-template-rows: 36px;
 }
 
-.action__backend {
+.about-project-action__backend {
     width: 100%;
     color: #8B8B8B;
     display: grid;
@@ -99,7 +99,7 @@
 
 }
 
-.action__frontend {
+.about-project-action__frontend {
     width: 100%;
     color: #8B8B8B;
     display: grid;
@@ -108,8 +108,8 @@
 
 }
 
-.action__backend > p,
-.action__frontend > p {
+.about-project-action__backend > p,
+.about-project-action__frontend > p {
     margin: 0;
     color: #8B8B8B;
     text-align: center;
@@ -126,41 +126,41 @@
         margin: 92px 50px auto 50px;
     }
 
-    .chapter {
+    .about-project-chapter {
         max-width: 319px;
     }
 
-    .chapter__text {
+    .about-project-chapter__text {
         margin-top: 21px;
         font-size: 12px;
         line-height: 18px; /* 150% */
     }
-    .duration {
+    .about-project-duration {
         margin-top: 92px;
         grid-template-columns: 21% 79%;
     }
-    .action {
+    .about-project-action {
         margin-top: 4px;
         display: grid;
         grid-template-columns: 21% 79%;
         grid-template-rows: 36px;
     }
-    /*.duration__backend > p {*/
+    /*.about-project-duration__backend > p {*/
     /*    font-size: 14px;*/
 
     /*}*/
-    /*.duration__frontend > p {*/
+    /*.about-project-duration__frontend > p {*/
     /*    font-size: 14px;*/
 
 
     /*}*/
 
 
-    /*.action__backend > p,*/
-    /*.action__frontend > p {*/
+    /*.about-project-action__backend > p,*/
+    /*.about-project-action__frontend > p {*/
 
     /*}*/
-    /*.duration {*/
+    /*.about-project-duration {*/
     /*    margin-top: 90px;*/
 
     /*}*/
