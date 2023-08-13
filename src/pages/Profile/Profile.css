@@ -1,9 +1,14 @@
 .profile {
     max-width: 1280px;
-    margin: 0 auto;
-
 
 }
+
+.profile__wrapper {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
 
 .profile__title {
     margin: 74px 0 0 0;
@@ -20,7 +25,7 @@
     margin: 123px auto 0 auto;
     align-items: center;
     padding: 0;
-    max-width: 410px;
+    width: 410px;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -78,4 +83,9 @@
 
 .profile__btn_color_red {
     color: #EE3465;
+}
+
+
+@media (max-width: 768px) {
+
 }

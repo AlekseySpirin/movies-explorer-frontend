@@ -12,3 +12,10 @@
 .saved-movies .footer {
     margin-top: 320px;
 }
+
+
+@media (max-width: 768px) {
+    .saved-movies .footer {
+        margin: 254px 30px 0 30px;
+    }
+}

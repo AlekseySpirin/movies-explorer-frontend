@@ -174,3 +174,9 @@
     line-height: normal;
     text-align: start;
 }
+
+@media (max-width: 768px) {
+    .login {
+        height: 101vh;
+    }
+}
