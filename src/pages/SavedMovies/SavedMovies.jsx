@@ -14,7 +14,7 @@ function SavedMovies() {
       <MoviesHeader />
       <SearchForm />
       <FilterCheckbox />
-      <hr className={'movies__hr'} />
+      <hr className={'saved-movies__hr'} />
       <MoviesCardList>
         <MoviesCard
           title={'33 слова о дизайне'}
