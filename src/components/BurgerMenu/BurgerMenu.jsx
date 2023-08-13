@@ -1,5 +1,6 @@
 import React from 'react';
 import './BurgerMenu.css';
+import { NavLink } from 'react-router-dom';
 
 function BurgerMenu() {
   function toggleMenu() {
@@ -20,13 +21,29 @@ function BurgerMenu() {
       <nav className={'burger-menu'}>
         <div className={'burger-menu__content'}>
           <ul className={'burger-menu__list'}>
-            <li className={`burger-menu__link`}>Главная</li>
-            <li className={`burger-menu__link`}>Фильмы</li>
-            <li className={`burger-menu__link`}>Сохранённые фильмы</li>
+            <li className={`burger-menu__link`}>
+              <NavLink to='/' activeClassName='active'>
+                Главная
+              </NavLink>
+            </li>
+            <li className={`burger-menu__link`}>
+              <NavLink to='/movies' activeClassName='active'>
+                Фильмы
+              </NavLink>
+            </li>
+            <li className={`burger-menu__link`}>
+              <NavLink to='/saved-movies' activeClassName='active'>
+                Сохраненные фильмы
+              </NavLink>
+            </li>
           </ul>
-          <a href={'/profile'} className={`burger-menu__profile`}>
+          <NavLink
+            to={'/profile'}
+            className={`burger-menu__profile`}
+            activeClassName='active'
+          >
             Аккаунт
-          </a>
+          </NavLink>
         </div>
       </nav>
     </div>
