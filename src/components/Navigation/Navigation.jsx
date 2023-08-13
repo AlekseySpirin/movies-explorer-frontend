@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import './Navigation.css';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
@@ -9,15 +10,33 @@ function Navigation() {
       <nav className={'nav'}>
         <Logo />
         <ul className={'nav-list'}>
-          <li className={`nav-list__item nav-list__item_bg_none`}>Фильмы</li>
           <li className={`nav-list__item nav-list__item_bg_none`}>
-            Сохранённые фильмы
+            <NavLink
+              className={'nav-list__link'}
+              to='/movies'
+              activeClassName='active'
+            >
+              Фильмы
+            </NavLink>
+          </li>
+          <li className={`nav-list__item nav-list__item_bg_none`}>
+            <NavLink
+              to='/saved-movies'
+              activeClassName='active'
+              className={'nav-list__link'}
+            >
+              Сохранённые фильмы
+            </NavLink>
           </li>
         </ul>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href={'#'} className={'nav-list__profile'}>
+        <NavLink
+          to='/profile'
+          activeClassName='active'
+          className={'nav-list__profile'}
+        >
           Аккаунт
-        </a>
+        </NavLink>
       </nav>
       <BurgerMenu />
     </div>

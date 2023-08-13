@@ -21,18 +21,30 @@ function BurgerMenu() {
       <nav className={'burger-menu'}>
         <div className={'burger-menu__content'}>
           <ul className={'burger-menu__list'}>
-            <li className={`burger-menu__link`}>
-              <NavLink to='/' activeClassName='active'>
+            <li className={`burger-menu__item`}>
+              <NavLink
+                className={'burger-menu__link'}
+                to='/'
+                activeClassName='active'
+              >
                 Главная
               </NavLink>
             </li>
-            <li className={`burger-menu__link`}>
-              <NavLink to='/movies' activeClassName='active'>
+            <li className={`burger-menu__item`}>
+              <NavLink
+                className={'burger-menu__link'}
+                to='/movies'
+                activeClassName='active'
+              >
                 Фильмы
               </NavLink>
             </li>
-            <li className={`burger-menu__link`}>
-              <NavLink to='/saved-movies' activeClassName='active'>
+            <li className={`burger-menu__item`}>
+              <NavLink
+                className={'burger-menu__link'}
+                to='/saved-movies'
+                activeClassName='active'
+              >
                 Сохраненные фильмы
               </NavLink>
             </li>

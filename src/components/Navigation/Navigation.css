@@ -38,7 +38,6 @@
     font-style: normal;
     font-weight: 500;
     line-height: 18px; /* 138.462% */
-
     border: none;
     border-radius: 20px;
     background: #313131;
@@ -50,6 +49,21 @@
     align-items: center;
 
 
+}
+
+.nav-list__link {
+    text-decoration: none;
+    color: #FFF;
+    text-align: right;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 138.462% */
+}
+
+.nav-list__link.active {
+    font-weight: 500;
 }
 
 .nav-list__item_bg_none {

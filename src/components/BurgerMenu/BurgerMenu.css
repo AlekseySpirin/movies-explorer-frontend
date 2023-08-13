@@ -54,7 +54,7 @@
     list-style: none;
 }
 
-.burger-menu__link {
+.burger-menu__item {
 
     width: fit-content;
     margin-top: 29px;
@@ -68,14 +68,26 @@
     line-height: normal;
 }
 
-.burger-menu__link:first-child {
+.burger-menu__item:first-child {
     margin: 0;
 }
 
-.burger-menu__link:nth-child(2) {
+.burger-menu__link.active {
     border-bottom: 2px solid #fff;
     padding-bottom: 4px;
     margin-bottom: -4px;
+}
+
+.burger-menu__link {
+    text-decoration: none;
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .burger-menu__profile {

@@ -1,18 +1,27 @@
 import React from 'react';
 import './MainHeader.css';
+import { NavLink } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 
 function MainHeader() {
   return (
     <div className={'header'}>
       <Logo />
-      <div>
-        <button className={'header__btn header__btn_bg_none'} type={'button'}>
+      <div className={'header__container'}>
+        <NavLink
+          className={'header__btn header__btn_bg_none'}
+          to='/signup'
+          activeClassName='active'
+        >
           Регистрация
-        </button>
-        <button className={'header__btn '} type={'button'}>
+        </NavLink>
+        <NavLink
+          className={'header__btn '}
+          to='/signin'
+          activeClassName='active'
+        >
           Войти
-        </button>
+        </NavLink>
       </div>
     </div>
   );

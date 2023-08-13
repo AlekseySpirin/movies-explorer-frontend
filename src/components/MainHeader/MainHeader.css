@@ -8,17 +8,33 @@
     align-items: center;
 }
 
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .header__btn {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    justify-content: center; /* Выравнивание по горизонтали */
+    text-align: center;
     width: 76px;
     height: 32px;
-    margin-right: 38px;
+    margin-right: 30px;
     flex-shrink: 0;
     border: none;
     border-radius: 3px;
     background: #3DDC84;
     outline: none;
     cursor: pointer;
-
+    text-decoration: none;
+    font-family: Inter, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
 }
 
 .header__btn:last-child {
@@ -26,10 +42,9 @@
 }
 
 .header__btn_bg_none {
-    border: none;
-    background: none;
-    outline: none;
     color: #FFFFFF;
+    background: none;
+
 
 }
 

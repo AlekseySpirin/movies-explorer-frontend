@@ -1,11 +1,11 @@
 import React from 'react';
-import MoviesHeader from '../../components/MoviesHeader/MoviesHeader';
 import './Profile.css';
+import Navigation from '../../components/Navigation/Navigation';
 
 function Profile() {
   return (
     <div className={'profile'}>
-      <MoviesHeader />
+      <Navigation />
       <h2 className='profile__title'>Привет, Алексей!</h2>
       <ul className='profile-list'>
         <li className='profile-list__item'>
