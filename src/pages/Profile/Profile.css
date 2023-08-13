@@ -1,5 +1,6 @@
 .profile {
     max-width: 1280px;
+    margin: 0 auto;
 
 }
 
@@ -25,7 +26,7 @@
     margin: 123px auto 0 auto;
     align-items: center;
     padding: 0;
-    width: 410px;
+    width: 53%;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -87,5 +88,24 @@
 
 
 @media (max-width: 768px) {
+
+    .profile__wrapper {
+        margin-top: 161px;
+
+    }
+
+
+    .profile-list {
+        margin: 98px auto 0 auto;
+
+    }
+
+
+
+    .profile__btn-container {
+        margin: 175px auto 0 auto;
+
+    }
+
 
 }
