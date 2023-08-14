@@ -110,3 +110,17 @@
     }
 
 }
+
+@media (max-width: 500px) {
+    .about-me__wrapper {
+        grid-template-columns: 1fr;
+
+    }
+    .about-me__photo {
+        grid-column: 1/2;
+    }
+
+    .about-me__photo {
+        width: 100%;
+    }
+}

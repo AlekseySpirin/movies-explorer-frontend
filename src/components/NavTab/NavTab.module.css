@@ -47,3 +47,23 @@
 
     }
 }
+
+@media (max-width: 320px) {
+    .navTabLink {
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px; /* 160% */
+    }
+    .navTabItem {
+        width: 82px;
+        height: 26px;
+        border-radius: 6px;
+        margin: 0 6px 0 0;
+
+    }
+    .navTab {
+        margin-top: 196px;
+        padding-bottom: 0;
+    }
+}

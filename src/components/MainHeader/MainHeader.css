@@ -54,3 +54,17 @@
         margin: 0 20px;
     }
 }
+
+@media (max-width: 320px) {
+    .header {
+        padding: 0;
+        margin: 0 14px;
+    }
+    .header__btn {
+        font-size: 10px;
+        line-height: 16px; /* 160% */
+        width: 54px;
+        height: 26px;
+        margin-right: 19px;
+    }
+}
