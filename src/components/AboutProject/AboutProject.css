@@ -4,10 +4,6 @@
     margin: 110px auto auto auto;
 }
 
-.about-project-chapter {
-
-}
-
 .about-project-chapter__title {
     margin: 0;
     color: #FFF;
@@ -71,6 +67,7 @@
     font-weight: 400;
     line-height: normal;
 }
+
 .about-project-duration__frontend > p {
     margin: 0;
     color: #FFF;
@@ -135,33 +132,90 @@
         font-size: 12px;
         line-height: 18px; /* 150% */
     }
+
     .about-project-duration {
         margin-top: 92px;
         grid-template-columns: 21% 79%;
     }
+
     .about-project-action {
         margin-top: 4px;
         display: grid;
         grid-template-columns: 21% 79%;
         grid-template-rows: 36px;
     }
+
     /*.about-project-duration__backend > p {*/
     /*    font-size: 14px;*/
-
     /*}*/
     /*.about-project-duration__frontend > p {*/
     /*    font-size: 14px;*/
-
-
     /*}*/
-
-
     /*.about-project-action__backend > p,*/
     /*.about-project-action__frontend > p {*/
-
     /*}*/
     /*.about-project-duration {*/
     /*    margin-top: 90px;*/
-
     /*}*/
+
+}
+
+@media (max-width: 320px) {
+    .about-project {
+        min-height: 493px;
+        margin: 72px 18px auto 18px;
+    }
+
+    .about-project-chapter {
+        margin-top: 56px;
+    }
+
+    .about-project-chapter:first-child {
+        margin: 0;
+    }
+
+    .about-project-chapter__title {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+    }
+
+
+    .about-project-chapter__text {
+        margin-top: 17px;
+        font-size: 11px;
+        line-height: 16px; /* 145.455% */
+    }
+
+    .about-project-duration {
+        margin-top: 61px;
+        grid-template-rows: 35px;
+        grid-template-columns: 35% 65%;
+    }
+
+    .about-project-action {
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 35% 65%;
+        grid-template-rows: 36px;
+    }
+
+    .about-project__description {
+        flex-wrap: wrap;
+        margin-top: 60px;
+    }
+
+    .about-project-duration__backend > p {
+        font-size: 11px;
+    }
+
+    .about-project-duration__frontend > p {
+        font-size: 11px;
+    }
+    .about-project-action__backend > p {
+        font-size: 11px;
+    }
+    .about-project-action__frontend > p {
+        font-size: 11px;
+    }
+
 }

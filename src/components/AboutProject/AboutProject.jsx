@@ -6,7 +6,7 @@ function AboutProject() {
   return (
     <section id={'about-project'} className={'about-project'}>
       <Title text={'О проекте'} />
-      <section className={'about-project__description'}>
+      <div className={'about-project__description'}>
         <div className={'about-project-chapter'}>
           <h3 className={'about-project-chapter__title'}>
             Дипломный проект включал 5 этапов
@@ -25,7 +25,7 @@ function AboutProject() {
             соблюдать, чтобы успешно защититься.
           </p>
         </div>
-      </section>
+      </div>
       <div className={'about-project-duration'}>
         <div className={'about-project-duration__backend'}>
           <p>1 неделя</p>
