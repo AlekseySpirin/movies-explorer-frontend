@@ -7,7 +7,7 @@
 .about-me__wrapper {
     display: grid;
     grid-template-columns: fit-content(600px)  1fr;
-    grid-auto-rows: 58px 20px fit-content(175px) 17px;
+    /*grid-auto-rows: 58px 20px fit-content(175px) 17px;*/
     grid-gap: 19px;
     margin-top: 65px;
 }
@@ -61,6 +61,7 @@
     height: 327px;
     border-radius: 10px;
     justify-self: end;
+    object-fit: cover;
 }
 
 .about-me__github-link {
@@ -99,7 +100,7 @@
     .about-me__wrapper {
         grid-template-columns: fit-content(359px) 1fr;
         margin-top: 65px;
-        grid-auto-rows: 40px 18px fit-content(183px) 17px;
+        /*grid-auto-rows: 40px 18px fit-content(183px) 17px;*/
         grid-row-gap: 16px;
 
     }
@@ -111,16 +112,48 @@
 
 }
 
-@media (max-width: 500px) {
+
+
+@media (max-width: 680px) {
+    .about-me {
+        max-width: 1140px;
+        margin: 26px 14px 0 14px;
+
+    }
     .about-me__wrapper {
         grid-template-columns: 1fr;
+        margin-top: 59px;
+        grid-gap: 17px;
+        grid-template-rows: auto;
+
+
 
     }
     .about-me__photo {
         grid-column: 1/2;
+        width: 100%;
+        height: 352px;
+        /*width: 100%;*/
+        /*height: auto;*/
+        grid-row: 1/2;
     }
 
-    .about-me__photo {
-        width: 100%;
+
+    .about-me__name {
+        font-size: 30px;
+        letter-spacing: -1.2px;
+        margin-top: 21px;
+
+    }
+    .about-me__job {
+        font-size: 11px;
+        line-height: 16px; /* 145.455% */
+    }
+    .about-me__description {
+        font-size: 11px;
+        line-height: 16px; /* 145.455% */
+    }
+    .about-me__github-link {
+        margin-top: 5px;
     }
 }
