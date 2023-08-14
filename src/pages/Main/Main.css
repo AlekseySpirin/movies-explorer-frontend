@@ -8,3 +8,10 @@
 
     }
 }
+
+@media (max-width: 680px) {
+    .main .footer{
+        margin: 129px 10px 0 10px
+
+    }
+}

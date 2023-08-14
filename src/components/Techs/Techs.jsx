@@ -4,10 +4,10 @@ import Title from '../Title/Title';
 
 function Techs() {
   return (
-    <div className='techs_bg_grey'>
+    <div className='techs__wrapper'>
       <div id={'techs'} className={'techs'}>
         <Title text={'Технологии'} />
-        <div className={'techs__wrapper'}>
+        <div className={'techs__container'}>
           <h3 className={'techs__subtitle'}>7 технологий</h3>
           <p className={'techs__text'}>
             На курсе веб-разработки мы освоили технологии, которые применили в
