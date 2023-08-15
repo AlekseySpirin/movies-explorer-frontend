@@ -94,3 +94,12 @@
     }
 
 }
+
+@media (max-width: 320px) {
+    .card__title {
+        font-size: 12px;
+    }
+    .card__description {
+        margin-top: 12px;
+    }
+}

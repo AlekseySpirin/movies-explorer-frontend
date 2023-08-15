@@ -49,25 +49,12 @@ function Movies() {
           src={image}
           duration={'1ч 17м'}
         />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          shouldShowSaveButton
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
+        {/* <MoviesCard */}
+        {/*   title={'33 слова о дизайне'} */}
+        {/*   alt={'33 слова о дизайне'} */}
+        {/*   src={image} */}
+        {/*   duration={'1ч 17м'} */}
+        {/* /> */}
         {/* <MoviesCard */}
         {/*   shouldShowSaveButton */}
         {/*   title={'33 слова о дизайне'} */}
@@ -75,24 +62,37 @@ function Movies() {
         {/*   src={image} */}
         {/*   duration={'1ч 17м'} */}
         {/* /> */}
-        {/* <MoviesCard* /}
-        {/*  title={'33 слова о дизайне'} */}
-        {/*  alt={'33 слова о дизайне'} */}
-        {/*  src={image} */}
-        {/*  duration={'1ч 17м'} */}
-        {/* /> */}
-        {/* < MoviesCard */}
-        {/*  shouldShowSaveButton */}
-        {/*  title={'33 слова о дизайне'} */}
-        {/*  alt={'33 слова о дизайне'} */}
-        {/*  src={image} */}
-        {/*  duration={'1ч 17м'} */}
+        {/* <MoviesCard */}
+        {/*   title={'33 слова о дизайне'} */}
+        {/*   alt={'33 слова о дизайне'} */}
+        {/*   src={image} */}
+        {/*   duration={'1ч 17м'} */}
         {/* /> */}
         {/* <MoviesCard */}
-        {/*  title={'33 слова о дизайне'} */}
-        {/*  alt={'33 слова о дизайне'} */}
-        {/*  src={image} */}
-        {/*  duration={'1ч 17м'} */}
+        {/*   shouldShowSaveButton */}
+        {/*   title={'33 слова о дизайне'} */}
+        {/*   alt={'33 слова о дизайне'} */}
+        {/*   src={image} */}
+        {/*   duration={'1ч 17м'} */}
+        {/* /> */}
+        {/* <MoviesCard */}
+        {/*   title={'33 слова о дизайне'} */}
+        {/*   alt={'33 слова о дизайне'} */}
+        {/*   src={image} */}
+        {/*   duration={'1ч 17м'} */}
+        {/* /> */}
+        {/* <MoviesCard */}
+        {/*   shouldShowSaveButton */}
+        {/*   title={'33 слова о дизайне'} */}
+        {/*   alt={'33 слова о дизайне'} */}
+        {/*   src={image} */}
+        {/*   duration={'1ч 17м'} */}
+        {/* /> */}
+        {/* <MoviesCard */}
+        {/*   title={'33 слова о дизайне'} */}
+        {/*   alt={'33 слова о дизайне'} */}
+        {/*   src={image} */}
+        {/*   duration={'1ч 17м'} */}
         {/* /> */}
       </MoviesCardList>
       <button type={'button'} className='movies__btn-more'>

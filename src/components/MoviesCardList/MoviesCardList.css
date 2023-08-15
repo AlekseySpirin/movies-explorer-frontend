@@ -40,6 +40,11 @@
     }
 }
 
+@media (max-width: 320px) {
+    .card-list {
+        grid-gap: 37px;
+    }
+}
 /*@media (max-width: 667px) {*/
 /*    .card-list {*/
 /*        grid-template-columns: repeat(1, minmax(300px, 500px));*/

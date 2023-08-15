@@ -46,3 +46,20 @@
     }
 }
 
+@media (max-width: 680px) {
+    .movies .footer{
+        margin: 160px 10px 0 10px
+
+    }
+}
+
+@media (max-width: 320px) {
+    .movies__btn-more {
+        padding: 0 40px;
+        width: 240px;
+    }
+}
+
+
+
+

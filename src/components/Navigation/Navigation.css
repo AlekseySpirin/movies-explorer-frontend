@@ -116,3 +116,11 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 0;
+        margin: 0 14px;
+
+    }
+}

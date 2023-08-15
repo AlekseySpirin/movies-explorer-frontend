@@ -68,3 +68,13 @@
         margin: 41px 0 40px 0;
     }
 }
+
+@media (max-width: 320px) {
+    .filter-checkbox {
+        margin: 47px 0 38px 0;
+    }
+    .slider__name {
+        font-size: 11px;
+        line-height: 18px; /* 163.636% */
+    }
+}

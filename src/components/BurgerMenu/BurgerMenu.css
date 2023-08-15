@@ -145,3 +145,15 @@
 
 
 }
+
+@media (max-width: 560px) {
+    .burger-menu__button {
+        top: 17px;
+        right: 23px;
+        width: 30px;
+        height: 40px;
+        padding: 0;
+    }
+
+
+}
