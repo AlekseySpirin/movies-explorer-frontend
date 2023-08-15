@@ -4,6 +4,10 @@
     padding: 110px 70px 98px 70px;
 }
 
+.about-project-chapter:nth-child(odd) {
+    margin-right: 20px;
+}
+
 .about-project-chapter__title {
     margin: 0;
     color: #FFF;
@@ -32,6 +36,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 
 .about-project-duration {
     margin-top: 110px;

@@ -75,7 +75,7 @@
 .burger-menu__link.active {
     border-bottom: 2px solid #fff;
     padding-bottom: 4px;
-    margin-bottom: -4px;
+
 }
 
 .burger-menu__link {
@@ -155,5 +155,34 @@
         padding: 0;
     }
 
+    .burger-menu__content {
+        width: 100%;
+    }
+
+    .burger-menu__list {
+        margin: 145px auto auto auto;
+    }
+
+    .burger-menu__item {
+        margin-top: 25px;
+    }
+
+    .burger-menu__link.active {
+        padding-bottom: 7px;
+
+    }
+    .burger-menu__button_active {
+
+
+        width: 32px;
+        height: 32px;
+        top: 13px;
+        right: 13px;
+    }
+    .burger-menu__profile {
+        margin: 0 auto 46px auto;
+    }
 
 }
+
+

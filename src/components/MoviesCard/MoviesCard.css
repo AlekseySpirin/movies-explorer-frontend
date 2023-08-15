@@ -1,6 +1,6 @@
 .card {
-    max-width: 100%; /* Пример: установите желаемый процент от ширины экрана */
-    min-height: 0; /* Установите на 0, чтобы высота автоматически подстраивалась */
+    max-width: 100%;
+    min-height: 100%;
     list-style: none;
     position: relative;
 }
@@ -62,6 +62,9 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .duration {

@@ -20,9 +20,6 @@
     align-content: center;
 }
 
-.card-list__item {
-
-}
 
 @media (max-width: 768px) {
     .card-list {
