@@ -73,6 +73,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    transition: opacity .4s;
+}
+
+.about-me__github-link:hover {
+    opacity: .7;
 }
 
 @media (max-width: 768px) {

@@ -9,30 +9,36 @@ function Portfolio() {
         <ul className={'portfolio-list'}>
           <li className={'portfolio-list__item'}>
             <a
+              target='_blank'
+              rel='noreferrer'
               className={'portfolio__link'}
-              href='https://alekseyspirin.github.io/russian-travel/'
+              href='https://alekseyspirin.github.io/how-to-learn/'
             >
-              Статичный сайт
+              <span>Статичный сайт</span>
+              <span className={'portfolio__link-arrow'}> ↗ </span>
             </a>
-            <span className={'portfolio__link-arrow'}> ↗ </span>
           </li>
           <li className={'portfolio-list__item'}>
             <a
+              target='_blank'
+              rel='noreferrer'
               className={'portfolio__link'}
               href='https://alekseyspirin.github.io/russian-travel/'
             >
-              Адаптивный сайт
+              <span>Адаптивный сайт</span>
+              <span className={'portfolio__link-arrow'}> ↗ </span>
             </a>
-            <span className={'portfolio__link-arrow'}> ↗ </span>
           </li>
           <li className={'portfolio-list__item'}>
             <a
+              target='_blank'
+              rel='noreferrer'
               className={'portfolio__link'}
               href='https://mesto-spirin.nomoredomains.work'
             >
-              Одностраничное приложение
+              <span>Одностраничное приложение</span>
+              <span className={'portfolio__link-arrow'}> ↗ </span>
             </a>
-            <span className={'portfolio__link-arrow'}> ↗ </span>
           </li>
         </ul>
       </nav>

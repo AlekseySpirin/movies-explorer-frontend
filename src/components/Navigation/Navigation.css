@@ -60,6 +60,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: 18px; /* 138.462% */
+    transition: opacity .4s;
+}
+
+.nav-list__link:hover {
+    opacity: .7;
 }
 
 .nav-list__link.active {
@@ -97,7 +102,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: 16px; /* 114.286% */
+    transition: opacity .4s;
+}
 
+.nav-list__profile:hover {
+    opacity: .7;
 }
 
 @media (max-width: 768px) {

@@ -61,6 +61,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    transition: opacity .4s;
+}
+
+.footer__link:hover {
+    opacity: .7;
 }
 
 .footer-list__item:last-child {

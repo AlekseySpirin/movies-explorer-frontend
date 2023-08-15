@@ -31,6 +31,12 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    cursor: pointer;
+    transition: opacity .4s;
+}
+
+.movies__btn-more:hover {
+    opacity: .8;
 }
 
 @media (max-width: 768px) {

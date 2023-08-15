@@ -19,7 +19,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-
     color: #FFF;
     text-align: center;
     font-family: Inter, serif;
@@ -28,6 +27,11 @@
     font-weight: 400;
     line-height: 9px; /* 90% */
     cursor: pointer;
+    transition: opacity .4s;
+}
+
+.card__btn-save:hover {
+    opacity: .8;
 }
 
 .card__saved {
@@ -38,6 +42,12 @@
     height: 21px;
     background: url("../../images/saveMovie.svg");
     border-radius: 50%;
+    cursor: pointer;
+    transition: opacity .4s;
+}
+
+.card__saved:hover {
+    opacity: .8;
 }
 
 .card__description {

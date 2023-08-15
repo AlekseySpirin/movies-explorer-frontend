@@ -30,7 +30,12 @@
     background-color: transparent;
     background-image: url("../../images/icon__COLOR_icon-main.svg");
     z-index: 3;
+    transition: opacity .4s;
 
+}
+
+.burger-menu__button:hover {
+    opacity: .7;
 }
 
 .burger-menu__button_active {
@@ -72,6 +77,8 @@
     margin: 0;
 }
 
+
+
 .burger-menu__link.active {
     border-bottom: 2px solid #fff;
     padding-bottom: 4px;
@@ -88,6 +95,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    transition: opacity .4s;
+}
+
+.burger-menu__link:hover {
+    opacity: .7;
 }
 
 .burger-menu__profile {
@@ -107,6 +119,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: 16px; /* 114.286% */
+    transition: opacity .4s;
+}
+
+.burger-menu__profile:hover {
+    opacity: .7;
 }
 
 .burger-menu__content {

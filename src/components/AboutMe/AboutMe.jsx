@@ -25,6 +25,8 @@ function AboutMe() {
           alt='Фото студента'
         />
         <a
+          target='_blank'
+          rel='noreferrer'
           className={'about-me__github-link'}
           href='https://github.com/AlekseySpirin'
         >

@@ -30,7 +30,11 @@
     border: none;
     cursor: pointer;
     flex-shrink: 0;
+    transition: opacity .4s;
+}
 
+.searchFormBtn:hover {
+    opacity: .8;
 }
 
 .searchInput::placeholder {

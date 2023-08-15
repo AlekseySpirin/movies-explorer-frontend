@@ -39,6 +39,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: 16px; /* 133.333% */
+    transition: opacity .4s;
+}
+
+.navTabLink:hover {
+    opacity: .7;
 }
 
 @media (max-width: 768px) {
