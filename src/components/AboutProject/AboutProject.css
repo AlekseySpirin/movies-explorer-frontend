@@ -161,7 +161,7 @@
 
 }
 
-@media (max-width: 320px) {
+@media (max-width: 560px) {
     .about-project {
         min-height: 493px;
         margin: 72px 18px auto 18px;
@@ -201,6 +201,7 @@
     }
 
     .about-project__description {
+        justify-content: center;
         flex-wrap: wrap;
         margin-top: 60px;
     }

@@ -46,7 +46,7 @@
     }
 }
 
-@media (max-width: 320px ) {
+@media (max-width: 560px ) {
 
     .promo__wrapper {
         margin: 14px 14px 0 14px;

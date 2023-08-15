@@ -48,7 +48,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+
 }
 
 .techs-list__item {
@@ -99,6 +99,7 @@
     .techs-list {
         padding: 0;
         margin-top: 73px;
+        flex-wrap: wrap;
 
     }
 
@@ -116,7 +117,7 @@
 
 }
 
-@media (max-width: 320px) {
+@media (max-width: 560px) {
     .techs__wrapper {
         background: transparent;
     }
