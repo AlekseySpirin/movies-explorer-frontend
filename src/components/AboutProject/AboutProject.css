@@ -1,7 +1,7 @@
 .about-project {
-    max-width: 1140px;
-    min-height: 500px;
-    margin: 110px auto auto auto;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 110px 70px 98px 70px;
 }
 
 .about-project-chapter__title {
@@ -121,6 +121,7 @@
     .about-project {
         min-height: 493px;
         margin: 92px 50px auto 50px;
+        padding: 0;
     }
 
     .about-project-chapter {
