@@ -4,7 +4,7 @@
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    height: 102vh;
+    height: auto;
 
 
 }
@@ -12,7 +12,8 @@
 .register__wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-top: 70px;
+    /*justify-content: center;*/
     height: 100%;
 }
 
@@ -164,7 +165,43 @@
 
 
 @media (max-width: 768px) {
-    .register {
-        height: 101vh;
+    .register__wrapper {
+        margin: 232px  0 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+}
+
+@media (max-width: 560px) {
+    .register__wrapper {
+        margin: 56px  30px 0 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .register__welcome {
+        margin: 50px 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+    .register__form {
+        margin: 40px auto 0 auto;
+    }
+    .register__button {
+        margin-top: 157px;
+        font-size: 12px;
+    }
+
+    .register__signin > p {
+        font-size: 12px;
+    }
+    .register__link {
+        font-size: 12px;
+
     }
 }
