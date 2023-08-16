@@ -11,7 +11,7 @@ import Profile from '../pages/Profile/Profile';
 
 function App() {
   return (
-    <div className={'root'}>
+    <>
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/signin' element={<Login />} />
@@ -30,7 +30,7 @@ function App() {
       {/* <SavedMovies /> */}
       {/* <Profile /> */}
       {/* <NotFound /> */}
-    </div>
+    </>
   );
 }
 

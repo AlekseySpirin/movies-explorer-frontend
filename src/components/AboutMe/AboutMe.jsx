@@ -5,7 +5,7 @@ import Title from '../Title/Title';
 
 function AboutMe() {
   return (
-    <div id={'about-me'} className={'about-me'}>
+    <section id={'about-me'} className={'about-me'}>
       <Title text={'Студент'} />
       <div className={'about-me__wrapper'}>
         <p className={'about-me__name'}>Алексей</p>
@@ -33,7 +33,7 @@ function AboutMe() {
           Github
         </a>
       </div>
-    </div>
+    </section>
   );
 }
 

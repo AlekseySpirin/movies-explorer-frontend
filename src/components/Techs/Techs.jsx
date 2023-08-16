@@ -4,8 +4,8 @@ import Title from '../Title/Title';
 
 function Techs() {
   return (
-    <div className='techs__wrapper'>
-      <div id={'techs'} className={'techs'}>
+    <section id={'techs'} className={'techs'}>
+      <div className='techs__wrapper'>
         <Title text={'Технологии'} />
         <div className={'techs__container'}>
           <h3 className={'techs__subtitle'}>7 технологий</h3>
@@ -24,7 +24,7 @@ function Techs() {
           <li className={'techs-list__item'}>mongoDB</li>
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 

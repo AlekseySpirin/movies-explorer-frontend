@@ -1,17 +1,17 @@
-.main .footer {
-    margin-top: 185px;
+.main {
+    margin-bottom: 185px;
 }
 
 @media (max-width: 768px) {
-    .main .footer{
-        margin: 150px 30px 0 30px
+    .main {
+        margin-bottom: 150px;
 
     }
 }
 
 @media (max-width: 680px) {
-    .main .footer{
-        margin: 129px 10px 0 10px
+    .main {
+        margin-bottom: 129px;
 
     }
 }

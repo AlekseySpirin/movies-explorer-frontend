@@ -5,7 +5,7 @@ import Logo from '../Logo/Logo';
 
 function MainHeader() {
   return (
-    <div className={'header'}>
+    <header className={'header'}>
       <Logo />
       <div className={'header__container'}>
         <NavLink
@@ -23,7 +23,7 @@ function MainHeader() {
           Войти
         </NavLink>
       </div>
-    </div>
+    </header>
   );
 }
 

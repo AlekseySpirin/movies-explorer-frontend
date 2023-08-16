@@ -1,12 +1,13 @@
 .techs__wrapper {
-    background: #272727;
-    background-size: 100vw;
-}
-
-.techs {
     max-width: 1280px;
     margin: 0 auto;
     padding: 100px 70px 84px 70px;
+}
+
+.techs {
+    background: #272727;
+    background-size: 100vw;
+
 }
 
 .techs__container {
