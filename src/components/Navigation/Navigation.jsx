@@ -11,30 +11,18 @@ function Navigation() {
         <Logo />
         <ul className={'nav-list'}>
           <li className={`nav-list__item nav-list__item_bg_none`}>
-            <NavLink
-              className={'nav-list__link'}
-              to='/movies'
-              activeClassName='active'
-            >
+            <NavLink className={'nav-list__link'} to='/movies'>
               Фильмы
             </NavLink>
           </li>
           <li className={`nav-list__item nav-list__item_bg_none`}>
-            <NavLink
-              to='/saved-movies'
-              activeClassName='active'
-              className={'nav-list__link'}
-            >
+            <NavLink to='/saved-movies' className={'nav-list__link'}>
               Сохранённые фильмы
             </NavLink>
           </li>
         </ul>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <NavLink
-          to='/profile'
-          activeClassName='active'
-          className={'nav-list__profile'}
-        >
+        <NavLink to='/profile' className={'nav-list__profile'}>
           Аккаунт
         </NavLink>
       </nav>

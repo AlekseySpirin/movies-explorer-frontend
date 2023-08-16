@@ -17,7 +17,7 @@ function Register() {
             required
             id='name'
             name='name'
-            type='name'
+            type='text'
             minLength='2'
             maxLength='30'
           />
@@ -50,11 +50,7 @@ function Register() {
         </form>
         <div className='register__signin'>
           <p>Уже зарегистрированы?</p>
-          <NavLink
-            className={'register__link'}
-            to='/signin'
-            activeClassName='active'
-          >
+          <NavLink className={'register__link'} to='/signin'>
             Войти
           </NavLink>
         </div>

@@ -8,18 +8,10 @@ function MainHeader() {
     <header className={'header'}>
       <Logo />
       <div className={'header__container'}>
-        <NavLink
-          className={'header__btn header__btn_bg_none'}
-          to='/signup'
-          activeClassName='active'
-        >
+        <NavLink className={'header__btn header__btn_bg_none'} to='/signup'>
           Регистрация
         </NavLink>
-        <NavLink
-          className={'header__btn '}
-          to='/signin'
-          activeClassName='active'
-        >
+        <NavLink className={'header__btn '} to='/signin'>
           Войти
         </NavLink>
       </div>

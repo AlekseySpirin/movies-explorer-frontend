@@ -5,7 +5,7 @@ function Title({ text }) {
   return (
     <>
       <h2 className={'title'}>{text}</h2>
-      <hr className={'hr__title'} />
+      <hr className={'title__hr'} />
     </>
   );
 }

@@ -22,38 +22,22 @@ function BurgerMenu() {
         <div className={'burger-menu__content'}>
           <ul className={'burger-menu__list'}>
             <li className={`burger-menu__item`}>
-              <NavLink
-                className={'burger-menu__link'}
-                to='/'
-                activeClassName='active'
-              >
+              <NavLink className={'burger-menu__link'} to='/'>
                 Главная
               </NavLink>
             </li>
             <li className={`burger-menu__item`}>
-              <NavLink
-                className={'burger-menu__link'}
-                to='/movies'
-                activeClassName='active'
-              >
+              <NavLink className={'burger-menu__link'} to='/movies'>
                 Фильмы
               </NavLink>
             </li>
             <li className={`burger-menu__item`}>
-              <NavLink
-                className={'burger-menu__link'}
-                to='/saved-movies'
-                activeClassName='active'
-              >
+              <NavLink className={'burger-menu__link'} to='/saved-movies'>
                 Сохраненные фильмы
               </NavLink>
             </li>
           </ul>
-          <NavLink
-            to={'/profile'}
-            className={`burger-menu__profile`}
-            activeClassName='active'
-          >
+          <NavLink to={'/profile'} className={`burger-menu__profile`}>
             Аккаунт
           </NavLink>
         </div>

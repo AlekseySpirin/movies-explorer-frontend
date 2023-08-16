@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function Logo() {
   return (
-    <NavLink to={'/'} className={'logo__link'}>
+    <NavLink to={'/'} className={'logo'}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='38'

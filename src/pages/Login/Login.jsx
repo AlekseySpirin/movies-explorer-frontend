@@ -41,11 +41,7 @@ function Login() {
         </form>
         <div className='login__signin'>
           <p>Ещё не зарегистрированы?</p>
-          <NavLink
-            className={'login__link'}
-            to='/signup'
-            activeClassName='active'
-          >
+          <NavLink className={'login__link'} to='/signup'>
             Регистрация
           </NavLink>
         </div>
