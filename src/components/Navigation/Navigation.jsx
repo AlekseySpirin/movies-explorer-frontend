@@ -6,7 +6,7 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 function Navigation() {
   return (
-    <div className={'navigation'}>
+    <header className={'navigation'}>
       <nav className={'nav'}>
         <Logo />
         <ul className={'nav-list'}>
@@ -39,7 +39,7 @@ function Navigation() {
         </NavLink>
       </nav>
       <BurgerMenu />
-    </div>
+    </header>
   );
 }
 

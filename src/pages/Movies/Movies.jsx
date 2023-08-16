@@ -10,96 +10,98 @@ import Navigation from '../../components/Navigation/Navigation';
 
 function Movies() {
   return (
-    <div className={'movies'}>
+    <>
       <Navigation />
-      <SearchForm />
-      <FilterCheckbox />
-      <hr className={'movies__hr'} />
-      <MoviesCardList>
-        <MoviesCard
-          shouldShowSaveButton
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          shouldShowSaveButton
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          shouldShowSaveButton
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          shouldShowSaveButton
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          shouldShowSaveButton
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          shouldShowSaveButton
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={image}
-          duration={'1ч 17м'}
-        />
-      </MoviesCardList>
-      <button type={'button'} className='movies__btn-more'>
-        Ещё
-      </button>
+      <main className={'movies'}>
+        <SearchForm />
+        <FilterCheckbox />
+        <hr className={'movies__hr'} />
+        <MoviesCardList>
+          <MoviesCard
+            shouldShowSaveButton
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            shouldShowSaveButton
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            shouldShowSaveButton
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            shouldShowSaveButton
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            shouldShowSaveButton
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            shouldShowSaveButton
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+          <MoviesCard
+            title={'33 слова о дизайне'}
+            alt={'33 слова о дизайне'}
+            src={image}
+            duration={'1ч 17м'}
+          />
+        </MoviesCardList>
+        <button type={'button'} className='movies__btn-more'>
+          Ещё
+        </button>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

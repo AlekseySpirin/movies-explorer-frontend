@@ -5,9 +5,9 @@ import './MoviesCardList.css';
 
 function MoviesCardList({ children }) {
   return (
-    <div className='card-list__wrapper'>
+    <section className='films'>
       <ul className={'card-list'}>{children}</ul>
-    </div>
+    </section>
   );
 }
 
