@@ -1,7 +1,12 @@
 import React from 'react';
 import './MoviesCard.css';
 
-function MoviesCard({ title, duration, src, alt, shouldShowSaveButton }) {
+function MoviesCard({ movie, shouldShowSaveButton }) {
+  const { nameRU, trailerLink, duration } = movie;
+  const hours = Math.floor(duration / 60);
+  const minutes = duration % 60;
+
+  const durationText = `${hours}ч ${minutes}м`;
   return (
     <li className={'card'}>
       {shouldShowSaveButton ? (
@@ -11,11 +16,18 @@ function MoviesCard({ title, duration, src, alt, shouldShowSaveButton }) {
       ) : (
         <div className={'card__saved'} />
       )}
-      <img src={src} alt={alt} className='card__img' />
+      <a href={trailerLink} target='_blank' rel='noopener noreferrer'>
+        <img
+          src={`https://api.nomoreparties.co${movie.image.url}`}
+          alt={nameRU}
+          className='card__img'
+        />
+      </a>
+
       <div className='card__description'>
-        <h2 className={'card__title'}>{title}</h2>
+        <h2 className={'card__title'}>{nameRU}</h2>
         <div className='duration'>
-          <p className={'duration__text'}>{duration}</p>
+          <p className={'duration__text'}>{durationText}</p>
         </div>
       </div>
     </li>

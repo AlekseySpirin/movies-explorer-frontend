@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Register.css';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
+import useFormAndValidation from '../../hooks/useFormAndValidation';
 
-function Register() {
+function Register({ handleRegister }) {
+  const { values, handleChange, errors, resetForm } = useFormAndValidation({
+    email: '',
+    password: '',
+  });
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    handleRegister(
+      {
+        email: values.email,
+        password: values.password,
+      },
+      resetForm,
+    ).catch((err) => {
+      setErrorMessage(err);
+      // showResults();
+    });
+  };
   return (
     <div className={'register'}>
       <div className='register__wrapper'>
         <Logo />
         <h2 className={'register__welcome'}>Добро пожаловать!</h2>
-        {/* <p className={'register__error'}>текст ошибки</p> */}
-        <form className={'register__form'} noValidate>
+        <form onSubmit={handleSubmit} className={'register__form'} noValidate>
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor='name'>Имя</label>
           <input
@@ -20,8 +41,14 @@ function Register() {
             type='text'
             minLength='2'
             maxLength='30'
+            onChange={handleChange}
+            value={values.name}
           />
-          {/* <span>Что-то пошло не так...</span> */}
+          {errors.name && (
+            <span className='form__item-error form__item-error_el_login'>
+              {errors.name}
+            </span>
+          )}
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor='email'>E-mail</label>
           <input
@@ -31,8 +58,14 @@ function Register() {
             type='email'
             minLength='2'
             maxLength='30'
+            onChange={handleChange}
+            value={values.email}
           />
-          {/* <span>Что-то пошло не так...</span> */}
+          {errors.email && (
+            <span className='form__item-error form__item-error_el_login'>
+              {errors.email}
+            </span>
+          )}
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor='password'>Пароль</label>
           <input
@@ -42,8 +75,15 @@ function Register() {
             type='password'
             minLength='2'
             maxLength='30'
+            value={values.password}
+            onChange={handleChange}
           />
-          <span>Что-то пошло не так...</span>
+          {errors.password && (
+            <span className='form__item-error form__item-error_el_place'>
+              {errors.password}
+            </span>
+          )}
+          <p className={'register__error'}>{errorMessage}</p>
           <button type='submit' className='register__button'>
             Зарегистрироваться
           </button>

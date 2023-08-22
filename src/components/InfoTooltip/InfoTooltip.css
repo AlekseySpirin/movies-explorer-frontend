@@ -1,0 +1,32 @@
+.result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+
+    position: relative;
+}
+
+.result__img {
+    max-width: 120px;
+    min-height: 120px;
+}
+
+.result__text {
+    max-width: 358px;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #000000;
+}

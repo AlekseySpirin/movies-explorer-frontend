@@ -40,7 +40,7 @@
     right: 14px;
     width: 21px;
     height: 21px;
-    background: url("../../images/saveMovie.svg");
+    background: url("../../images/svg/saveMovie.svg");
     border-radius: 50%;
     cursor: pointer;
     transition: opacity .4s;
