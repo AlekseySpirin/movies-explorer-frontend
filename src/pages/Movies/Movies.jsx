@@ -8,7 +8,7 @@ import MoviesCard from '../../components/MoviesCard/MoviesCard';
 // import image from '../../images/33_word.jpg';
 import Navigation from '../../components/Navigation/Navigation';
 
-function Movies(movies) {
+function Movies({ movies }) {
   return (
     <>
       <Navigation />
@@ -28,12 +28,6 @@ function Movies(movies) {
               // onConfirm={onConfirm}
             />
           ))}
-          {/* <MoviesCard */}
-          {/*   title={'33 слова о дизайне'} */}
-          {/*   alt={'33 слова о дизайне'} */}
-          {/*   src={image} */}
-          {/*   duration={'1ч 17м'} */}
-          {/* /> */}
         </MoviesCardList>
         <button type={'button'} className='movies__btn-more'>
           Ещё

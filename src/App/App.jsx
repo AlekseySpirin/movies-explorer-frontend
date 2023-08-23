@@ -13,7 +13,7 @@ import MoviesApi from '../utils/MoviesApi';
 import MainApi from '../utils/MainApi';
 import { authorize, getContent, logout, register } from '../utils/auth';
 import InfoTooltip from '../components/InfoTooltip/InfoTooltip';
-import Preloader from '../components/Preloader/Preloader';
+// import Preloader from '../components/Preloader/Preloader';
 
 function App() {
   const navigate = useNavigate();
@@ -108,7 +108,8 @@ function App() {
   }, []);
 
   if (isLoggedIn === null) {
-    return <Preloader />;
+    // return <Preloader />;
+    console.log('Уху');
   }
   return (
     <CurrentUserContext.Provider value={currentUser}>

@@ -16,14 +16,18 @@ function MoviesCard({ movie, shouldShowSaveButton }) {
       ) : (
         <div className={'card__saved'} />
       )}
-      <a href={trailerLink} target='_blank' rel='noopener noreferrer'>
+      <a
+        className={'card__link'}
+        href={trailerLink}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
         <img
           src={`https://api.nomoreparties.co${movie.image.url}`}
           alt={nameRU}
           className='card__img'
         />
       </a>
-
       <div className='card__description'>
         <h2 className={'card__title'}>{nameRU}</h2>
         <div className='duration'>

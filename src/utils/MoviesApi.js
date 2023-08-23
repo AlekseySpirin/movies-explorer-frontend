@@ -21,7 +21,6 @@ export default class MoviesApi {
     return this._request('/', {
       method: 'GET',
       headers: this.headers,
-      credentials: 'include',
     });
   }
 }
