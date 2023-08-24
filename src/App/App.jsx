@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import CurrentUserContext from '../contexts/CurrentUserContext';
 import Register from '../pages/Register/Register';
-import Movies from '../pages/Movies/Movies';
 import Main from '../pages/Main/Main';
 import NotFound from '../components/NotFound/NotFound';
 import Login from '../pages/Login/Login';
-import SavedMovies from '../pages/SavedMovies/SavedMovies';
 import Profile from '../pages/Profile/Profile';
 import MoviesApi from '../utils/MoviesApi';
 import MainApi from '../utils/MainApi';
 import { authorize, getContent, logout, register } from '../utils/auth';
 import InfoTooltip from '../components/InfoTooltip/InfoTooltip';
-// import Preloader from '../components/Preloader/Preloader';
+import ProtectedRouteElement from '../components/ProtectedRoute/ProtectedRoute';
+import Movies from '../pages/Movies/Movies';
+import SavedMovies from '../pages/SavedMovies/SavedMovies';
+
+import Preloader from '../components/Preloader/Preloader';
 
 function App() {
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isResultsOpen, setIsResultsOpen] = useState(false);
 
@@ -79,6 +87,8 @@ function App() {
 
   const handleLogout = () => {
     logout().then((res) => console.log(res));
+    setIsLoggedIn(false);
+    navigate('/');
   };
   const handleLogin = ({ email, password }, resetForm) =>
     authorize(email, password).then((data) => {
@@ -102,14 +112,34 @@ function App() {
       .then(([info, movie]) => {
         setCurrentUser(info);
         setMovies(movie);
-        navigate('/movies');
+        // navigate('/movies');
       })
       .catch(console.error);
   }, []);
 
+  const checkToken = () => {
+    getContent()
+      .then((data) => {
+        if (data) {
+          setIsLoggedIn(true);
+          navigate(location.pathname);
+        } else {
+          setIsLoggedIn(false);
+        }
+        setUserData(data);
+      })
+      .catch((err) => {
+        setIsLoggedIn(false);
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    checkToken();
+  }, []);
+
   if (isLoggedIn === null) {
-    // return <Preloader />;
-    console.log('Уху');
+    return <Preloader />;
   }
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -120,17 +150,45 @@ function App() {
         onClose={closeAllPopups}
       />
       <Routes>
-        <Route path='/' element={<Main />} />
+        <Route
+          path='/'
+          element={isLoggedIn ? <Navigate to='/movies' replace /> : <Main />}
+        />
+        <Route
+          path='/movies'
+          element={
+            <ProtectedRouteElement
+              element={Movies}
+              isLoggedIn={isLoggedIn}
+              movies={movies}
+            />
+          }
+        />
+        <Route
+          path='/saved-movies'
+          element={
+            <ProtectedRouteElement
+              element={SavedMovies}
+              isLoggedIn={isLoggedIn}
+              movies={movies}
+            />
+          }
+        />
+        <Route
+          path='/profile'
+          element={
+            <ProtectedRouteElement
+              element={Profile}
+              isLoggedIn={isLoggedIn}
+              userData={userData}
+              handleLogout={handleLogout}
+            />
+          }
+        />
         <Route path='/signin' element={<Login handleLogin={handleLogin} />} />
         <Route
           path='/signup'
           element={<Register handleRegister={handleRegister} />}
-        />
-        <Route path='/movies' element={<Movies movies={movies} />} />
-        <Route path='/saved-movies' element={<SavedMovies />} />
-        <Route
-          path='/profile'
-          element={<Profile userData={userData} handleLogout={handleLogout} />}
         />
         <Route path='*' element={<NotFound />} />
       </Routes>
