@@ -3,12 +3,11 @@ import Footer from '../../components/Footer/Footer';
 import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
 import MoviesCard from '../../components/MoviesCard/MoviesCard';
-import cardImage from '../../images/33_word.jpg';
 import './SavedMovies.css';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Navigation from '../../components/Navigation/Navigation';
 
-function SavedMovies() {
+function SavedMovies({ movies }) {
   return (
     <div className={'saved-movies'}>
       <Navigation />
@@ -16,24 +15,16 @@ function SavedMovies() {
       <FilterCheckbox />
       <hr className={'saved-movies__hr'} />
       <MoviesCardList>
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={cardImage}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={cardImage}
-          duration={'1ч 17м'}
-        />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={cardImage}
-          duration={'1ч 17м'}
-        />
+        {movies.map((movie) => (
+          <MoviesCard
+            key={movie.id}
+            // onCardLike={onCardLike}
+            movie={movie}
+            // onCardClick={onCardClick}
+            // onCardDelete={onCardDelete}
+            // onConfirm={onConfirm}
+          />
+        ))}
       </MoviesCardList>
       <Footer />
     </div>

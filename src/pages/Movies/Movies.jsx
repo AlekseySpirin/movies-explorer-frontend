@@ -4,11 +4,10 @@ import './Movies.css';
 import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
 import Footer from '../../components/Footer/Footer';
-import MoviesCard from '../../components/MoviesCard/MoviesCard';
-// import image from '../../images/33_word.jpg';
+// import MoviesCard from '../../components/MoviesCard/MoviesCard';
 import Navigation from '../../components/Navigation/Navigation';
 
-function Movies({ movies }) {
+function Movies({ movies, setMovies }) {
   return (
     <>
       <Navigation />
@@ -16,22 +15,22 @@ function Movies({ movies }) {
         <SearchForm />
         <FilterCheckbox />
         <hr className={'movies__hr'} />
-        <MoviesCardList>
+        <MoviesCardList movies={movies} setMovies={setMovies}>
           {/* eslint-disable-next-line react/destructuring-assignment */}
-          {movies.map((movie) => (
-            <MoviesCard
-              key={movie.id}
-              // onCardLike={onCardLike}
-              movie={movie}
-              // onCardClick={onCardClick}
-              // onCardDelete={onCardDelete}
-              // onConfirm={onConfirm}
-            />
-          ))}
+          {/* {movies.map((movie) => ( */}
+          {/*   <MoviesCard */}
+          {/*     key={movie.id} */}
+          {/*     // onCardLike={onCardLike} */}
+          {/*     movie={movie} */}
+          {/*     // onCardClick={onCardClick} */}
+          {/*     // onCardDelete={onCardDelete} */}
+          {/*     // onConfirm={onConfirm} */}
+          {/*   /> */}
+          {/* ))} */}
         </MoviesCardList>
-        <button type={'button'} className='movies__btn-more'>
-          Ещё
-        </button>
+        {/* <button type={'button'} className='movies__btn-more'> */}
+        {/*   Ещё */}
+        {/* </button> */}
       </main>
       <Footer />
     </>

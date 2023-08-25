@@ -51,6 +51,7 @@ function App() {
   const [editingProfile, setEditingProfile] = useState(false);
   const [userData, setUserData] = useState(null);
   const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [currentUser, setCurrentUser] = useState({
     name: userData?.name,
@@ -195,6 +196,7 @@ function App() {
               element={Movies}
               isLoggedIn={isLoggedIn}
               movies={movies}
+              setMovies={setMovies}
             />
           }
         />

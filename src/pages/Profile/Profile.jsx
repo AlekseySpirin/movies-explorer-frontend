@@ -8,14 +8,12 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function Profile({
   handleLogout,
-  // userData,
   handleUpdateUser,
   isLoading,
   editingProfile,
   handleEditProfileClick,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  // const { name, email } = userData;
   const { name, email } = currentUser;
 
   const { values, handleChange, errors, isValid } = useFormAndValidation({
@@ -80,7 +78,7 @@ function Profile({
               <button
                 type='submit'
                 disabled={!isValid}
-                className='profile__btn'
+                className='profile__btn profile__btn_type_submit'
               >
                 {isLoading ? <Preloader /> : 'Сохранить'}
               </button>

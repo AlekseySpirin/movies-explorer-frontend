@@ -1,12 +1,12 @@
 import React from 'react';
 import './MoviesCard.css';
 
-function MoviesCard({ movie, shouldShowSaveButton }) {
-  const { nameRU, trailerLink, duration } = movie;
+function MoviesCard({ card, shouldShowSaveButton }) {
+  const { nameRU, trailerLink, duration } = card;
   const hours = Math.floor(duration / 60);
   const minutes = duration % 60;
 
-  const durationText = `${hours}ч ${minutes}м`;
+  const durationText = hours > 0 ? `${hours}ч ${minutes}м` : `${minutes}м`;
   return (
     <li className={'card'}>
       {shouldShowSaveButton ? (
@@ -23,7 +23,7 @@ function MoviesCard({ movie, shouldShowSaveButton }) {
         rel='noopener noreferrer'
       >
         <img
-          src={`https://api.nomoreparties.co${movie.image.url}`}
+          src={`https://api.nomoreparties.co${card.image.url}`}
           alt={nameRU}
           className='card__img'
         />
