@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer';
 // import MoviesCard from '../../components/MoviesCard/MoviesCard';
 import Navigation from '../../components/Navigation/Navigation';
 
-function Movies({ movies, setMovies }) {
+function Movies({ movies, setMovies, handleSaveMovie }) {
   return (
     <>
       <Navigation />
@@ -15,22 +15,11 @@ function Movies({ movies, setMovies }) {
         <SearchForm />
         <FilterCheckbox />
         <hr className={'movies__hr'} />
-        <MoviesCardList movies={movies} setMovies={setMovies}>
-          {/* eslint-disable-next-line react/destructuring-assignment */}
-          {/* {movies.map((movie) => ( */}
-          {/*   <MoviesCard */}
-          {/*     key={movie.id} */}
-          {/*     // onCardLike={onCardLike} */}
-          {/*     movie={movie} */}
-          {/*     // onCardClick={onCardClick} */}
-          {/*     // onCardDelete={onCardDelete} */}
-          {/*     // onConfirm={onConfirm} */}
-          {/*   /> */}
-          {/* ))} */}
-        </MoviesCardList>
-        {/* <button type={'button'} className='movies__btn-more'> */}
-        {/*   Ещё */}
-        {/* </button> */}
+        <MoviesCardList
+          movies={movies}
+          setMovies={setMovies}
+          handleSaveMovie={handleSaveMovie}
+        />
       </main>
       <Footer />
     </>

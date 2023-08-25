@@ -37,14 +37,23 @@ export default class MainApi {
     });
   }
 
-  addSavedMovie({ name, link }) {
-    return this._request('/cards', {
+  addSavedMovie(movie) {
+    return this._request('/movies', {
       method: 'POST',
       credentials: 'include',
       headers: this.headers,
       body: JSON.stringify({
-        name,
-        link,
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `https://api.nomoreparties.co/${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
       }),
     });
   }

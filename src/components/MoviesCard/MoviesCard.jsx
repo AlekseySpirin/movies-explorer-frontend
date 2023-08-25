@@ -1,16 +1,24 @@
 import React from 'react';
 import './MoviesCard.css';
 
-function MoviesCard({ card, shouldShowSaveButton }) {
+function MoviesCard({ card, shouldShowSaveButton, handleSaveMovie }) {
   const { nameRU, trailerLink, duration } = card;
   const hours = Math.floor(duration / 60);
   const minutes = duration % 60;
-
   const durationText = hours > 0 ? `${hours}ч ${minutes}м` : `${minutes}м`;
+
+  const saveMovieClick = () => {
+    handleSaveMovie(card);
+  };
+
   return (
     <li className={'card'}>
-      {shouldShowSaveButton ? (
-        <button type={'button'} className='card__btn-save'>
+      {!shouldShowSaveButton ? (
+        <button
+          type={'button'}
+          onClick={saveMovieClick}
+          className='card__btn-save'
+        >
           Сохранить
         </button>
       ) : (

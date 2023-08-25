@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import MoviesCard from '../MoviesCard/MoviesCard';
 // import image from '../../images/33_word.jpg';
 import './MoviesCardList.css';
+import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
@@ -13,7 +14,8 @@ const LG_INITIAL_CARD_COUNT = 12;
 const MD_INITIAL_CARD_COUNT = 8;
 const SM_INITIAL_CARD_COUNT = 5;
 
-function MoviesCardList({ movies, setMovies }) {
+function MoviesCardList({ movies, setMovies, savedMovies, handleSaveMovie }) {
+  const location = useLocation();
   const isDesktop = useMediaQuery('(min-width: 1280px)');
   const isTablet = useMediaQuery('(min-width: 768px)');
 
@@ -37,10 +39,15 @@ function MoviesCardList({ movies, setMovies }) {
     Math.floor(visibleCardCount / cardColumnCount) * cardColumnCount;
 
   useEffect(() => {
-    fetch('https://api.nomoreparties.co/beatfilm-movies')
-      .then((response) => response.json())
-      .then((card) => setMovies(card));
-  }, []);
+    if (location.pathname === '/movies') {
+      setMovies(movies);
+      fetch('https://api.nomoreparties.co/beatfilm-movies')
+        .then((response) => response.json())
+        .then((card) => setMovies(card));
+    } else if (location.pathname === '/saved-movies') {
+      setMovies(savedMovies);
+    }
+  }, [location.pathname, setMovies, savedMovies]);
 
   const handleClick = () => {
     // eslint-disable-next-line no-use-before-define
@@ -60,14 +67,32 @@ function MoviesCardList({ movies, setMovies }) {
     setVisibleCardCount(visibleCardCount + SM_ROW_CARD_COUNT);
   };
 
-  const isShowMoreButtonVisible = roundedVisibleCardCount < movies.length;
+  const isShowMoreButtonVisible =
+    location.pathname === '/movies' && roundedVisibleCardCount < movies.length;
 
   return (
     <section className='films'>
       <ul className={'card-list'}>
-        {movies?.slice(0, roundedVisibleCardCount).map((card) => (
-          <MoviesCard key={card.id} card={card} />
-        ))}
+        {location.pathname === '/movies' &&
+          movies
+            ?.slice(0, roundedVisibleCardCount)
+            .map((card) => (
+              <MoviesCard
+                key={card.id}
+                card={card}
+                handleSaveMovie={handleSaveMovie}
+              />
+            ))}
+        {location.pathname === '/saved-movies' &&
+          savedMovies
+            ?.slice(0, roundedVisibleCardCount)
+            .map((card) => (
+              <MoviesCard
+                key={card.id}
+                card={card}
+                handleSaveMovie={handleSaveMovie}
+              />
+            ))}
       </ul>
       {isShowMoreButtonVisible && (
         <button

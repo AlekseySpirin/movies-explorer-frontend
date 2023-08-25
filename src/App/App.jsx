@@ -51,6 +51,7 @@ function App() {
   const [editingProfile, setEditingProfile] = useState(false);
   const [userData, setUserData] = useState(null);
   const [movies, setMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
   // const [movies, setMovies] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [currentUser, setCurrentUser] = useState({
@@ -94,9 +95,18 @@ function App() {
           name,
           email,
         })
-        .then((user) => {
-          setCurrentUser(user);
-        });
+        .then(setCurrentUser);
+    }
+
+    handleSubmit(makeRequest);
+  }
+
+  function handleSaveMovie(movie) {
+    console.log(movie);
+    function makeRequest() {
+      return apiMain.addSavedMovie(movie).then((newMovie) => {
+        setSavedMovies([newMovie, ...savedMovies]);
+      });
     }
 
     handleSubmit(makeRequest);
@@ -197,6 +207,7 @@ function App() {
               isLoggedIn={isLoggedIn}
               movies={movies}
               setMovies={setMovies}
+              handleSaveMovie={handleSaveMovie}
             />
           }
         />
@@ -206,7 +217,8 @@ function App() {
             <ProtectedRouteElement
               element={SavedMovies}
               isLoggedIn={isLoggedIn}
-              movies={movies}
+              savedMovies={savedMovies}
+              handleSaveMovie={handleSaveMovie}
             />
           }
         />
