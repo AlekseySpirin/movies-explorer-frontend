@@ -4,6 +4,25 @@
 
 }
 
+.profile-list__input {
+
+    min-height: 20px;
+    text-align: right;
+    font-family: Inter, serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: transparent;
+    color: #fff;
+
+
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    outline: none;
+}
+
 .profile__wrapper {
     max-width: 410px;
     display: flex;
@@ -94,7 +113,6 @@
 .profile__btn_color_red {
     color: #EE3465;
 }
-
 
 
 @media (max-width: 768px) {

@@ -25,14 +25,14 @@ export default class MainApi {
     });
   }
 
-  editUserInfo({ name, about }) {
+  editUserInfo({ name, email }) {
     return this._request('/users/me', {
       method: 'PATCH',
       headers: this.headers,
       credentials: 'include',
       body: JSON.stringify({
         name,
-        about,
+        email,
       }),
     });
   }

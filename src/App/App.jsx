@@ -48,14 +48,15 @@ function App() {
       'Content-Type': 'application/json',
     },
   });
-
+  const [editingProfile, setEditingProfile] = useState(false);
   const [userData, setUserData] = useState(null);
   const [movies, setMovies] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [currentUser, setCurrentUser] = useState({
-    name: '',
-    email: '',
+    name: userData?.name,
+    email: userData?.email,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   function showResults() {
     setIsResultsOpen(true);
@@ -67,6 +68,37 @@ function App() {
 
   function closeAllPopups() {
     setIsResultsOpen(false);
+    setEditingProfile(false);
+  }
+
+  function handleEditProfileClick(e) {
+    e.preventDefault();
+    setEditingProfile(true);
+  }
+
+  function handleSubmit(request) {
+    setIsLoading(true);
+    request()
+      .then(closeAllPopups)
+
+      .catch(console.error)
+
+      .finally(() => setIsLoading(false));
+  }
+
+  function handleUpdateUser({ name, email }) {
+    function makeRequest() {
+      return apiMain
+        .editUserInfo({
+          name,
+          email,
+        })
+        .then((user) => {
+          setCurrentUser(user);
+        });
+    }
+
+    handleSubmit(makeRequest);
   }
 
   function getLoginUserDataFromToken() {
@@ -108,14 +140,16 @@ function App() {
     });
 
   useEffect(() => {
-    Promise.all([apiMain.getUserInfo(), apiMovie.getMovies()])
-      .then(([info, movie]) => {
-        setCurrentUser(info);
-        setMovies(movie);
-        // navigate('/movies');
-      })
-      .catch(console.error);
-  }, []);
+    if (isLoggedIn) {
+      Promise.all([apiMain.getUserInfo(), apiMovie.getMovies()])
+        .then(([info, movie]) => {
+          setCurrentUser(info);
+          setMovies(movie);
+          // navigate('/movies');
+        })
+        .catch(console.error);
+    }
+  }, [isLoggedIn]);
 
   const checkToken = () => {
     getContent()
@@ -182,6 +216,10 @@ function App() {
               isLoggedIn={isLoggedIn}
               userData={userData}
               handleLogout={handleLogout}
+              handleUpdateUser={handleUpdateUser}
+              editingProfile={editingProfile}
+              isLoading={isLoading}
+              handleEditProfileClick={handleEditProfileClick}
             />
           }
         />
