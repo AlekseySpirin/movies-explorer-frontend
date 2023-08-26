@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cl from './SearchForm.module.css';
 
-function SearchForm() {
+function SearchForm({ handleSearch }) {
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSearch(searchValue);
+  };
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setSearchValue(value);
+  };
   return (
-    <form className={cl.searchForm}>
+    <form onSubmit={handleSubmit} className={cl.searchForm}>
       <input
         className={cl.searchInput}
         required
@@ -13,6 +23,7 @@ function SearchForm() {
         maxLength='30'
         type='text'
         placeholder={'Фильм'}
+        onChange={handleChange}
       />
       {/* eslint-disable-next-line jsx-a11y/control-has-associated-label,react/button-has-type */}
       <button className={cl.searchFormBtn} />
