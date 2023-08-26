@@ -37,6 +37,14 @@ export default class MainApi {
     });
   }
 
+  getMovies() {
+    return this._request('/movies', {
+      method: 'GET',
+      headers: this.headers,
+      credentials: 'include',
+    });
+  }
+
   addSavedMovie(movie) {
     return this._request('/movies', {
       method: 'POST',

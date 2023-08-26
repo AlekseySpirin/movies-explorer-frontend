@@ -41,7 +41,7 @@
     opacity: .8;
 }
 
-.card__saved {
+.card__btn-save_active {
     position: absolute;
     top: 14px;
     right: 14px;
@@ -52,10 +52,26 @@
     cursor: pointer;
     transition: opacity .4s;
 }
-
-.card__saved:hover {
+.card__btn-save_active:hover {
     opacity: .8;
 }
+.card__delete {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 21px;
+    height: 21px;
+    background: url("../../images/svg/delete-card-icon.svg");
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity .4s;
+}
+
+.card__delete:hover {
+    opacity: .8;
+}
+
+
 
 .card__description {
     display: flex;

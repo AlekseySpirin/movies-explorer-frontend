@@ -14,6 +14,7 @@ function SavedMovies({ savedMovies, handleSaveMovie }) {
       <FilterCheckbox />
       <hr className={'saved-movies__hr'} />
       <MoviesCardList
+        isSavedMovies
         savedMovies={savedMovies}
         handleSaveMovie={handleSaveMovie}
       />

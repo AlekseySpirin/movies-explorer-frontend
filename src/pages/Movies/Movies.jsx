@@ -19,6 +19,7 @@ function Movies({ movies, setMovies, handleSaveMovie }) {
           movies={movies}
           setMovies={setMovies}
           handleSaveMovie={handleSaveMovie}
+          // isSavedMovies={false}
         />
       </main>
       <Footer />

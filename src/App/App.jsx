@@ -103,6 +103,7 @@ function App() {
 
   function handleSaveMovie(movie) {
     console.log(movie);
+
     function makeRequest() {
       return apiMain.addSavedMovie(movie).then((newMovie) => {
         setSavedMovies([newMovie, ...savedMovies]);
@@ -150,17 +151,52 @@ function App() {
       resetForm();
     });
 
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     Promise.all([apiMain.getUserInfo(), apiMovie.getMovies()])
+  //       .then(([info, movie]) => {
+  //         setCurrentUser(info);
+  //         setMovies(movie);
+  //         // navigate('/movies');
+  //       })
+  //       .catch(console.error);
+  //   }
+  // }, [isLoggedIn]);
+
   useEffect(() => {
     if (isLoggedIn) {
-      Promise.all([apiMain.getUserInfo(), apiMovie.getMovies()])
-        .then(([info, movie]) => {
+      apiMain
+        .getUserInfo()
+        .then((info) => {
           setCurrentUser(info);
-          setMovies(movie);
           // navigate('/movies');
         })
         .catch(console.error);
     }
   }, [isLoggedIn]);
+
+  useEffect(() => {
+    if (isLoggedIn && location.pathname === '/movies') {
+      apiMovie
+        .getMovies()
+        .then((movie) => {
+          setMovies(movie);
+          console.log(movies);
+          // navigate('/movies');
+        })
+        .catch(console.error);
+    }
+    if (isLoggedIn && location.pathname === '/saved-movies') {
+      apiMain
+        .getMovies()
+        .then((saveMovie) => {
+          setSavedMovies(saveMovie);
+          console.log(savedMovies);
+          // navigate('/movies');
+        })
+        .catch(console.error);
+    }
+  }, [isLoggedIn, location.pathname]);
 
   const checkToken = () => {
     getContent()
