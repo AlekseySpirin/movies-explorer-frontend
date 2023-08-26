@@ -60,6 +60,8 @@ function App() {
   });
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log(savedMovies);
+
   function showResults() {
     setIsResultsOpen(true);
   }
@@ -107,6 +109,17 @@ function App() {
     function makeRequest() {
       return apiMain.addSavedMovie(movie).then((newMovie) => {
         setSavedMovies([newMovie, ...savedMovies]);
+      });
+    }
+
+    handleSubmit(makeRequest);
+  }
+
+  function handleDeleteMovie(movieId) {
+    function makeRequest() {
+      return apiMain.deleteMovie(movieId).then((movie) => {
+        const updatedMovies = savedMovies.filter((m) => m._id !== movie._id);
+        setSavedMovies(updatedMovies);
       });
     }
 
@@ -176,27 +189,28 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (isLoggedIn && location.pathname === '/movies') {
+    if (isLoggedIn) {
       apiMovie
         .getMovies()
         .then((movie) => {
           setMovies(movie);
-          console.log(movies);
           // navigate('/movies');
         })
         .catch(console.error);
     }
-    if (isLoggedIn && location.pathname === '/saved-movies') {
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
       apiMain
         .getMovies()
         .then((saveMovie) => {
           setSavedMovies(saveMovie);
-          console.log(savedMovies);
           // navigate('/movies');
         })
         .catch(console.error);
     }
-  }, [isLoggedIn, location.pathname]);
+  }, [isLoggedIn]);
 
   const checkToken = () => {
     getContent()
@@ -244,6 +258,8 @@ function App() {
               movies={movies}
               setMovies={setMovies}
               handleSaveMovie={handleSaveMovie}
+              savedMovies={savedMovies}
+              handleDeleteMovie={handleDeleteMovie}
             />
           }
         />
@@ -255,6 +271,7 @@ function App() {
               isLoggedIn={isLoggedIn}
               savedMovies={savedMovies}
               handleSaveMovie={handleSaveMovie}
+              handleDeleteMovie={handleDeleteMovie}
             />
           }
         />

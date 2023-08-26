@@ -7,7 +7,13 @@ import Footer from '../../components/Footer/Footer';
 // import MoviesCard from '../../components/MoviesCard/MoviesCard';
 import Navigation from '../../components/Navigation/Navigation';
 
-function Movies({ movies, setMovies, handleSaveMovie }) {
+function Movies({
+  movies,
+  setMovies,
+  handleSaveMovie,
+  savedMovies,
+  handleDeleteMovie,
+}) {
   return (
     <>
       <Navigation />
@@ -16,9 +22,11 @@ function Movies({ movies, setMovies, handleSaveMovie }) {
         <FilterCheckbox />
         <hr className={'movies__hr'} />
         <MoviesCardList
+          savedMovies={savedMovies}
           movies={movies}
           setMovies={setMovies}
           handleSaveMovie={handleSaveMovie}
+          handleDeleteMovie={handleDeleteMovie}
           // isSavedMovies={false}
         />
       </main>

@@ -65,6 +65,7 @@
     border-radius: 50%;
     cursor: pointer;
     transition: opacity .4s;
+    border: none;
 }
 
 .card__delete:hover {

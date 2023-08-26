@@ -20,6 +20,7 @@ function MoviesCardList({
   savedMovies,
   handleSaveMovie,
   isSavedMovies,
+  handleDeleteMovie,
 }) {
   const location = useLocation();
   const isDesktop = useMediaQuery('(min-width: 1280px)');
@@ -72,10 +73,12 @@ function MoviesCardList({
 
     setVisibleCardCount(visibleCardCount + SM_ROW_CARD_COUNT);
   };
-
+  console.log(savedMovies);
   const isShowMoreButtonVisible =
     location.pathname === '/movies' && roundedVisibleCardCount < movies.length;
-
+  // eslint-disable-next-line no-shadow
+  const getSavedMovie = (savedMovies, card) =>
+    savedMovies.find((savedMovie) => savedMovie.movieId === card.id);
   return (
     <section className='films'>
       <ul className={'card-list'}>
@@ -84,21 +87,26 @@ function MoviesCardList({
             ?.slice(0, roundedVisibleCardCount)
             .map((card) => (
               <MoviesCard
+                movieSaved={getSavedMovie(savedMovies, card)}
+                savedMovies={savedMovies}
                 movies={movies}
                 isSavedMovies={isSavedMovies}
                 key={card._id || card.id}
                 card={card}
                 handleSaveMovie={handleSaveMovie}
+                handleDeleteMovie={handleDeleteMovie}
               />
             ))}
         {location.pathname === '/saved-movies' &&
           savedMovies.map((card) => (
             <MoviesCard
+              movieSaved={getSavedMovie(savedMovies, card)}
               savedMovies={savedMovies}
               isSavedMovies={isSavedMovies}
               key={card._id || card.id}
               card={card}
               handleSaveMovie={handleSaveMovie}
+              handleDeleteMovie={handleDeleteMovie}
             />
           ))}
       </ul>

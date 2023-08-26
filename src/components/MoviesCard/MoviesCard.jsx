@@ -1,28 +1,38 @@
-import React, { useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import './MoviesCard.css';
 
 function MoviesCard({
   card,
-  // shouldShowSaveButton,
   handleSaveMovie,
   isSavedMovies,
   savedMovies,
+  movieSaved,
+  handleDeleteMovie,
 }) {
   const { nameRU, trailerLink, duration } = card;
   const hours = Math.floor(duration / 60);
   const minutes = duration % 60;
   const durationText = hours > 0 ? `${hours}ч ${minutes}м` : `${minutes}м`;
-  const [isMovieSaved, setIsMovieSaved] = useState(
-    savedMovies?.some((movie) => movie.movieId === card.id),
-  );
+  // const [isMovieSaved, setIsMovieSaved] = useState(false);
+  // console.log(savedMovies);
+  // useEffect(() => {
+  //   setIsMovieSaved(
+  //     savedMovies.some((movie) => movie.movieId === card.movieId),
+  //   );
+  // }, [savedMovies, card.movieId]);
   const saveMovieClick = () => {
     handleSaveMovie(card);
-    setIsMovieSaved(true);
+    // setIsMovieSaved(true);
   };
 
   const deleteMovieClick = () => {
-    // Your logic to delete the movie from saved movies
-    setIsMovieSaved(false);
+    if (movieSaved) {
+      handleDeleteMovie(
+        savedMovies.filter((i) => i.movieId === card.id)[0]._id,
+      );
+    } else {
+      handleDeleteMovie(card._id);
+    }
   };
 
   return (
@@ -30,15 +40,23 @@ function MoviesCard({
       {!isSavedMovies ? (
         <button
           type={'button'}
-          onClick={isMovieSaved ? deleteMovieClick : saveMovieClick}
+          onClick={movieSaved ? deleteMovieClick : saveMovieClick}
           className={` card__btn-save ${
-            isMovieSaved ? 'card__btn-save_active' : ''
+            movieSaved ? 'card__btn-save_active' : ''
           }`}
         >
-          {!isMovieSaved ? 'Сохранить' : ''}
+          {!movieSaved ? 'Сохранить' : ''}
         </button>
       ) : (
         // <div className={'card__saved'} />
+        // eslint-disable-next-line
+        // jsx-a11y/control-has-associated-label,react/button-has-type
+        // eslint-disable-next-line
+        // jsx-a11y/control-has-associated-label,react/button-has-type
+        // eslint-disable-next-line
+        // jsx-a11y/control-has-associated-label,react/button-has-type
+        // eslint-disable-next-line
+        // jsx-a11y/control-has-associated-label,react/button-has-type
         // eslint-disable-next-line jsx-a11y/control-has-associated-label,react/button-has-type
         <button onClick={deleteMovieClick} className={'card__delete'} />
       )}

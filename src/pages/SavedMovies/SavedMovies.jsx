@@ -6,7 +6,7 @@ import './SavedMovies.css';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Navigation from '../../components/Navigation/Navigation';
 
-function SavedMovies({ savedMovies, handleSaveMovie }) {
+function SavedMovies({ savedMovies, handleSaveMovie, handleDeleteMovie }) {
   return (
     <div className={'saved-movies'}>
       <Navigation />
@@ -15,6 +15,7 @@ function SavedMovies({ savedMovies, handleSaveMovie }) {
       <hr className={'saved-movies__hr'} />
       <MoviesCardList
         isSavedMovies
+        handleDeleteMovie={handleDeleteMovie}
         savedMovies={savedMovies}
         handleSaveMovie={handleSaveMovie}
       />

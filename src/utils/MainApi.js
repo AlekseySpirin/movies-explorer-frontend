@@ -67,7 +67,7 @@ export default class MainApi {
   }
 
   deleteMovie(cardId) {
-    return this._request(`/cards/${cardId}`, {
+    return this._request(`/movies/${cardId}`, {
       method: 'DELETE',
       headers: this.headers,
       credentials: 'include',
