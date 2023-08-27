@@ -12,13 +12,12 @@
     width: 100%;
     padding: 0 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 250px;
     grid-gap: 30px;
     row-gap: 40px;
     justify-content: center;
     align-content: center;
-
 }
 
 .card-list__btn-more {

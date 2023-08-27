@@ -48,17 +48,27 @@ function App() {
       'Content-Type': 'application/json',
     },
   });
-  const [editingProfile, setEditingProfile] = useState(false);
-  const [userData, setUserData] = useState(null);
+  // Фильмы
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
+  const [sortedMovies, setSortedMovies] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isShortFilm, setIsShortFilm] = useState(false);
+
+  //
   // const [movies, setMovies] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  // Пользователь
+  const [userData, setUserData] = useState(null);
   const [currentUser, setCurrentUser] = useState({
     name: userData?.name,
     email: userData?.email,
   });
+  const [editingProfile, setEditingProfile] = useState(false);
+  // мелочи
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isReqErr, setIsReqErr] = useState(false);
+  const [isNotFount, setIsNotFound] = useState(false);
 
   console.log(savedMovies);
 
@@ -108,7 +118,9 @@ function App() {
 
     function makeRequest() {
       return apiMain.addSavedMovie(movie).then((newMovie) => {
-        setSavedMovies([newMovie, ...savedMovies]);
+        const updatedMovies = [newMovie, ...savedMovies];
+        setSavedMovies(updatedMovies);
+        localStorage.setItem('savedMovies', JSON.stringify(updatedMovies));
       });
     }
 
@@ -120,6 +132,7 @@ function App() {
       return apiMain.deleteMovie(movieId).then((movie) => {
         const updatedMovies = savedMovies.filter((m) => m._id !== movie._id);
         setSavedMovies(updatedMovies);
+        localStorage.setItem('savedMovies', JSON.stringify(updatedMovies));
       });
     }
 
@@ -144,6 +157,7 @@ function App() {
 
   const handleLogout = () => {
     logout().then((res) => console.log(res));
+    localStorage.removeItem('movies');
     setIsLoggedIn(false);
     navigate('/');
   };
@@ -189,16 +203,29 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    const storedMovies = localStorage.getItem('movies');
+    if (storedMovies) {
+      setMovies(JSON.parse(storedMovies));
+    } else {
+      setIsLoading(true);
       apiMovie
         .getMovies()
         .then((movie) => {
-          setMovies(movie);
+          // setMovies(movie);
+          setMovies(movies);
+          localStorage.setItem('movies', JSON.stringify(movie));
+          setIsReqErr(false);
           // navigate('/movies');
         })
-        .catch(console.error);
+        .catch((err) => {
+          setIsReqErr(true);
+          console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
-  }, [isLoggedIn]);
+  }, []);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -206,11 +233,81 @@ function App() {
         .getMovies()
         .then((saveMovie) => {
           setSavedMovies(saveMovie);
+          setIsReqErr(false);
           // navigate('/movies');
         })
-        .catch(console.error);
+        .catch((err) => {
+          setIsReqErr(false);
+          console.log(err);
+        });
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, searchQuery]);
+
+  // eslint-disable-next-line no-shadow
+  const filterMovies = (query, isShortFilm) => {
+    let filteredMovies = movies;
+    if (query) {
+      const lowercaseQuery = query.toLowerCase().trim();
+      filteredMovies = filteredMovies.filter(
+        (movie) =>
+          movie.nameRU.toLowerCase().includes(lowercaseQuery) ||
+          movie.nameEN.toLowerCase().includes(lowercaseQuery),
+      );
+      if (filteredMovies.length === 0) {
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    } else {
+      setIsNotFound(false);
+    }
+    if (isShortFilm) {
+      filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+    }
+    setSortedMovies(filteredMovies);
+  };
+
+  useEffect(() => {
+    filterMovies(searchQuery, isShortFilm);
+  }, [searchQuery, isShortFilm]);
+
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     const sortMovies = () => {
+  //       let filtered = movies;
+  //       if (searchQuery) {
+  //         const query = searchQuery.toLowerCase().trim();
+  //         filtered = filtered.filter(
+  //           (movie) =>
+  //             movie.nameRU.toLowerCase().includes(query) ||
+  //             movie.nameEN.toLowerCase().includes(query),
+  //         );
+  //         if (filtered.length === 0) {
+  //           setIsNotFound(true);
+  //         } else {
+  //           setIsNotFound(false);
+  //         }
+  //       } else {
+  //         setIsNotFound(false);
+  //       }
+  //       if (isShortFilm) {
+  //         filtered = filtered.filter((movie) => movie.duration <= 40);
+  //       }
+  //
+  //       setSortedMovies(filtered);
+  //     };
+  //     sortMovies();
+  //   }
+  // }, [searchQuery, isShortFilm]);
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  const handleCheckbox = (checked) => {
+    setIsShortFilm(checked);
+    filterMovies(searchQuery, checked);
+  };
 
   const checkToken = () => {
     getContent()
@@ -254,12 +351,17 @@ function App() {
           element={
             <ProtectedRouteElement
               element={Movies}
+              isLoading={isLoading}
               isLoggedIn={isLoggedIn}
-              movies={movies}
-              setMovies={setMovies}
               handleSaveMovie={handleSaveMovie}
               savedMovies={savedMovies}
               handleDeleteMovie={handleDeleteMovie}
+              handleSearch={handleSearch}
+              handleCheckbox={handleCheckbox}
+              movies={movies}
+              sortedMovies={sortedMovies}
+              isReqErr={isReqErr}
+              isNotFount={isNotFount}
             />
           }
         />
@@ -272,6 +374,11 @@ function App() {
               savedMovies={savedMovies}
               handleSaveMovie={handleSaveMovie}
               handleDeleteMovie={handleDeleteMovie}
+              handleSearch={handleSearch}
+              handleCheckbox={handleCheckbox}
+              sortedMovies={sortedMovies}
+              isReqErr={isReqErr}
+              isNotFount={isNotFount}
             />
           }
         />

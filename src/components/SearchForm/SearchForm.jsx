@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import cl from './SearchForm.module.css';
 
-function SearchForm({ handleSearch }) {
+function SearchForm({ handleSearch, setIsFormSubmitted }) {
   const [searchValue, setSearchValue] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsFormSubmitted(true);
     handleSearch(searchValue);
   };
   const handleChange = (e) => {

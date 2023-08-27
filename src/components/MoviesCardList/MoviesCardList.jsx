@@ -5,6 +5,7 @@ import './MoviesCardList.css';
 import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import MoviesCard from '../MoviesCard/MoviesCard';
+import Preloader from '../Preloader/Preloader';
 
 const LG_ROW_CARD_COUNT = 3;
 const MD_ROW_CARD_COUNT = 2;
@@ -16,11 +17,15 @@ const SM_INITIAL_CARD_COUNT = 5;
 
 function MoviesCardList({
   movies,
-  // setMovies,
   savedMovies,
   handleSaveMovie,
   isSavedMovies,
   handleDeleteMovie,
+  isLoading,
+  isReqErr,
+  isNotFount,
+  sortedMovies,
+  isFormSubmitted,
 }) {
   const location = useLocation();
   const isDesktop = useMediaQuery('(min-width: 1280px)');
@@ -75,49 +80,69 @@ function MoviesCardList({
   };
   console.log(savedMovies);
   const isShowMoreButtonVisible =
-    location.pathname === '/movies' && roundedVisibleCardCount < movies.length;
+    location.pathname === '/movies' &&
+    roundedVisibleCardCount < sortedMovies.length;
   // eslint-disable-next-line no-shadow
   const getSavedMovie = (savedMovies, card) =>
     savedMovies.find((savedMovie) => savedMovie.movieId === card.id);
+  console.log(Array.isArray(sortedMovies));
   return (
     <section className='films'>
-      <ul className={'card-list'}>
-        {location.pathname === '/movies' &&
-          movies
-            ?.slice(0, roundedVisibleCardCount)
-            .map((card) => (
-              <MoviesCard
-                movieSaved={getSavedMovie(savedMovies, card)}
-                savedMovies={savedMovies}
-                movies={movies}
-                isSavedMovies={isSavedMovies}
-                key={card._id || card.id}
-                card={card}
-                handleSaveMovie={handleSaveMovie}
-                handleDeleteMovie={handleDeleteMovie}
-              />
-            ))}
-        {location.pathname === '/saved-movies' &&
-          savedMovies.map((card) => (
-            <MoviesCard
-              movieSaved={getSavedMovie(savedMovies, card)}
-              savedMovies={savedMovies}
-              isSavedMovies={isSavedMovies}
-              key={card._id || card.id}
-              card={card}
-              handleSaveMovie={handleSaveMovie}
-              handleDeleteMovie={handleDeleteMovie}
-            />
-          ))}
-      </ul>
-      {isShowMoreButtonVisible && (
-        <button
-          type={'button'}
-          onClick={handleClick}
-          className='card-list__btn-more'
-        >
-          Ещё
-        </button>
+      {isLoading && <Preloader />}
+      {isNotFount && !isLoading && (
+        <span className='card__list_not-found'>Ничего не найдено</span>
+      )}
+      {isReqErr && !isLoading && (
+        <span className='card__list_req-error'>
+          Во время запроса произошла ошибка. Возможно, проблема с соединением
+          или сервер недоступен. Подождите немного и попробуйте ещё раз
+        </span>
+      )}
+      {!isLoading && !isReqErr && !isNotFount && (
+        <>
+          <ul className={'card-list'}>
+            {isFormSubmitted &&
+              location.pathname === '/movies' &&
+              sortedMovies
+                ?.slice(0, roundedVisibleCardCount)
+                .map((card) => (
+                  <MoviesCard
+                    movieSaved={getSavedMovie(savedMovies, card)}
+                    savedMovies={savedMovies}
+                    movies={movies}
+                    isSavedMovies={isSavedMovies}
+                    key={card._id || card.id}
+                    card={card}
+                    handleSaveMovie={handleSaveMovie}
+                    handleDeleteMovie={handleDeleteMovie}
+                    sortedMovies={sortedMovies}
+                  />
+                ))}
+            {location.pathname === '/saved-movies' &&
+              savedMovies.map((card) => (
+                <MoviesCard
+                  movieSaved={getSavedMovie(savedMovies, card)}
+                  savedMovies={savedMovies}
+                  isSavedMovies={isSavedMovies}
+                  key={card._id || card.id}
+                  card={card}
+                  handleSaveMovie={handleSaveMovie}
+                  handleDeleteMovie={handleDeleteMovie}
+                />
+              ))}
+          </ul>
+          {isFormSubmitted &&
+            isShowMoreButtonVisible &&
+            sortedMovies.length > 0 && (
+              <button
+                type={'button'}
+                onClick={handleClick}
+                className='card-list__btn-more'
+              >
+                Ещё
+              </button>
+            )}
+        </>
       )}
     </section>
   );
