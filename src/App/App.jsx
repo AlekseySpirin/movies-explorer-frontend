@@ -51,8 +51,14 @@ function App() {
   // Фильмы
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
-  const [sortedMovies, setSortedMovies] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [sortedMovies, setSortedMovies] = useState(
+    JSON.parse(localStorage.getItem('sortedMovies')) || [],
+  );
+  const [sortedSavedMovies, setSortedSavedMovies] = useState(
+    JSON.parse(localStorage.getItem('sortedSavedMovies')) || [],
+  );
+  const [moviesSearchQuery, setMoviesSearchQuery] = useState('');
+  const [savedMoviesSearchQuery, setSavedMoviesSearchQuery] = useState('');
   const [isShortFilm, setIsShortFilm] = useState(false);
 
   //
@@ -241,11 +247,13 @@ function App() {
           console.log(err);
         });
     }
-  }, [isLoggedIn, searchQuery]);
+  }, [isLoggedIn, moviesSearchQuery]);
 
   // eslint-disable-next-line no-shadow
   const filterMovies = (query, isShortFilm) => {
     let filteredMovies = movies;
+
+    // Фильтрация по общему поиску
     if (query) {
       const lowercaseQuery = query.toLowerCase().trim();
       filteredMovies = filteredMovies.filter(
@@ -253,6 +261,7 @@ function App() {
           movie.nameRU.toLowerCase().includes(lowercaseQuery) ||
           movie.nameEN.toLowerCase().includes(lowercaseQuery),
       );
+
       if (filteredMovies.length === 0) {
         setIsNotFound(true);
       } else {
@@ -261,22 +270,81 @@ function App() {
     } else {
       setIsNotFound(false);
     }
+
+    // Фильтрация по длительности
     if (isShortFilm) {
       filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
     }
+
     setSortedMovies(filteredMovies);
   };
 
   useEffect(() => {
-    filterMovies(searchQuery, isShortFilm);
-  }, [searchQuery, isShortFilm]);
+    filterMovies(moviesSearchQuery, isShortFilm);
+  }, [moviesSearchQuery, isShortFilm]);
 
+  // eslint-disable-next-line no-shadow
+  const filterSavedMovies = (savedMoviesQuery, isShortFilm) => {
+    let filteredMovies = savedMovies;
+    if (savedMoviesQuery) {
+      const lowercaseSavedMoviesQuery = savedMoviesQuery.toLowerCase().trim();
+      filteredMovies = filteredMovies.filter(
+        (movie) =>
+          movie.nameRU.toLowerCase().includes(lowercaseSavedMoviesQuery) ||
+          movie.nameEN.toLowerCase().includes(lowercaseSavedMoviesQuery),
+      );
+
+      if (filteredMovies.length === 0) {
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    } else {
+      setIsNotFound(false);
+    }
+
+    // Фильтрация по длительности
+    if (isShortFilm) {
+      filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+    }
+
+    setSortedSavedMovies(filteredMovies);
+  };
+
+  useEffect(() => {
+    filterSavedMovies(savedMoviesSearchQuery, isShortFilm);
+  }, [savedMoviesSearchQuery, isShortFilm]);
+
+  const handleSearch = (query) => {
+    setMoviesSearchQuery(query);
+    filterMovies(query, isShortFilm);
+  };
+
+  const handleSearchSavedMovies = (query) => {
+    setSavedMoviesSearchQuery(query);
+    filterSavedMovies(query, isShortFilm);
+  };
+
+  const handleCheckbox = (checked) => {
+    setIsShortFilm(checked);
+    filterMovies(moviesSearchQuery, checked);
+  };
+  const handleCheckboxSavedMovies = (checked) => {
+    setIsShortFilm(checked);
+    filterMovies(savedMoviesSearchQuery, checked);
+  };
+
+  // useEffect(() => {
+  //   if (sortedSavedMovies.length === 0) {
+  //     setSortedSavedMovies(savedMovies);
+  //   }
+  // }, [sortedSavedMovies]);
   // useEffect(() => {
   //   if (isLoggedIn) {
   //     const sortMovies = () => {
   //       let filtered = movies;
-  //       if (searchQuery) {
-  //         const query = searchQuery.toLowerCase().trim();
+  //       if (moviesSearchQuery) {
+  //         const query = moviesSearchQuery.toLowerCase().trim();
   //         filtered = filtered.filter(
   //           (movie) =>
   //             movie.nameRU.toLowerCase().includes(query) ||
@@ -298,16 +366,7 @@ function App() {
   //     };
   //     sortMovies();
   //   }
-  // }, [searchQuery, isShortFilm]);
-
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-  };
-
-  const handleCheckbox = (checked) => {
-    setIsShortFilm(checked);
-    filterMovies(searchQuery, checked);
-  };
+  // }, [moviesSearchQuery, isShortFilm]);
 
   const checkToken = () => {
     getContent()
@@ -374,11 +433,12 @@ function App() {
               savedMovies={savedMovies}
               handleSaveMovie={handleSaveMovie}
               handleDeleteMovie={handleDeleteMovie}
-              handleSearch={handleSearch}
-              handleCheckbox={handleCheckbox}
+              handleSearchSavedMovies={handleSearchSavedMovies}
+              handleCheckboxSavedMovies={handleCheckboxSavedMovies}
               sortedMovies={sortedMovies}
               isReqErr={isReqErr}
               isNotFount={isNotFount}
+              sortedSavedMovies={sortedSavedMovies}
             />
           }
         />

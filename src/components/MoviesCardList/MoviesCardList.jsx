@@ -26,6 +26,7 @@ function MoviesCardList({
   isNotFount,
   sortedMovies,
   isFormSubmitted,
+  sortedSavedMovies,
 }) {
   const location = useLocation();
   const isDesktop = useMediaQuery('(min-width: 1280px)');
@@ -89,6 +90,9 @@ function MoviesCardList({
   return (
     <section className='films'>
       {isLoading && <Preloader />}
+      {!isFormSubmitted && location.pathname === '/movies' && (
+        <span className='card__list_not-found'>Что будем смотреть ? ^_^</span>
+      )}
       {isNotFount && !isLoading && (
         <span className='card__list_not-found'>Ничего не найдено</span>
       )}
@@ -119,7 +123,10 @@ function MoviesCardList({
                   />
                 ))}
             {location.pathname === '/saved-movies' &&
-              savedMovies.map((card) => (
+              (sortedSavedMovies.length === 0
+                ? savedMovies
+                : sortedSavedMovies
+              ).map((card) => (
                 <MoviesCard
                   movieSaved={getSavedMovie(savedMovies, card)}
                   savedMovies={savedMovies}
