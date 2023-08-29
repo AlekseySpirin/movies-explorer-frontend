@@ -24,8 +24,8 @@ function App() {
   const [isResultsOpen, setIsResultsOpen] = useState(false);
 
   const {
-    // REACT_APP_API_MAIN_URL = 'https://api.mesto-spirin.nomoredomains.work',
-    REACT_APP_API_MAIN_URL = 'http://localhost:4000',
+    REACT_APP_API_MAIN_URL = 'https://api.mesto-spirin.nomoredomains.work',
+    // REACT_APP_API_MAIN_URL = 'http://localhost:4000',
     REACT_APP_API_MOVIES_URL = 'https://api.nomoreparties.co/beatfilm-movies',
   } = process.env;
 
