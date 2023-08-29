@@ -24,7 +24,6 @@ function Login({ handleLogin }) {
     ).catch((err) => {
       console.log(err);
       setErrorMessage('Неправильный email или пароль');
-      // showResults();
     });
   };
 

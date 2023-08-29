@@ -26,9 +26,11 @@
 
 html {
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
+    height: 100%;
     margin: 0 auto;
     background: #202020;
     color: #FFFFFF;
@@ -37,6 +39,16 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+#root > * {
+    width: 100%;
 }
 
 code {

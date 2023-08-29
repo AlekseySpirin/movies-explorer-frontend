@@ -54,6 +54,7 @@ function App() {
   const [moviesSearchQuery, setMoviesSearchQuery] = useState('');
   const [savedMoviesSearchQuery, setSavedMoviesSearchQuery] = useState('');
   const [isShortFilm, setIsShortFilm] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   //
   // const [movies, setMovies] = useState(null);
@@ -209,8 +210,7 @@ function App() {
       apiMovie
         .getMovies()
         .then((movie) => {
-          // setMovies(movie);
-          setMovies(movies);
+          setMovies(movie);
           localStorage.setItem('movies', JSON.stringify(movie));
           setIsReqErr(false);
           // navigate('/movies');
@@ -224,6 +224,8 @@ function App() {
         });
     }
   }, []);
+
+  console.log(sortedMovies);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -410,6 +412,8 @@ function App() {
               sortedMovies={sortedMovies}
               isReqErr={isReqErr}
               isNotFount={isNotFount}
+              isFormSubmitted={isFormSubmitted}
+              setIsFormSubmitted={setIsFormSubmitted}
             />
           }
         />
@@ -428,6 +432,8 @@ function App() {
               isReqErr={isReqErr}
               isNotFount={isNotFount}
               sortedSavedMovies={sortedSavedMovies}
+              isFormSubmitted={isFormSubmitted}
+              setIsFormSubmitted={setIsFormSubmitted}
             />
           }
         />

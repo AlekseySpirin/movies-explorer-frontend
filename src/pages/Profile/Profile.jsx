@@ -1,5 +1,5 @@
 import './Profile.css';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import SpanError from '../../components/SpanError/SpanError';
@@ -15,18 +15,26 @@ function Profile({
 }) {
   const currentUser = useContext(CurrentUserContext);
   const { name, email } = currentUser;
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const { values, handleChange, errors, isValid } = useFormAndValidation({
+  const { values, handleChange, isValid, errors } = useFormAndValidation({
     name,
     email,
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleUpdateUser({
-      name: values.name,
-      email: values.email,
-    });
+    try {
+      // throw new Error('Тестовая ошибка');
+      await handleUpdateUser({
+        name: values.name,
+        email: values.email,
+      });
+    } catch (err) {
+      console.log(err);
+      console.log('При обновлении профиля произошла ошибка');
+      setErrorMessage('При обновлении профиля произошла ошибка');
+    }
   };
 
   return (
@@ -78,6 +86,9 @@ function Profile({
             </li>
           </ul>
           <div className='profile__btn-container'>
+            {editingProfile && (
+              <span className={'profile__error-text'}>{errorMessage}</span>
+            )}
             {editingProfile ? (
               <button
                 type='submit'

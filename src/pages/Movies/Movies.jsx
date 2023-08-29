@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import './Movies.css';
 import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
@@ -17,6 +16,8 @@ function Movies({
   handleCheckbox,
   isReqErr,
   isNotFount,
+  isFormSubmitted,
+  setIsFormSubmitted,
 }) {
   // const [searchQuery, setSearchQuery] = useState('');
   // const [isShortFilm, setIsShortFilm] = useState(false);
@@ -53,7 +54,6 @@ function Movies({
   // const handleCheckbox = (checked) => {
   //   setIsShortFilm(checked);
   // };
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   return (
     <>
