@@ -138,21 +138,21 @@ function App() {
     handleSubmit(makeRequest);
   }
 
-  function getLoginUserDataFromToken() {
-    getContent()
-      .then((data) => {
-        if (data) {
-          setIsLoggedIn(true);
-          setUserData(data);
-        } else {
-          setIsLoggedIn(false);
-        }
-      })
-      .catch((err) => {
-        setIsLoggedIn(false);
-        console.log(err);
-      });
-  }
+  // function getLoginUserDataFromToken() {
+  //   getContent()
+  //     .then((data) => {
+  //       if (data) {
+  //         setIsLoggedIn(true);
+  //         setUserData(data);
+  //       } else {
+  //         setIsLoggedIn(false);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       setIsLoggedIn(false);
+  //       console.log(err);
+  //     });
+  // }
 
   const handleLogout = () => {
     logout().then((res) => console.log(res));
@@ -164,7 +164,8 @@ function App() {
     authorize(email, password).then((data) => {
       setIsLoggedIn(true);
       navigate('/movies');
-      getLoginUserDataFromToken(data);
+      setUserData(data);
+      // getLoginUserDataFromToken(data);
       resetForm();
     });
 
