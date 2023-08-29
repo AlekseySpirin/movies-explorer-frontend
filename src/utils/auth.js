@@ -23,10 +23,11 @@ function request(endpoint, options) {
   ).then(checkResponse);
 }
 
-export const register = (email, password) =>
+export const register = (name, email, password) =>
   request('/signup', {
     method: 'POST',
     body: JSON.stringify({
+      name,
       email,
       password,
     }),

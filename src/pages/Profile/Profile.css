@@ -6,8 +6,8 @@
 
 
 .profile-list__input {
-
-    min-height: 20px;
+    padding: 0;
+    min-height: 15px;
     text-align: right;
     font-family: Inter, serif;
     font-size: 11px;
@@ -17,9 +17,7 @@
     background: transparent;
     color: #fff;
 
-
     border: none;
-    padding: 10px;
     border-radius: 4px;
     outline: none;
 }
@@ -56,13 +54,20 @@
 
 .profile-list__item {
     border-bottom: 1px solid #424242;
-    padding: 0 0 30px 0;
-    height: 14px;
+    padding: 0 0 20px 0;
+    min-height: 14px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     margin: 17px 0 0 0;
+}
+
+.profile-list__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 90%;
 }
 
 .profile-list__item:first-child {

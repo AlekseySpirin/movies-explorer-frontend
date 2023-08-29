@@ -39,17 +39,19 @@ function Profile({
             <li className='profile-list__item'>
               <p>Имя</p>
               {editingProfile ? (
-                <>
+                <div className={'profile-list__input-wrapper'}>
                   <input
                     className='profile-list__input'
                     name={'name'}
                     type='text'
+                    minLength='2'
+                    maxLength='30'
                     value={values.name}
                     onChange={handleChange}
                     placeholder={name}
                   />
                   <SpanError error={errors.name} />
-                </>
+                </div>
               ) : (
                 <p>{name}</p>
               )}
@@ -57,17 +59,19 @@ function Profile({
             <li className='profile-list__item'>
               <p>E-mail</p>
               {editingProfile ? (
-                <>
+                <div className={'profile-list__input-wrapper'}>
                   <input
                     className='profile-list__input'
                     name={'email'}
-                    type='text'
+                    type='email'
+                    minLength='2'
+                    maxLength='30'
                     value={values.email}
                     onChange={handleChange}
                     placeholder={email}
                   />
                   <SpanError error={errors.email} />
-                </>
+                </div>
               ) : (
                 <p>{email}</p>
               )}

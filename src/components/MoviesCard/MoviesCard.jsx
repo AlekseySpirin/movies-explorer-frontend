@@ -48,17 +48,12 @@ function MoviesCard({
           {!movieSaved ? 'Сохранить' : ''}
         </button>
       ) : (
-        // <div className={'card__saved'} />
-        // eslint-disable-next-line
-        // jsx-a11y/control-has-associated-label,react/button-has-type
-        // eslint-disable-next-line
-        // jsx-a11y/control-has-associated-label,react/button-has-type
-        // eslint-disable-next-line
-        // jsx-a11y/control-has-associated-label,react/button-has-type
-        // eslint-disable-next-line
-        // jsx-a11y/control-has-associated-label,react/button-has-type
-        // eslint-disable-next-line jsx-a11y/control-has-associated-label,react/button-has-type
-        <button onClick={deleteMovieClick} className={'card__delete'} />
+        // eslint-disable-next-line jsx-a11y/control-has-associated-label
+        <button
+          type={'button'}
+          onClick={deleteMovieClick}
+          className={'card__delete'}
+        />
       )}
       <a
         className={'card__link'}

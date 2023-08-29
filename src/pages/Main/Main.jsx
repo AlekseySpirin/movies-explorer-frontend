@@ -8,11 +8,12 @@ import AboutMe from '../../components/AboutMe/AboutMe';
 import Portfolio from '../../components/Portfolio/Portfolio';
 import MainHeader from '../../components/MainHeader/MainHeader';
 import Footer from '../../components/Footer/Footer';
+import Navigation from '../../components/Navigation/Navigation';
 
-function Main() {
+function Main({ isLoggedIn }) {
   return (
     <>
-      <MainHeader />
+      {isLoggedIn ? <Navigation /> : <MainHeader />}
       <main className={'main'}>
         <Promo />
         <AboutProject />
@@ -20,7 +21,7 @@ function Main() {
         <AboutMe />
         <Portfolio />
       </main>
-      <Footer />
+      <Footer />;
     </>
   );
 }

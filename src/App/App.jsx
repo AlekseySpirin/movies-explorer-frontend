@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import {
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import CurrentUserContext from '../contexts/CurrentUserContext';
 import Register from '../pages/Register/Register';
 import Main from '../pages/Main/Main';
@@ -120,8 +114,6 @@ function App() {
   }
 
   function handleSaveMovie(movie) {
-    console.log(movie);
-
     function makeRequest() {
       return apiMain.addSavedMovie(movie).then((newMovie) => {
         const updatedMovies = [newMovie, ...savedMovies];
@@ -175,9 +167,9 @@ function App() {
       resetForm();
     });
 
-  const handleRegister = ({ email, password }, resetForm) =>
+  const handleRegister = ({ name, email, password }, resetForm) =>
     // eslint-disable-next-line no-undef
-    register(email, password).then(() => {
+    register(name, email, password).then(() => {
       successResult();
       showResults();
       navigate('/signin');
@@ -401,10 +393,7 @@ function App() {
         onClose={closeAllPopups}
       />
       <Routes>
-        <Route
-          path='/'
-          element={isLoggedIn ? <Navigate to='/movies' replace /> : <Main />}
-        />
+        <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
         <Route
           path='/movies'
           element={
