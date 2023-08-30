@@ -14,8 +14,7 @@ import InfoTooltip from '../components/InfoTooltip/InfoTooltip';
 import ProtectedRouteElement from '../components/ProtectedRoute/ProtectedRoute';
 import Movies from '../pages/Movies/Movies';
 import SavedMovies from '../pages/SavedMovies/SavedMovies';
-
-// import Preloader from '../components/Preloader/Preloader';
+import Preloader from '../components/Preloader/Preloader';
 
 function App() {
   const navigate = useNavigate();
@@ -56,8 +55,6 @@ function App() {
   const [isShortFilm, setIsShortFilm] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  //
-  // const [movies, setMovies] = useState(null);
   // Пользователь
   const [userData, setUserData] = useState(null);
   const [currentUser, setCurrentUser] = useState({
@@ -191,17 +188,17 @@ function App() {
   // }, [isLoggedIn]);
 
   useEffect(() => {
-    // if (isLoggedIn) {
-    apiMain
-      .getUserInfo()
-      .then((info) => {
-        console.log(info);
-        setCurrentUser(info);
-        // navigate('/movies');
-      })
-      .catch(console.error);
-    // }
-  }, []);
+    if (isLoggedIn) {
+      apiMain
+        .getUserInfo()
+        .then((info) => {
+          console.log(info);
+          setCurrentUser(info);
+          // navigate('/movies');
+        })
+        .catch(console.error);
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     const storedMovies = localStorage.getItem('movies');
@@ -228,20 +225,20 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // if (isLoggedIn) {
-    apiMain
-      .getMovies()
-      .then((saveMovie) => {
-        setSavedMovies(saveMovie);
-        setIsReqErr(false);
-        // navigate('/movies');
-      })
-      .catch((err) => {
-        setIsReqErr(false);
-        console.log(err);
-      });
-    // }
-  }, [moviesSearchQuery]);
+    if (isLoggedIn) {
+      apiMain
+        .getMovies()
+        .then((saveMovie) => {
+          setSavedMovies(saveMovie);
+          setIsReqErr(false);
+          // navigate('/movies');
+        })
+        .catch((err) => {
+          setIsReqErr(false);
+          console.log(err);
+        });
+    }
+  }, [isLoggedIn, moviesSearchQuery]);
 
   // eslint-disable-next-line no-shadow
   const filterMovies = (query, isShortFilm) => {
@@ -383,9 +380,9 @@ function App() {
     checkToken();
   }, []);
 
-  // if (isLoggedIn === null) {
-  //   return <Preloader />;
-  // }
+  if (isLoggedIn === null) {
+    return <Preloader />;
+  }
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <InfoTooltip
