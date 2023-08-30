@@ -5,7 +5,7 @@ import Logo from '../../components/Logo/Logo';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 
 function Login({ handleLogin }) {
-  const { values, handleChange, errors, resetForm } = useFormAndValidation({
+  const { values, handleChange, errors } = useFormAndValidation({
     email: '',
     password: '',
   });
@@ -15,13 +15,10 @@ function Login({ handleLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    handleLogin(
-      {
-        email: values.email,
-        password: values.password,
-      },
-      resetForm,
-    ).catch((err) => {
+    handleLogin({
+      email: values.email,
+      password: values.password,
+    }).catch((err) => {
       console.log(err);
       setErrorMessage('Неправильный email или пароль');
     });

@@ -11,7 +11,7 @@ function request(endpoint, options) {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   };
-
+  // Разобраться почему локально работает, а на ВМ нет
   return fetch(
     // `http://localhost:4000${endpoint}`,
     `https://api.best-movies-explorer.nomoredomains.xyz${endpoint}`,

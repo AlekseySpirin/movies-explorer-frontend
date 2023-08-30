@@ -15,7 +15,7 @@ import ProtectedRouteElement from '../components/ProtectedRoute/ProtectedRoute';
 import Movies from '../pages/Movies/Movies';
 import SavedMovies from '../pages/SavedMovies/SavedMovies';
 
-import Preloader from '../components/Preloader/Preloader';
+// import Preloader from '../components/Preloader/Preloader';
 
 function App() {
   const navigate = useNavigate();
@@ -70,8 +70,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isReqErr, setIsReqErr] = useState(false);
   const [isNotFount, setIsNotFound] = useState(false);
-
-  console.log(savedMovies);
 
   function showResults() {
     setIsResultsOpen(true);
@@ -138,35 +136,37 @@ function App() {
     handleSubmit(makeRequest);
   }
 
-  // function getLoginUserDataFromToken() {
-  //   getContent()
-  //     .then((data) => {
-  //       if (data) {
-  //         setIsLoggedIn(true);
-  //         setUserData(data);
-  //       } else {
-  //         setIsLoggedIn(false);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       setIsLoggedIn(false);
-  //       console.log(err);
-  //     });
-  // }
+  function getLoginUserDataFromToken() {
+    getContent()
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          setIsLoggedIn(true);
+          setUserData(data);
+        } else {
+          setIsLoggedIn(false);
+        }
+      })
+      .catch((err) => {
+        setIsLoggedIn(false);
+        console.log(err);
+      });
+  }
 
   const handleLogout = () => {
+    console.log('Выход');
     logout().then((res) => console.log(res));
     localStorage.removeItem('movies');
     setIsLoggedIn(false);
     navigate('/');
   };
-  const handleLogin = ({ email, password }, resetForm) =>
+  const handleLogin = ({ email, password }) =>
     authorize(email, password).then((data) => {
+      console.log(data);
       setIsLoggedIn(true);
       navigate('/movies');
-      setUserData(data);
+      getLoginUserDataFromToken();
       // getLoginUserDataFromToken(data);
-      resetForm();
     });
 
   const handleRegister = ({ name, email, password }, resetForm) =>
@@ -191,16 +191,17 @@ function App() {
   // }, [isLoggedIn]);
 
   useEffect(() => {
-    if (isLoggedIn) {
-      apiMain
-        .getUserInfo()
-        .then((info) => {
-          setCurrentUser(info);
-          // navigate('/movies');
-        })
-        .catch(console.error);
-    }
-  }, [isLoggedIn]);
+    // if (isLoggedIn) {
+    apiMain
+      .getUserInfo()
+      .then((info) => {
+        console.log(info);
+        setCurrentUser(info);
+        // navigate('/movies');
+      })
+      .catch(console.error);
+    // }
+  }, []);
 
   useEffect(() => {
     const storedMovies = localStorage.getItem('movies');
@@ -226,23 +227,21 @@ function App() {
     }
   }, []);
 
-  console.log(sortedMovies);
-
   useEffect(() => {
-    if (isLoggedIn) {
-      apiMain
-        .getMovies()
-        .then((saveMovie) => {
-          setSavedMovies(saveMovie);
-          setIsReqErr(false);
-          // navigate('/movies');
-        })
-        .catch((err) => {
-          setIsReqErr(false);
-          console.log(err);
-        });
-    }
-  }, [isLoggedIn, moviesSearchQuery]);
+    // if (isLoggedIn) {
+    apiMain
+      .getMovies()
+      .then((saveMovie) => {
+        setSavedMovies(saveMovie);
+        setIsReqErr(false);
+        // navigate('/movies');
+      })
+      .catch((err) => {
+        setIsReqErr(false);
+        console.log(err);
+      });
+    // }
+  }, [moviesSearchQuery]);
 
   // eslint-disable-next-line no-shadow
   const filterMovies = (query, isShortFilm) => {
@@ -384,9 +383,9 @@ function App() {
     checkToken();
   }, []);
 
-  if (isLoggedIn === null) {
-    return <Preloader />;
-  }
+  // if (isLoggedIn === null) {
+  //   return <Preloader />;
+  // }
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <InfoTooltip
