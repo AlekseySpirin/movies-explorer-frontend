@@ -86,9 +86,9 @@ function MoviesCardList({
   return (
     <section className='films'>
       {isLoading && <Preloader />}
-      {!isFormSubmitted && location.pathname === '/movies' && (
-        <span className='card__list_not-found'>Что будем смотреть ? ^_^</span>
-      )}
+      {/* {!isFormSubmitted && location.pathname === '/movies' && ( */}
+      {/*   <span className='card__list_not-found'>Что будем смотреть ? ^_^</span> */}
+      {/* )} */}
       {isNotFount && !isLoading && (
         <span className='card__list_not-found'>Ничего не найдено</span>
       )}
@@ -101,10 +101,9 @@ function MoviesCardList({
       {!isLoading && !isReqErr && !isNotFount && (
         <>
           <ul className={'card-list'}>
-            {isFormSubmitted &&
-              location.pathname === '/movies' &&
+            {location.pathname === '/movies' &&
               sortedMovies
-                ?.slice(0, roundedVisibleCardCount)
+                .slice(0, roundedVisibleCardCount)
                 .map((card) => (
                   <MoviesCard
                     movieSaved={getSavedMovie(savedMovies, card)}

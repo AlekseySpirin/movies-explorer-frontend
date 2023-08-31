@@ -13,8 +13,8 @@ function request(endpoint, options) {
   };
   // Разобраться почему локально работает, а на ВМ нет
   return fetch(
-    // `http://localhost:4000${endpoint}`,
-    `https://api.best-movies-explorer.nomoredomains.xyz${endpoint}`,
+    `http://localhost:4000${endpoint}`,
+    // `https://api.best-movies-explorer.nomoredomains.xyz${endpoint}`,
     {
       ...options,
       headers,

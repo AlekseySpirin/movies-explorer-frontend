@@ -23,8 +23,9 @@ function App() {
   const [isResultsOpen, setIsResultsOpen] = useState(false);
 
   const {
-    REACT_APP_API_MAIN_URL = 'https://api.best-movies-explorer.nomoredomains.xyz',
-    // REACT_APP_API_MAIN_URL = 'http://localhost:4000',
+    // REACT_APP_API_MAIN_URL =
+    // 'https://api.best-movies-explorer.nomoredomains.xyz',
+    REACT_APP_API_MAIN_URL = 'http://localhost:4000',
     REACT_APP_API_MOVIES_URL = 'https://api.nomoreparties.co/beatfilm-movies',
   } = process.env;
 
@@ -39,20 +40,23 @@ function App() {
     url: REACT_APP_API_MOVIES_URL,
     headers: {
       'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
   });
   // Фильмы
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [sortedMovies, setSortedMovies] = useState(
-    JSON.parse(localStorage.getItem('sortedMovies')) || [],
+    [],
+    // JSON.parse(localStorage.getItem('sortedMovies')) || [],
   );
   const [sortedSavedMovies, setSortedSavedMovies] = useState(
-    JSON.parse(localStorage.getItem('sortedSavedMovies')) || [],
+    [],
+    // JSON.parse(localStorage.getItem('sortedSavedMovies')) || [],
   );
   const [moviesSearchQuery, setMoviesSearchQuery] = useState('');
   const [savedMoviesSearchQuery, setSavedMoviesSearchQuery] = useState('');
-  const [isShortFilm, setIsShortFilm] = useState(false);
+  const [isShortMovies, setIsShortMovies] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   // Пользователь
@@ -153,7 +157,8 @@ function App() {
   const handleLogout = () => {
     console.log('Выход');
     logout().then((res) => console.log(res));
-    localStorage.removeItem('movies');
+    // localStorage.removeItem('movies');
+    localStorage.clear();
     setIsLoggedIn(false);
     navigate('/');
   };
@@ -241,7 +246,7 @@ function App() {
   }, [isLoggedIn, moviesSearchQuery]);
 
   // eslint-disable-next-line no-shadow
-  const filterMovies = (query, isShortFilm) => {
+  const filterMovies = (query, isShortMovies) => {
     let filteredMovies = movies;
 
     // Фильтрация по общему поиску
@@ -263,19 +268,48 @@ function App() {
     }
 
     // Фильтрация по длительности
-    if (isShortFilm) {
+    if (isShortMovies) {
       filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+      localStorage.setItem('shortMovies', JSON.stringify(isShortMovies));
+      // localStorage.setItem('shortMovies', JSON.stringify(isShortMovies));
     }
 
     setSortedMovies(filteredMovies);
+    localStorage.setItem('sortedMovies', JSON.stringify(sortedMovies));
   };
 
   useEffect(() => {
-    filterMovies(moviesSearchQuery, isShortFilm);
-  }, [moviesSearchQuery, isShortFilm]);
+    if (localStorage.getItem('shortMovies') === true) {
+      setIsShortMovies(true);
+    } else {
+      setIsShortMovies(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const moviesSearchQueryLS = localStorage.getItem('moviesSearchQuery');
+    if (moviesSearchQueryLS) {
+      setMoviesSearchQuery(moviesSearchQueryLS);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('moviesSearchQuery', moviesSearchQuery);
+  }, [moviesSearchQuery]);
+
+  useEffect(() => {
+    const sortedMoviesLS = JSON.parse(localStorage.getItem('sortedMovies'));
+    if (sortedMoviesLS) {
+      setSortedMovies(sortedMoviesLS);
+    }
+  }, []);
+
+  useEffect(() => {
+    filterMovies(moviesSearchQuery, isShortMovies);
+  }, [moviesSearchQuery, isShortMovies]);
 
   // eslint-disable-next-line no-shadow
-  const filterSavedMovies = (savedMoviesQuery, isShortFilm) => {
+  const filterSavedMovies = (savedMoviesQuery, isShortMovies) => {
     let filteredMovies = savedMovies;
     if (savedMoviesQuery) {
       const lowercaseSavedMoviesQuery = savedMoviesQuery.toLowerCase().trim();
@@ -295,34 +329,41 @@ function App() {
     }
 
     // Фильтрация по длительности
-    if (isShortFilm) {
+    if (isShortMovies) {
       filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
     }
 
     setSortedSavedMovies(filteredMovies);
+    // localStorage.setItem(
+    //   'sortedSavedMovies',
+    //   JSON.stringify(sortedSavedMovies),
+    // );
   };
 
   useEffect(() => {
-    filterSavedMovies(savedMoviesSearchQuery, isShortFilm);
-  }, [savedMoviesSearchQuery, isShortFilm]);
+    filterSavedMovies(savedMoviesSearchQuery, isShortMovies);
+  }, [savedMoviesSearchQuery, isShortMovies]);
 
   const handleSearch = (query) => {
+    localStorage.setItem('shortMovies', isShortMovies);
     setMoviesSearchQuery(query);
-    filterMovies(query, isShortFilm);
+    filterMovies(query, isShortMovies);
   };
 
   const handleSearchSavedMovies = (query) => {
     setSavedMoviesSearchQuery(query);
-    filterSavedMovies(query, isShortFilm);
+    filterSavedMovies(query, isShortMovies);
   };
 
   const handleCheckbox = (checked) => {
-    setIsShortFilm(checked);
+    setIsShortMovies(checked);
     filterMovies(moviesSearchQuery, checked);
+    localStorage.setItem('isShortMovies', JSON.stringify(checked));
   };
   const handleCheckboxSavedMovies = (checked) => {
-    setIsShortFilm(checked);
+    setIsShortMovies(checked);
     filterMovies(savedMoviesSearchQuery, checked);
+    localStorage.setItem('isShortMovies', JSON.stringify(checked));
   };
 
   // useEffect(() => {
@@ -349,7 +390,7 @@ function App() {
   //       } else {
   //         setIsNotFound(false);
   //       }
-  //       if (isShortFilm) {
+  //       if (isShortMovies) {
   //         filtered = filtered.filter((movie) => movie.duration <= 40);
   //       }
   //
@@ -357,7 +398,7 @@ function App() {
   //     };
   //     sortMovies();
   //   }
-  // }, [moviesSearchQuery, isShortFilm]);
+  // }, [moviesSearchQuery, isShortMovies]);
 
   const checkToken = () => {
     getContent()
@@ -385,12 +426,6 @@ function App() {
   }
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <InfoTooltip
-        name={'result'}
-        isSucces={isSuccess}
-        isOpen={isResultsOpen}
-        onClose={closeAllPopups}
-      />
       <Routes>
         <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
         <Route
@@ -411,6 +446,9 @@ function App() {
               isNotFount={isNotFount}
               isFormSubmitted={isFormSubmitted}
               setIsFormSubmitted={setIsFormSubmitted}
+              isShortMovies={isShortMovies}
+              moviesSearchQuery={moviesSearchQuery}
+              setIsShortMovies={setIsShortMovies}
             />
           }
         />
@@ -431,6 +469,8 @@ function App() {
               sortedSavedMovies={sortedSavedMovies}
               isFormSubmitted={isFormSubmitted}
               setIsFormSubmitted={setIsFormSubmitted}
+              isShortMovies={isShortMovies}
+              setIsShortMovies={setIsShortMovies}
             />
           }
         />
@@ -456,6 +496,12 @@ function App() {
         />
         <Route path='*' element={<NotFound />} />
       </Routes>
+      <InfoTooltip
+        name={'result'}
+        isSucces={isSuccess}
+        isOpen={isResultsOpen}
+        onClose={closeAllPopups}
+      />
     </CurrentUserContext.Provider>
   );
 }

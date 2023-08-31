@@ -15,6 +15,8 @@ function SavedMovies({
   handleCheckboxSavedMovies,
   isFormSubmitted,
   setIsFormSubmitted,
+  isShortMovies,
+  setIsShortMovies,
 }) {
   return (
     <div className={'saved-movies'}>
@@ -23,7 +25,11 @@ function SavedMovies({
         handleSearchSavedMovies={handleSearchSavedMovies}
         setIsFormSubmitted={setIsFormSubmitted}
       />
-      <FilterCheckbox handleCheckbox={handleCheckboxSavedMovies} />
+      <FilterCheckbox
+        setIsShortMovies={setIsShortMovies}
+        isShortMovies={isShortMovies}
+        handleCheckbox={handleCheckboxSavedMovies}
+      />
       <hr className={'saved-movies__hr'} />
       <MoviesCardList
         sortedSavedMovies={sortedSavedMovies}

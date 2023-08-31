@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import cl from './SearchForm.module.css';
 
@@ -6,6 +6,7 @@ function SearchForm({
   handleSearch,
   setIsFormSubmitted,
   handleSearchSavedMovies,
+  moviesSearchQuery,
 }) {
   const location = useLocation();
   const [searchValue, setSearchValue] = useState('');
@@ -24,11 +25,17 @@ function SearchForm({
     const { value } = e.target;
     setSearchValue(value);
   };
-
+  console.log(moviesSearchQuery);
   const handleChangeSavedMovies = (e) => {
     const { value } = e.target;
     setSavedMoviesSearchValue(value);
   };
+
+  useEffect(() => {
+    if (moviesSearchQuery) {
+      setSearchValue(moviesSearchQuery);
+    }
+  }, [moviesSearchQuery]);
   return (
     <>
       {location.pathname === '/movies' && (
@@ -43,6 +50,7 @@ function SearchForm({
             type='text'
             placeholder={'Фильм'}
             onChange={handleChange}
+            value={searchValue}
           />
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label,react/button-has-type */}
           <button className={cl.searchFormBtn} />

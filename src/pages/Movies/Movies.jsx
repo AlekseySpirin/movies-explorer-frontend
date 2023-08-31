@@ -18,6 +18,9 @@ function Movies({
   isNotFount,
   isFormSubmitted,
   setIsFormSubmitted,
+  isShortMovies,
+  moviesSearchQuery,
+  setIsShortMovies,
 }) {
   // const [searchQuery, setSearchQuery] = useState('');
   // const [isShortFilm, setIsShortFilm] = useState(false);
@@ -60,10 +63,15 @@ function Movies({
       <Navigation />
       <main className={'movies'}>
         <SearchForm
+          moviesSearchQuery={moviesSearchQuery}
           handleSearch={handleSearch}
           setIsFormSubmitted={setIsFormSubmitted}
         />
-        <FilterCheckbox handleCheckbox={handleCheckbox} />
+        <FilterCheckbox
+          isShortMovies={isShortMovies}
+          handleCheckbox={handleCheckbox}
+          setIsShortMovies={setIsShortMovies}
+        />
         <hr className={'movies__hr'} />
         <MoviesCardList
           savedMovies={savedMovies}
