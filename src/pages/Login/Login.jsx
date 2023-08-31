@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 
 function Login({ handleLogin }) {
-  const { values, handleChange, errors } = useFormAndValidation({
+  const { values, handleChange, errors, isValid } = useFormAndValidation({
     email: '',
     password: '',
   });
 
   const [errorMessage, setErrorMessage] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
 
     handleLogin({
       email: values.email,
       password: values.password,
-    }).catch((err) => {
-      console.log(err);
-      setErrorMessage('Неправильный email или пароль');
-    });
+    })
+      .then(() => {
+        navigate('/movies');
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrorMessage('Неправильный email или пароль');
+      });
   };
 
   return (
@@ -37,6 +41,7 @@ function Login({ handleLogin }) {
             id='email'
             name='email'
             type='email'
+            pattern='^\S+@\S+\.[A-Za-z]{2,}$'
             minLength='2'
             maxLength='30'
             onChange={handleChange}
@@ -61,7 +66,11 @@ function Login({ handleLogin }) {
             <span className='form__item-error'>{errors.password}</span>
           )}
           <p className={'login__error'}>{errorMessage}</p>
-          <button type='submit' className='login__button'>
+          <button
+            type='submit'
+            className='login__button'
+            disabled={!isValid || values.email === '' || values.password === ''}
+          >
             Войти
           </button>
         </form>

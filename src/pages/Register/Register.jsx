@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import './Register.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 
 function Register({ handleRegister }) {
-  const { values, handleChange, errors, resetForm } = useFormAndValidation({
-    email: '',
-    password: '',
-  });
+  const navigate = useNavigate();
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation({
+      name: '',
+      email: '',
+      password: '',
+    });
 
   const [errorMessage, setErrorMessage] = useState('');
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,10 +24,14 @@ function Register({ handleRegister }) {
         password: values.password,
       },
       resetForm,
-    ).catch((err) => {
-      setErrorMessage(err);
-      // showResults();
-    });
+    )
+      .then(() => {
+        navigate('/movies');
+      })
+      .catch((err) => {
+        setErrorMessage(err);
+        // showResults();
+      });
   };
   return (
     <div className={'register'}>
@@ -57,6 +63,7 @@ function Register({ handleRegister }) {
             id='email'
             name='email'
             type='email'
+            pattern='^\S+@\S+\.[A-Za-z]{2,}$'
             minLength='2'
             maxLength='30'
             onChange={handleChange}
@@ -85,7 +92,16 @@ function Register({ handleRegister }) {
             </span>
           )}
           <p className={'register__error'}>{errorMessage}</p>
-          <button type='submit' className='register__button'>
+          <button
+            type='submit'
+            disabled={
+              !isValid ||
+              values.name === '' ||
+              values.email === '' ||
+              values.password === ''
+            }
+            className='register__button'
+          >
             Зарегистрироваться
           </button>
         </form>

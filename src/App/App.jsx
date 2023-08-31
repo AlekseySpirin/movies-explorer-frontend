@@ -155,11 +155,10 @@ function App() {
   }
 
   const handleLogout = () => {
-    console.log('Выход');
-    logout().then((res) => console.log(res));
-    // localStorage.removeItem('movies');
     localStorage.clear();
+    logout().then((res) => console.log(res));
     setIsLoggedIn(false);
+    localStorage.removeItem('movies');
     navigate('/');
   };
   const handleLogin = ({ email, password }) =>
@@ -174,6 +173,10 @@ function App() {
   const handleRegister = ({ name, email, password }, resetForm) =>
     // eslint-disable-next-line no-undef
     register(name, email, password).then(() => {
+      handleLogin({
+        email,
+        password,
+      });
       successResult();
       showResults();
       navigate('/signin');
@@ -424,6 +427,7 @@ function App() {
   if (isLoggedIn === null) {
     return <Preloader />;
   }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
@@ -486,6 +490,7 @@ function App() {
               editingProfile={editingProfile}
               isLoading={isLoading}
               handleEditProfileClick={handleEditProfileClick}
+              setEditingProfile={setEditingProfile}
             />
           }
         />

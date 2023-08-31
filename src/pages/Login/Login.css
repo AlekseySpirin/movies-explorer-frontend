@@ -109,6 +109,16 @@
     transition: opacity .4s;
 }
 
+.login__button:disabled {
+    background: #F8F8F8;
+    color: #C2C2C2;
+}
+
+.login__button:disabled:hover {
+    opacity: 1;
+    cursor: auto;
+}
+
 .login__button:hover {
     opacity: .8;
 }
