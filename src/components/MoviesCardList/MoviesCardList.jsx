@@ -118,11 +118,9 @@ function MoviesCardList({
                   />
                 ))}
             {location.pathname === '/saved-movies' &&
-              (
-                (sortedSavedMovies.length === 0 &&
-                  !isFormSubmitted &&
-                  savedMovies) ||
-                sortedSavedMovies
+              (sortedSavedMovies.length === 0
+                ? savedMovies
+                : sortedSavedMovies
               ).map((card) => (
                 <MoviesCard
                   movieSaved={getSavedMovie(savedMovies, card)}

@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import cl from './SearchForm.module.css';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm({
   handleSearch,
   setIsFormSubmitted,
-  handleSearchSavedMovies,
   moviesSearchQuery,
+  handleCheckbox,
+  handleSearchSavedMovies,
+  isShortMovies,
+  handleCheckboxSavedMovies,
+  setIsShortMovies,
 }) {
   const location = useLocation();
   const [searchValue, setSearchValue] = useState('');
@@ -15,7 +20,7 @@ function SearchForm({
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsFormSubmitted(true);
-    handleSearch(searchValue, savedMoviesSearchValue);
+    handleSearch(searchValue);
   };
   const handleSubmitSavedMovies = (e) => {
     e.preventDefault();
@@ -73,6 +78,15 @@ function SearchForm({
           <button className={cl.searchFormBtn} />
         </form>
       )}
+      <FilterCheckbox
+        handleSearch={handleSearch}
+        isShortMovies={isShortMovies}
+        handleCheckbox={handleCheckbox}
+        setIsShortMovies={setIsShortMovies}
+        handleSubmit={handleSubmit}
+        handleCheckboxSavedMovies={handleCheckboxSavedMovies}
+        handleSubmitSavedMovies={handleSubmitSavedMovies}
+      />
     </>
   );
 }

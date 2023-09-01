@@ -20,7 +20,8 @@ function MoviesCard({
   //     savedMovies.some((movie) => movie.movieId === card.movieId),
   //   );
   // }, [savedMovies, card.movieId]);
-  const saveMovieClick = () => {
+  const saveMovieClick = (e) => {
+    e.preventDefault();
     handleSaveMovie(card);
     // setIsMovieSaved(true);
   };
