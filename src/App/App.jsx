@@ -100,6 +100,9 @@ function App() {
       .finally(() => setIsLoading(false));
   }
 
+  const [responseMessage, setResponseMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
   function handleUpdateUser({ name, email }) {
     function makeRequest() {
       return apiMain
@@ -107,7 +110,21 @@ function App() {
           name,
           email,
         })
-        .then(setCurrentUser);
+        .then((res) => {
+          setCurrentUser(res);
+          setResponseMessage('Обновление данных прользователя прошло успешно');
+          setErrorMessage('');
+        })
+        .catch((err) => {
+          console.log(err);
+          if (err === 'Ошибка 409') {
+            setResponseMessage('');
+            setErrorMessage('Пользователь с таким email уже существует');
+            console.log(responseMessage);
+          } else {
+            setErrorMessage('При обновлении профиля произошла ошибка');
+          }
+        });
     }
 
     handleSubmit(makeRequest);
@@ -156,7 +173,9 @@ function App() {
 
   const handleLogout = () => {
     localStorage.clear();
-    logout().then((res) => console.log(res));
+    logout().then((res) => {
+      console.log(res);
+    });
     setIsLoggedIn(false);
     localStorage.removeItem('movies');
     navigate('/');
@@ -491,6 +510,8 @@ function App() {
               isLoading={isLoading}
               handleEditProfileClick={handleEditProfileClick}
               setEditingProfile={setEditingProfile}
+              responseMessage={responseMessage}
+              errorMessage={errorMessage}
             />
           }
         />

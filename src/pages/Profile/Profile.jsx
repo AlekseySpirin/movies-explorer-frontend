@@ -1,5 +1,5 @@
 import './Profile.css';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import SpanError from '../../components/SpanError/SpanError';
@@ -12,18 +12,31 @@ function Profile({
   isLoading,
   editingProfile,
   handleEditProfileClick,
+  setEditingProfile,
+  responseMessage,
+  errorMessage,
 }) {
   const currentUser = useContext(CurrentUserContext);
   const { name, email } = currentUser;
-  const [errorMessage, setErrorMessage] = useState('');
 
-  const { values, handleChange, isValid, errors } = useFormAndValidation({
-    name,
-    email,
-  });
+  const { values, setValues, handleChange, isValid, errors } =
+    useFormAndValidation({
+      name,
+      email,
+    });
 
+  useEffect(() => {
+    if (editingProfile) {
+      setValues({
+        ...values,
+        name,
+        email,
+      });
+    }
+  }, [editingProfile]);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setEditingProfile(false);
     try {
       // throw new Error('Тестовая ошибка');
       await handleUpdateUser({
@@ -32,8 +45,6 @@ function Profile({
       });
     } catch (err) {
       console.log(err);
-      console.log('При обновлении профиля произошла ошибка');
-      setErrorMessage('При обновлении профиля произошла ошибка');
     }
   };
 
@@ -74,6 +85,7 @@ function Profile({
                     type='email'
                     minLength='2'
                     maxLength='30'
+                    pattern='^\S+@\S+\.[A-Za-z]{2,}$'
                     value={values.email}
                     onChange={handleChange}
                     placeholder={email}
@@ -86,13 +98,21 @@ function Profile({
             </li>
           </ul>
           <div className='profile__btn-container'>
-            {editingProfile && (
-              <span className={'profile__error-text'}>{errorMessage}</span>
-            )}
+            <span className={'profile__error-text'}>
+              {editingProfile && errorMessage ? '' : errorMessage}
+            </span>
+            <span className={'profile__response-text'}>
+              {editingProfile && responseMessage ? '' : responseMessage}
+            </span>
             {editingProfile ? (
               <button
                 type='submit'
-                disabled={!isValid}
+                disabled={
+                  !isValid ||
+                  (values.email === email && values.name === name) ||
+                  values.email === '' ||
+                  values.name === ''
+                }
                 className='profile__btn profile__btn_type_submit'
               >
                 {isLoading ? <Preloader /> : 'Сохранить'}
