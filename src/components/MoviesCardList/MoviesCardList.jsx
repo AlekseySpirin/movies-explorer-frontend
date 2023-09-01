@@ -4,14 +4,14 @@ import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
-
-const LG_ROW_CARD_COUNT = 3;
-const MD_ROW_CARD_COUNT = 2;
-const SM_ROW_CARD_COUNT = 1;
-
-const LG_INITIAL_CARD_COUNT = 12;
-const MD_INITIAL_CARD_COUNT = 8;
-const SM_INITIAL_CARD_COUNT = 5;
+import {
+  LG_INITIAL_CARD_COUNT,
+  LG_ROW_CARD_COUNT,
+  MD_INITIAL_CARD_COUNT,
+  MD_ROW_CARD_COUNT,
+  SM_INITIAL_CARD_COUNT,
+  SM_ROW_CARD_COUNT,
+} from '../../utils/constants';
 
 function MoviesCardList({
   movies,

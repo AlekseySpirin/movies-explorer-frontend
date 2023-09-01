@@ -1,3 +1,5 @@
+import { REACT_APP_API_MAIN_URL } from './constants';
+
 function checkResponse(res) {
   if (res.ok) {
     return res.json();
@@ -13,8 +15,8 @@ function request(endpoint, options) {
   };
   // Разобраться почему локально работает, а на ВМ нет
   return fetch(
-    `http://localhost:4000${endpoint}`,
-    // `https://api.best-movies-explorer.nomoredomains.xyz${endpoint}`,
+    // `http://localhost:4000${endpoint}`,
+    `${REACT_APP_API_MAIN_URL}${endpoint}`,
     {
       ...options,
       headers,

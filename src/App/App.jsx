@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import CurrentUserContext from '../contexts/CurrentUserContext';
 import Register from '../pages/Register/Register';
 import Main from '../pages/Main/Main';
@@ -16,18 +22,16 @@ import Movies from '../pages/Movies/Movies';
 import SavedMovies from '../pages/SavedMovies/SavedMovies';
 import Preloader from '../components/Preloader/Preloader';
 
+import {
+  REACT_APP_API_MAIN_URL,
+  REACT_APP_API_MOVIES_URL,
+} from '../utils/constants';
+
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isResultsOpen, setIsResultsOpen] = useState(false);
-
-  const {
-    // REACT_APP_API_MAIN_URL =
-    // 'https://api.best-movies-explorer.nomoredomains.xyz',
-    REACT_APP_API_MAIN_URL = 'http://localhost:4000',
-    REACT_APP_API_MOVIES_URL = 'https://api.nomoreparties.co/beatfilm-movies',
-  } = process.env;
 
   const apiMain = new MainApi({
     url: REACT_APP_API_MAIN_URL,
@@ -203,7 +207,6 @@ function App() {
   const handleLogin = ({ email, password }) =>
     authorize(email, password).then((data) => {
       console.log(data);
-      setIsLoggedIn(true);
       navigate('/movies');
       getLoginUserDataFromToken();
       // getLoginUserDataFromToken(data);
@@ -272,18 +275,24 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    apiMain
-      .getMovies()
-      .then((saveMovie) => {
-        setSavedMovies(saveMovie);
-        setIsReqErr(false);
-        // navigate('/movies');
-      })
-      .catch((err) => {
-        setIsReqErr(false);
-        console.log(err);
-      });
-  }, [isLoggedIn, moviesSearchQuery]);
+    const storedMovies = localStorage.getItem('savedMovies');
+    if (storedMovies) {
+      setSavedMovies(JSON.parse(storedMovies));
+    } else {
+      apiMain
+        .getMovies()
+        .then((saveMovie) => {
+          setSavedMovies(saveMovie);
+          localStorage.setItem('savedMovies', JSON.stringify(saveMovie));
+          setIsReqErr(false);
+          // navigate('/movies');
+        })
+        .catch((err) => {
+          setIsReqErr(false);
+          console.log(err);
+        });
+    }
+  }, [isLoggedIn]);
 
   // eslint-disable-next-line no-shadow
   const filterMovies = (query, isShortMovies) => {
@@ -381,7 +390,7 @@ function App() {
 
   useEffect(() => {
     filterSavedMovies(savedMoviesSearchQuery, isShortMovies);
-  }, [savedMoviesSearchQuery, isShortMovies]);
+  }, [savedMovies, savedMoviesSearchQuery, isShortMovies]);
 
   const handleSearch = (query) => {
     localStorage.setItem('shortMovies', isShortMovies);
@@ -404,40 +413,6 @@ function App() {
     filterMovies(savedMoviesSearchQuery, checked);
     localStorage.setItem('isShortMovies', JSON.stringify(checked));
   };
-
-  // useEffect(() => {
-  //   if (sortedSavedMovies.length === 0) {
-  //     setSortedSavedMovies(savedMovies);
-  //   }
-  // }, [sortedSavedMovies]);
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     const sortMovies = () => {
-  //       let filtered = movies;
-  //       if (moviesSearchQuery) {
-  //         const query = moviesSearchQuery.toLowerCase().trim();
-  //         filtered = filtered.filter(
-  //           (movie) =>
-  //             movie.nameRU.toLowerCase().includes(query) ||
-  //             movie.nameEN.toLowerCase().includes(query),
-  //         );
-  //         if (filtered.length === 0) {
-  //           setIsNotFound(true);
-  //         } else {
-  //           setIsNotFound(false);
-  //         }
-  //       } else {
-  //         setIsNotFound(false);
-  //       }
-  //       if (isShortMovies) {
-  //         filtered = filtered.filter((movie) => movie.duration <= 40);
-  //       }
-  //
-  //       setSortedMovies(filtered);
-  //     };
-  //     sortMovies();
-  //   }
-  // }, [moviesSearchQuery, isShortMovies]);
 
   const checkToken = () => {
     getContent()
@@ -532,11 +507,23 @@ function App() {
             />
           }
         />
-        <Route path='/signin' element={<Login handleLogin={handleLogin} />} />
-        <Route
-          path='/signup'
-          element={<Register handleRegister={handleRegister} />}
-        />
+        {isLoggedIn ? (
+          <>
+            <Route path='/signin' element={<Navigate to='/movies' />} />
+            <Route path='/signup' element={<Navigate to='/movies' />} />
+          </>
+        ) : (
+          <>
+            <Route
+              path='/signin'
+              element={<Login handleLogin={handleLogin} />}
+            />
+            <Route
+              path='/signup'
+              element={<Register handleRegister={handleRegister} />}
+            />
+          </>
+        )}
         <Route path='*' element={<NotFound />} />
       </Routes>
       <InfoTooltip
