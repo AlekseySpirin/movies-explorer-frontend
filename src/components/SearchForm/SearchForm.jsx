@@ -12,6 +12,8 @@ function SearchForm({
   isShortMovies,
   handleCheckboxSavedMovies,
   setIsShortMovies,
+  setIsShortSavedMovies,
+  isShortSavedMovies,
 }) {
   const location = useLocation();
   const [searchValue, setSearchValue] = useState('');
@@ -83,9 +85,11 @@ function SearchForm({
         isShortMovies={isShortMovies}
         handleCheckbox={handleCheckbox}
         setIsShortMovies={setIsShortMovies}
+        setIsShortSavedMovies={setIsShortSavedMovies}
         handleSubmit={handleSubmit}
         handleCheckboxSavedMovies={handleCheckboxSavedMovies}
         handleSubmitSavedMovies={handleSubmitSavedMovies}
+        isShortSavedMovies={isShortSavedMovies}
       />
     </>
   );

@@ -9,6 +9,8 @@ function FilterCheckbox({
   handleSubmit,
   handleCheckboxSavedMovies,
   handleSubmitSavedMovies,
+  isShortSavedMovies,
+  setIsShortSavedMovies,
 }) {
   const location = useLocation();
   const handleChange = (e) => {
@@ -24,13 +26,23 @@ function FilterCheckbox({
   };
 
   useEffect(() => {
-    setIsShortMovies(isShortMovies);
+    if (location.pathname === '/movies') {
+      setIsShortMovies(isShortMovies);
+    }
   }, [isShortMovies]);
 
   useEffect(() => {
-    const storedIsShortMovies = localStorage.getItem('isShortMovies');
-    if (storedIsShortMovies) {
-      setIsShortMovies(JSON.parse(storedIsShortMovies));
+    if (location.pathname === '/saved-movies') {
+      setIsShortSavedMovies(isShortSavedMovies);
+    }
+  }, [isShortSavedMovies]);
+
+  useEffect(() => {
+    if (location.pathname === '/movies') {
+      const storedIsShortMovies = localStorage.getItem('isShortMovies');
+      if (storedIsShortMovies) {
+        setIsShortMovies(JSON.parse(storedIsShortMovies));
+      }
     }
   }, []);
 
@@ -48,7 +60,7 @@ function FilterCheckbox({
         {location.pathname === '/saved-movies' && (
           <input
             type={'checkbox'}
-            checked={isShortMovies}
+            checked={isShortSavedMovies}
             onChange={handleChangeSavedMovies}
           />
         )}

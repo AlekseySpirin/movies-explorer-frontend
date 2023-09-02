@@ -14,8 +14,9 @@ function SavedMovies({
   handleCheckboxSavedMovies,
   isFormSubmitted,
   setIsFormSubmitted,
+  isShortSavedMovies,
+  setIsShortSavedMovies,
   isShortMovies,
-  setIsShortMovies,
 }) {
   return (
     <>
@@ -24,9 +25,10 @@ function SavedMovies({
         <SearchForm
           setIsFormSubmitted={setIsFormSubmitted}
           handleSearchSavedMovies={handleSearchSavedMovies}
-          isShortMovies={isShortMovies}
           handleCheckboxSavedMovies={handleCheckboxSavedMovies}
-          setIsShortMovies={setIsShortMovies}
+          setIsShortSavedMovies={setIsShortSavedMovies}
+          isShortSavedMovies={isShortSavedMovies}
+          isShortMovies={isShortMovies}
         />
         {/* <FilterCheckbox */}
         {/*   setIsShortMovies={setIsShortMovies} */}

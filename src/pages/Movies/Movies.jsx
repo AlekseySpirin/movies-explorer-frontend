@@ -20,6 +20,8 @@ function Movies({
   moviesSearchQuery,
   isShortMovies,
   setIsShortMovies,
+  isShortSavedMovies,
+  setIsShortSavedMovies,
 }) {
   return (
     <>
@@ -32,6 +34,8 @@ function Movies({
           isShortMovies={isShortMovies}
           handleCheckbox={handleCheckbox}
           setIsShortMovies={setIsShortMovies}
+          isShortSavedMovies={isShortSavedMovies}
+          setIsShortSavedMovies={setIsShortSavedMovies}
         />
         {/* <FilterCheckbox */}
         {/*   handleSearch={handleSearch} */}

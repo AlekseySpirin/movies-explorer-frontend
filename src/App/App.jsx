@@ -62,6 +62,7 @@ function App() {
   const [moviesSearchQuery, setMoviesSearchQuery] = useState('');
   const [savedMoviesSearchQuery, setSavedMoviesSearchQuery] = useState('');
   const [isShortMovies, setIsShortMovies] = useState(false);
+  const [isShortSavedMovies, setIsShortSavedMovies] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   // Пользователь
@@ -255,7 +256,7 @@ function App() {
     const storedMovies = localStorage.getItem('movies');
     if (storedMovies) {
       setMovies(JSON.parse(storedMovies));
-    } else {
+    } else if (isLoggedIn) {
       setIsLoading(true);
       apiMovie
         .getMovies()
@@ -347,8 +348,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('moviesSearchQuery', moviesSearchQuery);
-  }, [moviesSearchQuery]);
+    if (isLoggedIn) {
+      localStorage.setItem('moviesSearchQuery', moviesSearchQuery);
+    }
+  }, [isLoggedIn, moviesSearchQuery]);
 
   useEffect(() => {
     const sortedMoviesLS = JSON.parse(localStorage.getItem('sortedMovies'));
@@ -362,7 +365,7 @@ function App() {
   }, [moviesSearchQuery, isShortMovies]);
 
   // eslint-disable-next-line no-shadow
-  const filterSavedMovies = (savedMoviesQuery, isShortMovies) => {
+  const filterSavedMovies = (savedMoviesQuery, isShortSavedMovies) => {
     let filteredMovies = savedMovies;
     if (savedMoviesQuery) {
       const lowercaseSavedMoviesQuery = savedMoviesQuery.toLowerCase().trim();
@@ -382,22 +385,22 @@ function App() {
     }
 
     // Фильтрация по длительности
-    if (isShortMovies) {
+    if (isShortSavedMovies) {
       filteredMovies = filteredMovies.filter(
         (movie) => movie.duration <= SHORT_MOVIE_DURATION,
       );
     }
 
     setSortedSavedMovies(filteredMovies);
-    localStorage.setItem(
-      'sortedSavedMovies',
-      JSON.stringify(sortedSavedMovies),
-    );
+    // localStorage.setItem(
+    //   'sortedSavedMovies',
+    //   JSON.stringify(sortedSavedMovies),
+    // );
   };
 
   useEffect(() => {
-    filterSavedMovies(savedMoviesSearchQuery, isShortMovies);
-  }, [savedMovies, savedMoviesSearchQuery, isShortMovies]);
+    filterSavedMovies(savedMoviesSearchQuery, isShortSavedMovies);
+  }, [savedMovies, savedMoviesSearchQuery, isShortSavedMovies]);
 
   const handleSearch = (query) => {
     localStorage.setItem('shortMovies', isShortMovies);
@@ -407,7 +410,7 @@ function App() {
 
   const handleSearchSavedMovies = (query) => {
     setSavedMoviesSearchQuery(query);
-    filterSavedMovies(query, isShortMovies);
+    filterSavedMovies(query, isShortSavedMovies);
   };
 
   const handleCheckbox = (checked) => {
@@ -416,9 +419,9 @@ function App() {
     localStorage.setItem('isShortMovies', JSON.stringify(checked));
   };
   const handleCheckboxSavedMovies = (checked) => {
-    setIsShortMovies(checked);
+    setIsShortSavedMovies(checked);
     filterMovies(savedMoviesSearchQuery, checked);
-    localStorage.setItem('isShortMovies', JSON.stringify(checked));
+    // localStorage.setItem('isShortMovies', JSON.stringify(checked));
   };
 
   const checkToken = () => {
@@ -468,9 +471,11 @@ function App() {
               isNotFount={isNotFount}
               isFormSubmitted={isFormSubmitted}
               setIsFormSubmitted={setIsFormSubmitted}
-              isShortMovies={isShortMovies}
               moviesSearchQuery={moviesSearchQuery}
+              isShortMovies={isShortMovies}
               setIsShortMovies={setIsShortMovies}
+              setIsShortSavedMovies={setIsShortSavedMovies}
+              isShortSavedMovies={isShortSavedMovies}
             />
           }
         />
@@ -493,6 +498,8 @@ function App() {
               setIsFormSubmitted={setIsFormSubmitted}
               isShortMovies={isShortMovies}
               setIsShortMovies={setIsShortMovies}
+              setIsShortSavedMovies={setIsShortSavedMovies}
+              isShortSavedMovies={isShortSavedMovies}
             />
           }
         />
