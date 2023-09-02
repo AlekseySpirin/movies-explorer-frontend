@@ -18,31 +18,33 @@ function SavedMovies({
   setIsShortMovies,
 }) {
   return (
-    <div className={'saved-movies'}>
+    <>
       <Navigation />
-      <SearchForm
-        setIsFormSubmitted={setIsFormSubmitted}
-        handleSearchSavedMovies={handleSearchSavedMovies}
-        isShortMovies={isShortMovies}
-        handleCheckboxSavedMovies={handleCheckboxSavedMovies}
-        setIsShortMovies={setIsShortMovies}
-      />
-      {/* <FilterCheckbox */}
-      {/*   setIsShortMovies={setIsShortMovies} */}
-      {/*   isShortMovies={isShortMovies} */}
-      {/*   handleCheckboxSavedMovies={handleCheckboxSavedMovies} */}
-      {/* /> */}
-      <hr className={'saved-movies__hr'} />
-      <MoviesCardList
-        sortedSavedMovies={sortedSavedMovies}
-        isSavedMovies
-        handleDeleteMovie={handleDeleteMovie}
-        savedMovies={savedMovies}
-        handleSaveMovie={handleSaveMovie}
-        isFormSubmitted={isFormSubmitted}
-      />
+      <main className={'saved-movies'}>
+        <SearchForm
+          setIsFormSubmitted={setIsFormSubmitted}
+          handleSearchSavedMovies={handleSearchSavedMovies}
+          isShortMovies={isShortMovies}
+          handleCheckboxSavedMovies={handleCheckboxSavedMovies}
+          setIsShortMovies={setIsShortMovies}
+        />
+        {/* <FilterCheckbox */}
+        {/*   setIsShortMovies={setIsShortMovies} */}
+        {/*   isShortMovies={isShortMovies} */}
+        {/*   handleCheckboxSavedMovies={handleCheckboxSavedMovies} */}
+        {/* /> */}
+        <hr className={'saved-movies__hr'} />
+        <MoviesCardList
+          sortedSavedMovies={sortedSavedMovies}
+          isSavedMovies
+          handleDeleteMovie={handleDeleteMovie}
+          savedMovies={savedMovies}
+          handleSaveMovie={handleSaveMovie}
+          isFormSubmitted={isFormSubmitted}
+        />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 
