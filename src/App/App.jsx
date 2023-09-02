@@ -275,22 +275,24 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    const storedMovies = localStorage.getItem('savedMovies');
-    if (storedMovies) {
-      setSavedMovies(JSON.parse(storedMovies));
-    } else {
-      apiMain
-        .getMovies()
-        .then((saveMovie) => {
-          setSavedMovies(saveMovie);
-          localStorage.setItem('savedMovies', JSON.stringify(saveMovie));
-          setIsReqErr(false);
-          // navigate('/movies');
-        })
-        .catch((err) => {
-          setIsReqErr(false);
-          console.log(err);
-        });
+    if (isLoggedIn) {
+      const storedMovies = localStorage.getItem('savedMovies');
+      if (storedMovies) {
+        setSavedMovies(JSON.parse(storedMovies));
+      } else {
+        apiMain
+          .getMovies()
+          .then((saveMovie) => {
+            setSavedMovies(saveMovie);
+            localStorage.setItem('savedMovies', JSON.stringify(saveMovie));
+            setIsReqErr(false);
+            // navigate('/movies');
+          })
+          .catch((err) => {
+            setIsReqErr(false);
+            console.log(err);
+          });
+      }
     }
   }, [isLoggedIn]);
 
