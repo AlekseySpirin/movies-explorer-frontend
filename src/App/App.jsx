@@ -25,6 +25,7 @@ import Preloader from '../components/Preloader/Preloader';
 import {
   REACT_APP_API_MAIN_URL,
   REACT_APP_API_MOVIES_URL,
+  SHORT_MOVIE_DURATION,
 } from '../utils/constants';
 
 function App() {
@@ -320,7 +321,9 @@ function App() {
 
     // Фильтрация по длительности
     if (isShortMovies) {
-      filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+      filteredMovies = filteredMovies.filter(
+        (movie) => movie.duration <= SHORT_MOVIE_DURATION,
+      );
       localStorage.setItem('shortMovies', JSON.stringify(isShortMovies));
     }
 
@@ -380,7 +383,9 @@ function App() {
 
     // Фильтрация по длительности
     if (isShortMovies) {
-      filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+      filteredMovies = filteredMovies.filter(
+        (movie) => movie.duration <= SHORT_MOVIE_DURATION,
+      );
     }
 
     setSortedSavedMovies(filteredMovies);

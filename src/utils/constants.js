@@ -10,3 +10,5 @@ export const SM_ROW_CARD_COUNT = 1;
 export const LG_INITIAL_CARD_COUNT = 12;
 export const MD_INITIAL_CARD_COUNT = 8;
 export const SM_INITIAL_CARD_COUNT = 5;
+
+export const SHORT_MOVIE_DURATION = 40;

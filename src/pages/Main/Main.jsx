@@ -21,7 +21,7 @@ function Main({ isLoggedIn }) {
         <AboutMe />
         <Portfolio />
       </main>
-      <Footer />;
+      <Footer />
     </>
   );
 }
