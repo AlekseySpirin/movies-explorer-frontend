@@ -23,7 +23,7 @@ function MoviesCardList({
   isReqErr,
   isNotFount,
   sortedMovies,
-  isFormSubmitted,
+  // isFormSubmitted,
   sortedSavedMovies,
 }) {
   const location = useLocation();
@@ -133,17 +133,15 @@ function MoviesCardList({
                 />
               ))}
           </ul>
-          {isFormSubmitted &&
-            isShowMoreButtonVisible &&
-            sortedMovies.length > 0 && (
-              <button
-                type={'button'}
-                onClick={handleClick}
-                className='card-list__btn-more'
-              >
-                Ещё
-              </button>
-            )}
+          {isShowMoreButtonVisible && (
+            <button
+              type={'button'}
+              onClick={handleClick}
+              className='card-list__btn-more'
+            >
+              Ещё
+            </button>
+          )}
         </>
       )}
     </section>
