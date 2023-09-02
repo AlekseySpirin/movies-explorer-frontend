@@ -75,8 +75,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isReqErr, setIsReqErr] = useState(false);
   const [isNotFount, setIsNotFound] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const resetAllStates = () => {
+    setResponseMessage(null);
+    setErrorMessage(null);
     setMovies([]);
     setSavedMovies([]);
     setSortedMovies([]);
@@ -125,9 +129,6 @@ function App() {
       .finally(() => setIsLoading(false));
   }
 
-  const [responseMessage, setResponseMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
   function handleUpdateUser({ name, email }) {
     function makeRequest() {
       return apiMain
@@ -137,7 +138,7 @@ function App() {
         })
         .then((res) => {
           setCurrentUser(res);
-          setResponseMessage('Обновление данных прользователя прошло успешно');
+          setResponseMessage('Обновление данных пользователя прошло успешно');
           setErrorMessage('');
         })
         .catch((err) => {
@@ -145,7 +146,6 @@ function App() {
           if (err === 'Ошибка 409') {
             setResponseMessage('');
             setErrorMessage('Пользователь с таким email уже существует');
-            console.log(responseMessage);
           } else {
             setErrorMessage('При обновлении профиля произошла ошибка');
           }
