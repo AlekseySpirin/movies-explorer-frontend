@@ -50,18 +50,17 @@ function FilterCheckbox({
     <div className={'filter-checkbox'}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className={'slider'}>
-        {location.pathname === '/movies' && (
-          <input
-            type={'checkbox'}
-            checked={isShortMovies}
-            onChange={handleChange}
-          />
-        )}
-        {location.pathname === '/saved-movies' && (
+        {location.pathname === '/saved-movies' ? (
           <input
             type={'checkbox'}
             checked={isShortSavedMovies}
             onChange={handleChangeSavedMovies}
+          />
+        ) : (
+          <input
+            type={'checkbox'}
+            checked={isShortMovies}
+            onChange={handleChange}
           />
         )}
         <span className={'slider-btn'} />

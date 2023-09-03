@@ -17,12 +17,16 @@ function SavedMovies({
   isShortSavedMovies,
   setIsShortSavedMovies,
   isShortMovies,
+  moviesSearchQuery,
+  savedMoviesSearchQuery,
 }) {
   return (
     <>
       <Navigation />
       <main className={'saved-movies'}>
         <SearchForm
+          moviesSearchQuery={moviesSearchQuery}
+          savedMoviesSearchQuery={savedMoviesSearchQuery}
           setIsFormSubmitted={setIsFormSubmitted}
           handleSearchSavedMovies={handleSearchSavedMovies}
           handleCheckboxSavedMovies={handleCheckboxSavedMovies}

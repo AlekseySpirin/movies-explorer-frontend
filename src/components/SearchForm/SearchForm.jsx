@@ -6,7 +6,6 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 function SearchForm({
   handleSearch,
   setIsFormSubmitted,
-  moviesSearchQuery,
   handleCheckbox,
   handleSearchSavedMovies,
   isShortMovies,
@@ -14,6 +13,8 @@ function SearchForm({
   setIsShortMovies,
   setIsShortSavedMovies,
   isShortSavedMovies,
+  moviesSearchQuery,
+  savedMoviesSearchQuery,
 }) {
   const location = useLocation();
   const [searchValue, setSearchValue] = useState('');
@@ -43,9 +44,31 @@ function SearchForm({
       setSearchValue(moviesSearchQuery);
     }
   }, [moviesSearchQuery]);
+
+  useEffect(() => {
+    if (savedMoviesSearchQuery) {
+      setSearchValue(savedMoviesSearchQuery);
+    }
+  }, [savedMoviesSearchQuery]);
   return (
     <>
-      {location.pathname === '/movies' && (
+      {location.pathname === '/saved-movies' ? (
+        <form onSubmit={handleSubmitSavedMovies} className={cl.searchForm}>
+          <input
+            className={cl.searchInput}
+            required
+            id='saved-movies-input'
+            name='saved-movies-input'
+            minLength='2'
+            maxLength='30'
+            type='text'
+            placeholder={'Сохраненные фильмы'}
+            onChange={handleChangeSavedMovies}
+          />
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label,react/button-has-type */}
+          <button className={cl.searchFormBtn} />
+        </form>
+      ) : (
         <form onSubmit={handleSubmit} className={cl.searchForm}>
           <input
             className={cl.searchInput}
@@ -58,23 +81,6 @@ function SearchForm({
             placeholder={'Фильм'}
             onChange={handleChange}
             value={searchValue}
-          />
-          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label,react/button-has-type */}
-          <button className={cl.searchFormBtn} />
-        </form>
-      )}
-      {location.pathname === '/saved-movies' && (
-        <form onSubmit={handleSubmitSavedMovies} className={cl.searchForm}>
-          <input
-            className={cl.searchInput}
-            required
-            id='saved-movies-input'
-            name='saved-movies-input'
-            minLength='2'
-            maxLength='30'
-            type='text'
-            placeholder={'Сохраненные фильмы'}
-            onChange={handleChangeSavedMovies}
           />
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label,react/button-has-type */}
           <button className={cl.searchFormBtn} />

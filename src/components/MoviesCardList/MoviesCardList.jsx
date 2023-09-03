@@ -101,37 +101,36 @@ function MoviesCardList({
       {!isLoading && !isReqErr && !isNotFount && (
         <>
           <ul className={'card-list'}>
-            {location.pathname === '/movies' &&
-              sortedMovies
-                .slice(0, roundedVisibleCardCount)
-                .map((card) => (
+            {location.pathname === '/saved-movies'
+              ? (sortedSavedMovies.length === 0
+                  ? savedMovies
+                  : sortedSavedMovies
+                ).map((card) => (
                   <MoviesCard
                     movieSaved={getSavedMovie(savedMovies, card)}
                     savedMovies={savedMovies}
-                    movies={movies}
                     isSavedMovies={isSavedMovies}
                     key={card._id || card.id}
                     card={card}
                     handleSaveMovie={handleSaveMovie}
                     handleDeleteMovie={handleDeleteMovie}
-                    sortedMovies={sortedMovies}
                   />
-                ))}
-            {location.pathname === '/saved-movies' &&
-              (sortedSavedMovies.length === 0
-                ? savedMovies
-                : sortedSavedMovies
-              ).map((card) => (
-                <MoviesCard
-                  movieSaved={getSavedMovie(savedMovies, card)}
-                  savedMovies={savedMovies}
-                  isSavedMovies={isSavedMovies}
-                  key={card._id || card.id}
-                  card={card}
-                  handleSaveMovie={handleSaveMovie}
-                  handleDeleteMovie={handleDeleteMovie}
-                />
-              ))}
+                ))
+              : sortedMovies
+                  .slice(0, roundedVisibleCardCount)
+                  .map((card) => (
+                    <MoviesCard
+                      movieSaved={getSavedMovie(savedMovies, card)}
+                      savedMovies={savedMovies}
+                      movies={movies}
+                      isSavedMovies={isSavedMovies}
+                      key={card._id || card.id}
+                      card={card}
+                      handleSaveMovie={handleSaveMovie}
+                      handleDeleteMovie={handleDeleteMovie}
+                      sortedMovies={sortedMovies}
+                    />
+                  ))}
           </ul>
           {isShowMoreButtonVisible && (
             <button

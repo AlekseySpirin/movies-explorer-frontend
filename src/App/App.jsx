@@ -420,7 +420,7 @@ function App() {
   };
   const handleCheckboxSavedMovies = (checked) => {
     setIsShortSavedMovies(checked);
-    filterMovies(savedMoviesSearchQuery, checked);
+    filterSavedMovies(savedMoviesSearchQuery, checked);
     // localStorage.setItem('isShortMovies', JSON.stringify(checked));
   };
 
@@ -472,6 +472,7 @@ function App() {
               isFormSubmitted={isFormSubmitted}
               setIsFormSubmitted={setIsFormSubmitted}
               moviesSearchQuery={moviesSearchQuery}
+              savedMoviesSearchQuery
               isShortMovies={isShortMovies}
               setIsShortMovies={setIsShortMovies}
               setIsShortSavedMovies={setIsShortSavedMovies}
@@ -484,6 +485,7 @@ function App() {
           element={
             <ProtectedRouteElement
               element={SavedMovies}
+              moviesSearchQuery={moviesSearchQuery}
               isLoggedIn={isLoggedIn}
               savedMovies={savedMovies}
               handleSaveMovie={handleSaveMovie}
@@ -491,6 +493,7 @@ function App() {
               handleSearchSavedMovies={handleSearchSavedMovies}
               handleCheckboxSavedMovies={handleCheckboxSavedMovies}
               sortedMovies={sortedMovies}
+              savedMoviesSearchQuery={savedMoviesSearchQuery}
               isReqErr={isReqErr}
               isNotFount={isNotFount}
               sortedSavedMovies={sortedSavedMovies}
