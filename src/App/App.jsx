@@ -90,6 +90,7 @@ function App() {
     setMoviesSearchQuery('');
     setSavedMoviesSearchQuery('');
     setIsShortMovies(false);
+    setIsShortSavedMovies(false);
     setIsFormSubmitted(false);
     setUserData(null);
     setCurrentUser({
@@ -389,13 +390,14 @@ function App() {
       filteredMovies = filteredMovies.filter(
         (movie) => movie.duration <= SHORT_MOVIE_DURATION,
       );
+      if (filteredMovies.length === 0) {
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
     }
 
     setSortedSavedMovies(filteredMovies);
-    // localStorage.setItem(
-    //   'sortedSavedMovies',
-    //   JSON.stringify(sortedSavedMovies),
-    // );
   };
 
   useEffect(() => {
@@ -421,8 +423,21 @@ function App() {
   const handleCheckboxSavedMovies = (checked) => {
     setIsShortSavedMovies(checked);
     filterSavedMovies(savedMoviesSearchQuery, checked);
-    // localStorage.setItem('isShortMovies', JSON.stringify(checked));
   };
+
+  useEffect(() => {
+    if (location.pathname === '/saved-movies') {
+      setSortedSavedMovies(savedMovies);
+      setSavedMoviesSearchQuery('');
+      setIsShortSavedMovies(false);
+    }
+  }, [location.pathname === '/saved-movies']);
+
+  useEffect(() => {
+    if (location.pathname === '/movies') {
+      setIsNotFound(false);
+    }
+  }, [location.pathname === '/movies']);
 
   const checkToken = () => {
     getContent()

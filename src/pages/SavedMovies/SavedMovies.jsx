@@ -19,6 +19,8 @@ function SavedMovies({
   isShortMovies,
   moviesSearchQuery,
   savedMoviesSearchQuery,
+  isReqErr,
+  isNotFount,
 }) {
   return (
     <>
@@ -41,6 +43,8 @@ function SavedMovies({
         {/* /> */}
         <hr className={'saved-movies__hr'} />
         <MoviesCardList
+          isReqErr={isReqErr}
+          isNotFount={isNotFount}
           sortedSavedMovies={sortedSavedMovies}
           isSavedMovies
           handleDeleteMovie={handleDeleteMovie}
