@@ -326,6 +326,11 @@ function App() {
       filteredMovies = filteredMovies.filter(
         (movie) => movie.duration <= SHORT_MOVIE_DURATION,
       );
+      if (filteredMovies.length === 0) {
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
       localStorage.setItem('shortMovies', JSON.stringify(isShortMovies));
     }
 
