@@ -1,0 +1,29 @@
+.title {
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    margin: 0;
+}
+
+.title__hr {
+    height: 1px;
+    border-color: #DADADA;
+    margin: 23px 0 0 0;
+
+}
+
+@media (max-width: 320px) {
+    .title {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+    }
+
+    .hr__title {
+        margin: 28px 0 0 0;
+    }
+
+}

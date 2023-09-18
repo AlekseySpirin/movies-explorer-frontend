@@ -1,0 +1,137 @@
+.navigation {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.nav {
+    position: relative;
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px;
+    min-height: 74px;
+    align-items: center;
+    flex-shrink: 0;
+
+}
+
+.nav-list {
+    margin:  0 0 0 79px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+/*.nav-list__item_position_end {*/
+/*    margin: 0 auto 0 0*/
+/*}*/
+
+.nav-list__item {
+    margin:  0 16px 0 0;
+    width: fit-content;
+    height: 32px;
+    color: #FFF;
+    text-align: right;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 138.462% */
+    border: none;
+    border-radius: 20px;
+    background: #313131;
+    outline: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.nav-list__link {
+    text-decoration: none;
+    color: #FFF;
+    text-align: right;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 138.462% */
+    transition: opacity .4s;
+}
+
+.nav-list__link:hover {
+    opacity: .7;
+}
+
+.nav-list__link.active {
+    font-weight: 500;
+}
+
+.nav-list__item_bg_none {
+    background: none;
+}
+
+/*.nav-list__item:first-child {*/
+/*    margin: 0 0 0 auto*/
+/*}*/
+
+/*.nav-list__item:last-child {*/
+
+/*    margin: 0 auto;*/
+/*}*/
+
+.nav-list__profile {
+    width: 100px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #313131;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */
+    transition: opacity .4s;
+}
+
+.nav-list__profile:hover {
+    opacity: .7;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 0 10px;
+        margin: 0 20px;
+
+    }
+
+
+    .nav-list {
+        display: none;
+    }
+    .nav-list__profile {
+        display: none;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .nav {
+        padding: 0;
+        margin: 0 14px;
+
+    }
+}

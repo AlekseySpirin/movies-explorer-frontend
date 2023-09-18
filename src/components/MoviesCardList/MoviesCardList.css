@@ -1,0 +1,50 @@
+.films {
+    max-width: 1200px;
+    margin: 79px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-list {
+    margin: 1px 0 0 0;
+    width: 100%;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 30px;
+    row-gap: 57px;
+    grid-auto-flow: row;
+    justify-content: center;
+    align-content: center;
+}
+
+
+@media (max-width: 768px) {
+    .card-list {
+        row-gap: 45px;
+
+    }
+
+}
+
+
+
+@media (max-width: 719px) {
+    .films {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 320px) {
+    .card-list {
+        grid-gap: 37px;
+    }
+}
+/*@media (max-width: 667px) {*/
+/*    .card-list {*/
+/*        grid-template-columns: repeat(1, minmax(300px, 500px));*/
+/*        margin: 0 auto;*/
+/*    }*/
+/*}*/

@@ -1,0 +1,17 @@
+.main {
+    margin-bottom: 185px;
+}
+
+@media (max-width: 768px) {
+    .main {
+        margin-bottom: 150px;
+
+    }
+}
+
+@media (max-width: 680px) {
+    .main {
+        margin-bottom: 129px;
+
+    }
+}

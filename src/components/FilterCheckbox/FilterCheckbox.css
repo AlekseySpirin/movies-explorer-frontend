@@ -1,0 +1,80 @@
+.filter-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 28px 0 40px 0;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 36px;
+    height: 15px;
+}
+
+.slider input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider .slider-btn {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider .slider-btn:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Стили для включенной радиокнопки */
+.slider input:checked + .slider-btn {
+    background-color: #3DDC84;
+}
+
+.slider input:checked + .slider-btn:before {
+    transform: translateX(19px);
+}
+
+.slider__name {
+    max-width: 150px;
+    margin-left: 10px;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 163.636% */
+}
+
+@media (max-width: 768px) {
+    .filter-checkbox {
+        margin: 41px 0 40px 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .filter-checkbox {
+        margin: 47px 0 38px 0;
+    }
+    .slider__name {
+        font-size: 11px;
+        line-height: 18px; /* 163.636% */
+    }
+}

@@ -1,0 +1,13 @@
+import React from 'react';
+import './Title.css';
+
+function Title({ text }) {
+  return (
+    <>
+      <h2 className={'title'}>{text}</h2>
+      <hr className={'title__hr'} />
+    </>
+  );
+}
+
+export default Title;

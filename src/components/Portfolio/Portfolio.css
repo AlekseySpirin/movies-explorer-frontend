@@ -1,0 +1,126 @@
+.portfolio {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 100px 70px 0 70px;
+}
+
+.portfolio__title {
+    margin: 0;
+    width: 250px;
+    color: #8B8B8B;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 111.111% */
+}
+
+.portfolio-nav {
+    margin: 31px 0 0 0;
+}
+
+.portfolio-list {
+    margin: 0;
+    padding: 0;
+}
+
+
+.portfolio-list__item {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #424242;
+    width: 100%;
+    list-style: none;
+
+}
+
+.portfolio__link {
+
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    color: #FFF;
+    text-decoration: none;
+    font-family: Inter, serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 166.667% */
+    letter-spacing: -1.2px;
+    transition: opacity .4s;
+}
+
+.portfolio__link:hover {
+    opacity: .7;
+}
+
+.portfolio-list__item:last-child {
+    border: none;
+}
+
+.portfolio__link-arrow {
+    width: 29px;
+    height: 60px;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 60px; /* 200% */
+    letter-spacing: -1.2px;
+}
+
+@media (max-width: 768px) {
+    .portfolio {
+        margin: 90px 50px 0 50px;
+        padding: 0;
+    }
+    .portfolio-list {
+        margin: 0;
+    }
+    .portfolio__link {
+        font-size: 28px;
+        line-height: 50px; /* 178.571% */
+        letter-spacing: -1.12px;
+    }
+
+}
+
+@media (max-width: 680px) {
+    .portfolio {
+        margin: 70px 14px 0 14px;
+    }
+    .portfolio-list {
+        margin: 0;
+    }
+    .portfolio-list__item {
+        padding-bottom: 7px;
+        width: 100%;
+    }
+    .portfolio__title {
+        font-size: 14px;
+        line-height: 20px; /* 142.857% */
+    }
+    .portfolio__link {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px; /* 155.556% */
+        letter-spacing: -0.72px;
+    }
+    .portfolio-nav {
+        margin: 21px 0 0 0;
+    }
+    .portfolio__link-arrow {
+        text-align: end;
+        font-size: 18px;
+        line-height: 28px; /* 155.556% */
+        letter-spacing: -0.72px;
+    }
+}
+
+@media (max-width: 560px) {
+    .portfolio__link {
+        height: 60px;
+    }
+}

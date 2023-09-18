@@ -1,0 +1,228 @@
+.about-project {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 110px 70px 98px 70px;
+}
+
+.about-project-chapter:nth-child(odd) {
+    margin-right: 20px;
+}
+
+.about-project-chapter__title {
+    margin: 0;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.8px;
+
+}
+
+.about-project-chapter__text {
+    max-width: 550px;
+    margin: 27px 0 0 0;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.about-project__description {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.about-project-duration {
+    margin-top: 110px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 36px;
+}
+
+.about-project-duration__backend {
+    width: 100%;
+    color: #000000;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: #3DDC84;
+}
+
+.about-project-duration__frontend {
+    color: #FFFFFF;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: #303030;
+}
+
+.about-project-duration__backend > p {
+    margin: 0;
+    color: #000;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about-project-duration__frontend > p {
+    margin: 0;
+    color: #FFF;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.about-project-action {
+    margin-top: 7px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 36px;
+}
+
+.about-project-action__backend {
+    width: 100%;
+    color: #8B8B8B;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.about-project-action__frontend {
+    width: 100%;
+    color: #8B8B8B;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.about-project-action__backend > p,
+.about-project-action__frontend > p {
+    margin: 0;
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px; /* 121.429% */
+}
+
+@media (max-width: 768px) {
+    .about-project {
+        min-height: 493px;
+        margin: 92px 50px auto 50px;
+        padding: 0;
+    }
+
+    .about-project-chapter {
+        max-width: 319px;
+    }
+
+    .about-project-chapter__text {
+        margin-top: 21px;
+        font-size: 12px;
+        line-height: 18px; /* 150% */
+    }
+
+    .about-project-duration {
+        margin-top: 92px;
+        grid-template-columns: 21% 79%;
+    }
+
+    .about-project-action {
+        margin-top: 4px;
+        display: grid;
+        grid-template-columns: 21% 79%;
+        grid-template-rows: 36px;
+    }
+
+    /*.about-project-duration__backend > p {*/
+    /*    font-size: 14px;*/
+    /*}*/
+    /*.about-project-duration__frontend > p {*/
+    /*    font-size: 14px;*/
+    /*}*/
+    /*.about-project-action__backend > p,*/
+    /*.about-project-action__frontend > p {*/
+    /*}*/
+    /*.about-project-duration {*/
+    /*    margin-top: 90px;*/
+    /*}*/
+
+}
+
+@media (max-width: 560px) {
+    .about-project {
+        min-height: 493px;
+        margin: 72px 18px auto 18px;
+    }
+
+    .about-project-chapter {
+        margin-top: 56px;
+    }
+
+    .about-project-chapter:first-child {
+        margin: 0;
+    }
+
+    .about-project-chapter__title {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+    }
+
+
+    .about-project-chapter__text {
+        margin-top: 17px;
+        font-size: 11px;
+        line-height: 16px; /* 145.455% */
+    }
+
+    .about-project-duration {
+        margin-top: 61px;
+        grid-template-rows: 35px;
+        grid-template-columns: 35% 65%;
+    }
+
+    .about-project-action {
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 35% 65%;
+        grid-template-rows: 36px;
+    }
+
+    .about-project__description {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 60px;
+    }
+
+    .about-project-duration__backend > p {
+        font-size: 11px;
+    }
+
+    .about-project-duration__frontend > p {
+        font-size: 11px;
+    }
+    .about-project-action__backend > p {
+        font-size: 11px;
+    }
+    .about-project-action__frontend > p {
+        font-size: 11px;
+    }
+
+}

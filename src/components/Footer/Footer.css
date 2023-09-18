@@ -1,0 +1,124 @@
+.footer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 70px 20px 70px;
+}
+
+
+
+.footer__title {
+    margin: 0;
+    border-bottom: 1px solid #424242;
+    padding-bottom: 20px;
+    color: #8B8B8B;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.copyright {
+    margin: 0;
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.footer-nav {
+    margin: 19px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.footer-list__item {
+    margin-right: 20px;
+}
+
+.footer__link {
+    text-decoration: none;
+    color: #FFF;
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: opacity .4s;
+}
+
+.footer__link:hover {
+    opacity: .7;
+}
+
+.footer-list__item:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 0 30px 20px 30px;
+    }
+}
+
+
+@media (max-width: 680px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__title {
+        width: 100%;
+        font-size: 12px;
+    }
+    .footer__link {
+        font-size: 12px;
+    }
+    .footer-nav {
+        margin: 28px 0 0 0;
+        flex-direction: column-reverse;
+        align-items: center;
+
+
+    }
+    .footer-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-list__item {
+        margin: 9px 0 0 0;
+    }
+    .footer-list__item:first-child {
+        margin: 0;
+    }
+    .copyright {
+        margin: 29px 0 0 0;
+        color: #8B8B8B;
+        font-size: 12px;
+
+    }
+}
+
+@media (max-width: 320px) {
+    .footer {
+        padding: 0 10px 20px 10px;
+    }
+}

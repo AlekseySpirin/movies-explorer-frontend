@@ -1,0 +1,15 @@
+{
+  "printWidth": 80,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "jsxSingleQuote": true,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "objectPropertyNewline": true,
+  "click-events-have-key-events": "off",
+  "no-noninteractive-element-interactions": "off",
+  "jsx-a11y/interactive-supports-focus": "off",
+  "jsx-a11y/no-noninteractive-element-to-interactive-role": "off"
+}
