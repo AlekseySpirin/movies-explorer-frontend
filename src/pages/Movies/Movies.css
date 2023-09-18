@@ -1,8 +1,6 @@
 .movies {
     max-width: 1280px;
     margin: 0 auto;
-
-
 }
 
 .movies {
@@ -16,36 +14,36 @@
     border-color: #424242;
 }
 
-.movies__btn-more {
-    border: 1px solid #424242;
-    border-radius: 5px;
-    width: 320px;
-    min-height: 36px;
-    background: transparent;
-    margin: 75px auto 0 auto;
-    display: block;
-    color: #fff;
-    text-align: center;
-    font-family: Inter, serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    cursor: pointer;
-    transition: opacity .4s;
-}
+/*.movies__btn-more {*/
+/*    border: 1px solid #424242;*/
+/*    border-radius: 5px;*/
+/*    width: 320px;*/
+/*    min-height: 36px;*/
+/*    background: transparent;*/
+/*    margin: 75px auto 0 auto;*/
+/*    display: block;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    font-family: Inter, serif;*/
+/*    font-size: 12px;*/
+/*    font-style: normal;*/
+/*    font-weight: 500;*/
+/*    line-height: normal;*/
+/*    cursor: pointer;*/
+/*    transition: opacity .4s;*/
+/*}*/
 
-.movies__btn-more:hover {
-    opacity: .8;
-}
+/*.movies__btn-more:hover {*/
+/*    opacity: .8;*/
+/*}*/
 
 @media (max-width: 768px) {
     .movies {
         margin-bottom: 159px
     }
-    .movies__btn-more {
-        margin: 61px auto 0 auto;
-    }
+    /*.movies__btn-more {*/
+    /*    margin: 61px auto 0 auto;*/
+    /*}*/
     .movies__hr {
         max-width: 93%;
         margin: 0 30px;
@@ -61,10 +59,10 @@
 }
 
 @media (max-width: 560px) {
-    .movies__btn-more {
-        padding: 0 40px;
-        width: 240px;
-    }
+    /*.movies__btn-more {*/
+    /*    padding: 0 40px;*/
+    /*    width: 240px;*/
+    /*}*/
     .movies__hr {
         margin: 0 14px;
     }

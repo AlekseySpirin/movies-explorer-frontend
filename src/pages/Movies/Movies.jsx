@@ -1,104 +1,60 @@
-import React from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import './Movies.css';
-import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
 import Footer from '../../components/Footer/Footer';
-import MoviesCard from '../../components/MoviesCard/MoviesCard';
-import image from '../../images/33_word.jpg';
 import Navigation from '../../components/Navigation/Navigation';
 
-function Movies() {
+function Movies({
+  movies,
+  handleSaveMovie,
+  sortedMovies,
+  savedMovies,
+  handleDeleteMovie,
+  isLoading,
+  handleSearch,
+  handleCheckbox,
+  isReqErr,
+  isNotFount,
+  isFormSubmitted,
+  setIsFormSubmitted,
+  moviesSearchQuery,
+  isShortMovies,
+  setIsShortMovies,
+  isShortSavedMovies,
+  setIsShortSavedMovies,
+}) {
   return (
     <>
       <Navigation />
       <main className={'movies'}>
-        <SearchForm />
-        <FilterCheckbox />
+        <SearchForm
+          moviesSearchQuery={moviesSearchQuery}
+          setIsFormSubmitted={setIsFormSubmitted}
+          handleSearch={handleSearch}
+          isShortMovies={isShortMovies}
+          handleCheckbox={handleCheckbox}
+          setIsShortMovies={setIsShortMovies}
+          isShortSavedMovies={isShortSavedMovies}
+          setIsShortSavedMovies={setIsShortSavedMovies}
+        />
+        {/* <FilterCheckbox */}
+        {/*   handleSearch={handleSearch} */}
+        {/*   isShortMovies={isShortMovies} */}
+        {/*   handleCheckbox={handleCheckbox} */}
+        {/*   setIsShortMovies={setIsShortMovies} */}
+        {/* /> */}
         <hr className={'movies__hr'} />
-        <MoviesCardList>
-          <MoviesCard
-            shouldShowSaveButton
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            shouldShowSaveButton
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            shouldShowSaveButton
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            shouldShowSaveButton
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            shouldShowSaveButton
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            shouldShowSaveButton
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-          <MoviesCard
-            title={'33 слова о дизайне'}
-            alt={'33 слова о дизайне'}
-            src={image}
-            duration={'1ч 17м'}
-          />
-        </MoviesCardList>
-        <button type={'button'} className='movies__btn-more'>
-          Ещё
-        </button>
+        <MoviesCardList
+          savedMovies={savedMovies}
+          movies={movies}
+          sortedMovies={sortedMovies}
+          handleSaveMovie={handleSaveMovie}
+          handleDeleteMovie={handleDeleteMovie}
+          isLoading={isLoading}
+          isReqErr={isReqErr}
+          isNotFount={isNotFount}
+          isFormSubmitted={isFormSubmitted}
+        />
       </main>
       <Footer />
     </>

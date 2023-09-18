@@ -28,7 +28,7 @@
     cursor: pointer;
     background-size: cover;
     background-color: transparent;
-    background-image: url("../../images/icon__COLOR_icon-main.svg");
+    background-image: url("../../images/svg/icon__COLOR_icon-main.svg");
     z-index: 3;
     transition: opacity .4s;
 
@@ -40,7 +40,7 @@
 
 .burger-menu__button_active {
     position: fixed;
-    background-image: url("../../images/CloseMenu.svg");
+    background-image: url("../../images/svg/CloseMenu.svg");
     width: 32px;
     height: 32px;
     top: 22px;

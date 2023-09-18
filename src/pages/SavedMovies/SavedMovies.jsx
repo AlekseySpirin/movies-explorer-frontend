@@ -1,42 +1,60 @@
 import React from 'react';
 import Footer from '../../components/Footer/Footer';
-import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
-import MoviesCard from '../../components/MoviesCard/MoviesCard';
-import cardImage from '../../images/33_word.jpg';
 import './SavedMovies.css';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Navigation from '../../components/Navigation/Navigation';
 
-function SavedMovies() {
+function SavedMovies({
+  savedMovies,
+  handleSaveMovie,
+  handleDeleteMovie,
+  handleSearchSavedMovies,
+  sortedSavedMovies,
+  handleCheckboxSavedMovies,
+  isFormSubmitted,
+  setIsFormSubmitted,
+  isShortSavedMovies,
+  setIsShortSavedMovies,
+  isShortMovies,
+  moviesSearchQuery,
+  savedMoviesSearchQuery,
+  isReqErr,
+  isNotFount,
+}) {
   return (
-    <div className={'saved-movies'}>
+    <>
       <Navigation />
-      <SearchForm />
-      <FilterCheckbox />
-      <hr className={'saved-movies__hr'} />
-      <MoviesCardList>
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={cardImage}
-          duration={'1ч 17м'}
+      <main className={'saved-movies'}>
+        <SearchForm
+          moviesSearchQuery={moviesSearchQuery}
+          savedMoviesSearchQuery={savedMoviesSearchQuery}
+          setIsFormSubmitted={setIsFormSubmitted}
+          handleSearchSavedMovies={handleSearchSavedMovies}
+          handleCheckboxSavedMovies={handleCheckboxSavedMovies}
+          setIsShortSavedMovies={setIsShortSavedMovies}
+          isShortSavedMovies={isShortSavedMovies}
+          isShortMovies={isShortMovies}
         />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={cardImage}
-          duration={'1ч 17м'}
+        {/* <FilterCheckbox */}
+        {/*   setIsShortMovies={setIsShortMovies} */}
+        {/*   isShortMovies={isShortMovies} */}
+        {/*   handleCheckboxSavedMovies={handleCheckboxSavedMovies} */}
+        {/* /> */}
+        <hr className={'saved-movies__hr'} />
+        <MoviesCardList
+          isReqErr={isReqErr}
+          isNotFount={isNotFount}
+          sortedSavedMovies={sortedSavedMovies}
+          isSavedMovies
+          handleDeleteMovie={handleDeleteMovie}
+          savedMovies={savedMovies}
+          handleSaveMovie={handleSaveMovie}
+          isFormSubmitted={isFormSubmitted}
         />
-        <MoviesCard
-          title={'33 слова о дизайне'}
-          alt={'33 слова о дизайне'}
-          src={cardImage}
-          duration={'1ч 17м'}
-        />
-      </MoviesCardList>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 
